@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class SJRoomController : MonoBehaviourPunCallbacks
 {
+    public gameManager myGM;
+
 
     public override void OnEnable()
     {
@@ -26,6 +28,7 @@ public class SJRoomController : MonoBehaviourPunCallbacks
         {
             Debug.Log("Starting game");
             //PhotonNetwork.LoadLevel(MultiplayerSceneIndex);
+            myGM.CreatePlayer();
         }
     }
 }
