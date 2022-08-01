@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/PhotonQuickConnect/Scenes/Lobby.unity
-    guid: 5b31bae9e8a4eec49bb3b7276e8959ea
+    path: Assets/_SpaceJunk/Scenes/SpaceJunkLobby.unity
+    guid: 4b4a8e1a992b46b4c86807261d847f50
   - enabled: 1
-    path: Assets/PhotonQuickConnect/Scenes/ActualGame.unity
-    guid: 26d249c6c2df70e44882f1b5b5f8340c
+    path: Assets/_SpaceJunk/Scenes/TestScene.unity
+    guid: 6c06ee11fc6a459479f984e7886fc18e
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260,
       type: 2}
