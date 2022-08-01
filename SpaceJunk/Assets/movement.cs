@@ -15,6 +15,12 @@ public class movement : MonoBehaviour
         myPV = GetComponent<PhotonView>();
     }
 
+    [PunRPC]
+    public void movePlayer(Vector3 pos)
+    {
+        transform.position = pos;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -28,6 +34,7 @@ public class movement : MonoBehaviour
             {
                 myRB.AddForce(new Vector3(0f, 0f, Input.GetAxis("Vertical") * 10f));
             }
+            myPV.RPC("movePlayer", RpcTarget.All,transform.position);
         }
     }
 }
