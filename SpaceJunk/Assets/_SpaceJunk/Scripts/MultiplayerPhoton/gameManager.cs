@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class gameManager : MonoBehaviour
 {
@@ -15,9 +16,17 @@ public class gameManager : MonoBehaviour
         var player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerShip"), Vector3.zero, Quaternion.identity);
         myXrRig.transform.SetParent(player.transform);
     }
-    public void CreateOtherPlayer()
+    public async void CreateOtherPlayer()
     {
-        myXrRig.transform.SetParent(GameObject.Find("PlayerShip(Clone)").transform);
+        while( true )
+        {
+            if ( GameObject.Find("PlayerShip(Clone)") != null )
+            {
+                myXrRig.transform.SetParent(GameObject.Find("PlayerShip(Clone)").transform);
+                return;
+            }
+            await Task.Yield();
+        }       
     }
 
     // Start is called before the first frame update
