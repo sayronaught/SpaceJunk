@@ -29,6 +29,9 @@ public class SJRoomController : MonoBehaviourPunCallbacks
             Debug.Log("Starting game");
             //PhotonNetwork.LoadLevel(MultiplayerSceneIndex);
             myGM.CreatePlayer();
+        } else
+        {
+            myGM.CreateOtherPlayer();
         }
     }
 }
