@@ -8,18 +8,16 @@ public class gameManager : MonoBehaviour
 {
 
     public GameObject myXrRig;
-    public GameObject playership;
 
     public void CreatePlayer()
     {
         Debug.Log("Creating player");
         var player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerShip"), Vector3.zero, Quaternion.identity);
         myXrRig.transform.SetParent(player.transform);
-        playership = player;
     }
     public void CreateOtherPlayer()
     {
-
+        myXrRig.transform.SetParent(GameObject.Find("PlayerShip(Clone)").transform);
     }
 
     // Start is called before the first frame update
