@@ -18,15 +18,17 @@ public class gameManager : MonoBehaviour
     }
     public async void CreateOtherPlayer()
     {
-        while( true )
-        {
+       // while( true )
+       // {
+            await Task.Delay(1000);
             if ( GameObject.Find("PlayerShip(Clone)") != null )
             {
                 myXrRig.transform.SetParent(GameObject.Find("PlayerShip(Clone)").transform);
                 return;
             }
-            await Task.Yield();
-        }       
+            //await Task.Yield();
+
+       // }       
     }
 
     // Start is called before the first frame update
