@@ -9,24 +9,28 @@ public class gameManager : MonoBehaviour
 {
 
     public GameObject myXrRig;
+    public Transform testSeat;
 
     public void CreatePlayer()
     {
         Debug.Log("Creating player");
-        var player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerShip"), Vector3.zero, Quaternion.identity);
-        myXrRig.transform.SetParent(player.transform);
+        var player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayer"), Vector3.zero, Quaternion.identity);
+        myXrRig.transform.position = testSeat.position;
+        myXrRig.transform.SetParent(testSeat);
     }
     public async void CreateOtherPlayer()
     {
-       // while( true )
-       // {
-            await Task.Delay(1000);
+        myXrRig.transform.position = testSeat.position;
+        myXrRig.transform.SetParent(testSeat);
+        // while( true )
+        // {
+        /*await Task.Delay(1000);
             if ( GameObject.Find("PlayerShip(Clone)") != null )
             {
                 myXrRig.transform.SetParent(GameObject.Find("PlayerShip(Clone)").transform);
                 return;
-            }
-            //await Task.Yield();
+            }*/
+            await Task.Yield();
 
        // }       
     }

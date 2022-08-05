@@ -2,15 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerModule : MonoBehaviour
+public class PlayerStation : MonoBehaviour
 {
-    public List<Transform> Ports;
-    public List<PlayerStation> Stations;
-    public List<PlayerModule> ModulesConnected;
-
-    public float structureHP = 100f;
-    public float structureMaxHP = 100f;
-
     // Start is called before the first frame update
     void Start()
     {
