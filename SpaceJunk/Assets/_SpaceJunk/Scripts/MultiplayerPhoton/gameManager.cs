@@ -11,6 +11,13 @@ public class gameManager : MonoBehaviour
     public GameObject myXrRig;
     public Transform testSeat;
 
+    public Transform AsteroidContainer;
+    public List<GameObject> AsteroidPrefabs;
+    public List<GameObject> SpawnedAsteroids;
+
+
+    private Vector3 spawnPosition;
+
     public void CreatePlayer()
     {
         Debug.Log("Creating player");
@@ -35,6 +42,18 @@ public class gameManager : MonoBehaviour
        // }       
     }
 
+    void spawnAsteroid()
+    {
+        spawnPosition = new Vector3(Random.Range(-200f, 200f), Random.Range(-200f, 200f), Random.Range(-200f, 200f));
+        if (spawnPosition.x > -100f && spawnPosition.x < 100f) return;
+        if (spawnPosition.y > -100f && spawnPosition.y < 100f) return;
+        if (spawnPosition.z > -100f && spawnPosition.z < 100f) return;
+        string name = "rock" + Random.Range(0, 5);
+        Debug.Log("Spawning " + name);
+        var Asteroid = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", name), spawnPosition, Quaternion.identity);
+        if ( Asteroid ) SpawnedAsteroids.Add(Asteroid);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +63,7 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (SpawnedAsteroids.Count < 20) spawnAsteroid();
     }
 
 }
