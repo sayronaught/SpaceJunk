@@ -14,6 +14,10 @@ public class PlayerShip : MonoBehaviour
 
     public float metalFatigue = 0f;
 
+    public int controlSpeedStage = 0;
+    public Vector2 controlsLeft;
+    public Vector2 controlsRight;
+
     // Start is called before the first frame update
     void Start()
     {
