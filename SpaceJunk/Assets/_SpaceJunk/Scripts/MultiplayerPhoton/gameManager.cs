@@ -14,6 +14,7 @@ public class gameManager : MonoBehaviour
     public Transform AsteroidContainer;
     public List<GameObject> AsteroidPrefabs;
     public List<GameObject> SpawnedAsteroids;
+    public int PreferedAsteroidCount = 100;
 
 
     private Vector3 spawnPosition;
@@ -45,12 +46,13 @@ public class gameManager : MonoBehaviour
     void spawnAsteroid()
     {
         spawnPosition = new Vector3(Random.Range(-200f, 200f), Random.Range(-200f, 200f), Random.Range(-200f, 200f));
-        if (spawnPosition.x > -100f && spawnPosition.x < 100f) return;
-        if (spawnPosition.y > -100f && spawnPosition.y < 100f) return;
-        if (spawnPosition.z > -100f && spawnPosition.z < 100f) return;
+        if (spawnPosition.x > -100f && spawnPosition.x < 100f &&
+            spawnPosition.y > -100f && spawnPosition.y < 100f &&
+            spawnPosition.z > -100f && spawnPosition.z < 100f) return;
         string name = "rock" + Random.Range(0, 5);
         Debug.Log("Spawning " + name);
         var Asteroid = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", name), spawnPosition, Quaternion.identity);
+        //Asteroid.SetActive(true);
         if ( Asteroid ) SpawnedAsteroids.Add(Asteroid);
     }
 
@@ -63,7 +65,7 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SpawnedAsteroids.Count < 20) spawnAsteroid();
+        if (SpawnedAsteroids.Count < PreferedAsteroidCount) spawnAsteroid();
     }
 
 }
