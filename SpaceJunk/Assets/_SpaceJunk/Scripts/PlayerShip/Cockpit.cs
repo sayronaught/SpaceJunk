@@ -13,11 +13,13 @@ public class Cockpit : MonoBehaviour
     Vector2 rightStick;
 
     private PhotonView myPV;
+    private Rigidbody myRB;
 
     // Start is called before the first frame update
     void Start()
     {
         myPV = GetComponent<PhotonView>();
+        myRB = GetComponent<Rigidbody>();
     }
 
     [PunRPC]
@@ -29,7 +31,8 @@ public class Cockpit : MonoBehaviour
 
     void updateAllEntities()
     {
-
+        myRB.angularVelocity *= 0.95f;
+        myRB.velocity *= 0.95f;
     }
 
     // Update is called once per frame
@@ -49,9 +52,10 @@ public class Cockpit : MonoBehaviour
         }
         if (leftTrigger)
         {
-            transform.position = Vector3.MoveTowards(transform.position, transform.position + transform.forward, Time.deltaTime);
+            //transform.position = Vector3.MoveTowards(transform.position, transform.position + transform.forward, Time.deltaTime);
             //Debug.Log("Trigger button is pressed.");
             myPV.RPC("moveShip", RpcTarget.All,transform.position,transform.rotation);
+            myRB.AddForce(transform.forward * Time.deltaTime);
         }
         if (leftStick.x != 0f)
         {
