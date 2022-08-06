@@ -10,6 +10,8 @@ public class gameManager : MonoBehaviour
 
     public GameObject myXrRig;
     public Transform testSeat;
+    public List<Transform> testSeats;
+    public int seat = 0;
 
     public Transform AsteroidContainer;
     public List<GameObject> AsteroidPrefabs;
