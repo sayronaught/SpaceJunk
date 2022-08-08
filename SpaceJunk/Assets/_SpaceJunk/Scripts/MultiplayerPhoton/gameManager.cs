@@ -21,6 +21,10 @@ public class gameManager : MonoBehaviour
 
     private Vector3 spawnPosition;
 
+    List<UnityEngine.XR.InputDevice> headDevices = new List<UnityEngine.XR.InputDevice>();
+    public GameObject refPlayerShip;
+    public GameObject refUI;
+
     public void CreatePlayer()
     {
         Debug.Log("Creating player");
@@ -51,7 +55,7 @@ public class gameManager : MonoBehaviour
         if (spawnPosition.x > -100f && spawnPosition.x < 100f &&
             spawnPosition.y > -100f && spawnPosition.y < 100f &&
             spawnPosition.z > -100f && spawnPosition.z < 100f) return;
-        string name = "rock" + Random.Range(0, 5);
+        string name = "rock" + Random.Range(1, 5);
         Debug.Log("Spawning " + name);
         var Asteroid = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", name), spawnPosition, Quaternion.identity);
         //Asteroid.SetActive(true);
@@ -67,6 +71,15 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UnityEngine.XR.InputDevices.GetDevicesAtXRNode(UnityEngine.XR.XRNode.Head, headDevices);
+        if ( headDevices.Count > 0 )
+        {// player has headset
+            refPlayerShip.SetActive(true);
+            refUI.SetActive(false);
+        } else { // player have no headset
+            refPlayerShip.SetActive(false);
+            refUI.SetActive(true);
+        }
         if (SpawnedAsteroids.Count < PreferedAsteroidCount) spawnAsteroid();
     }
 
