@@ -29,6 +29,7 @@ public class gameManager : MonoBehaviour
     public GameObject refUI;
     public GameObject refUISeat;
 
+    private float nextButtonTimer = 0f;
     public void CreatePlayer()
     {
         Debug.Log("Creating player");
@@ -78,6 +79,7 @@ public class gameManager : MonoBehaviour
         UnityEngine.XR.InputDevices.GetDevicesAtXRNode(UnityEngine.XR.XRNode.Head, headDevices);
         UnityEngine.XR.InputDevices.GetDevicesAtXRNode(UnityEngine.XR.XRNode.LeftHand, leftHandDevices);
         UnityEngine.XR.InputDevices.GetDevicesAtXRNode(UnityEngine.XR.XRNode.RightHand, rightHandDevices);
+        bool nextButton = false;
         if (leftHandDevices.Count > 0)
         {
             //leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out leftTrigger);
@@ -85,7 +87,7 @@ public class gameManager : MonoBehaviour
         }
         if (rightHandDevices.Count > 0)
         {
-            //leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out leftTrigger);
+            rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.primaryButton, out nextButton);
             //rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxis, out rightStick);
         }
 
@@ -99,6 +101,16 @@ public class gameManager : MonoBehaviour
             myXrRig.transform.SetParent(refUISeat.transform);
             refUI.SetActive(true);
         }
+        if ( nextButton && nextButtonTimer < 0f )
+        {
+            seat++;
+            if (seat >= testSeats.Count) seat = 0;
+            testSeat = testSeats[seat];
+            myXrRig.transform.position = testSeat.position;
+            myXrRig.transform.SetParent(testSeat);
+            nextButtonTimer = 1f;
+        }
+        nextButtonTimer -= Time.deltaTime;
         if (SpawnedAsteroids.Count < PreferedAsteroidCount) spawnAsteroid();
     }
 
