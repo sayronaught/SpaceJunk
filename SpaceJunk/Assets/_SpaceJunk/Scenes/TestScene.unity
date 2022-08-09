@@ -559,7 +559,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8897277017676537960}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 11, y: 0, z: 0}
 --- !u!1 &894119115
 GameObject:
@@ -647,6 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98922bd9930f45043a2691d6ec76562c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vrControls: {fileID: 1725982595}
   myXrRig: {fileID: 1725982592}
   testSeat: {fileID: 2076597009}
   testSeats:
@@ -1348,6 +1349,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb5a6bb06579e8146b2565de127d29ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHasHeadSet: 0
+  playerHasLeftController: 0
+  playerHasRightController: 0
+  playerLeftTrigger: 0
+  playerRightTrigger: 0
+  playerLeftStick: {x: 0, y: 0}
+  playerRightStick: {x: 0, y: 0}
+  playerLeftPrimary: 0
+  playerRightPrimary: 0
+  playerLeftSecondary: 0
+  playerRightSecondary: 0
+  playerLeftGrab: 0
+  playerRightGrab: 0
 --- !u!1 &1728657555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1715,8 +1729,8 @@ RectTransform:
   m_Children:
   - {fileID: 754047652}
   - {fileID: 206363279}
-  m_Father: {fileID: 8897277017676537960}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2337,10 +2351,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 543450653614574722}
-  - {fileID: 2034550846}
   - {fileID: 891639005}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8897277017676537961
 GameObject:
