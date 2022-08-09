@@ -22,8 +22,8 @@ public class gameManager : MonoBehaviour
     private Vector3 spawnPosition;
 
     List<UnityEngine.XR.InputDevice> headDevices = new List<UnityEngine.XR.InputDevice>();
-    public GameObject refPlayerShip;
     public GameObject refUI;
+    public GameObject refUISeat;
 
     public void CreatePlayer()
     {
@@ -74,10 +74,12 @@ public class gameManager : MonoBehaviour
         UnityEngine.XR.InputDevices.GetDevicesAtXRNode(UnityEngine.XR.XRNode.Head, headDevices);
         if ( headDevices.Count > 0 )
         {// player has headset
-            refPlayerShip.SetActive(true);
+            myXrRig.transform.position = testSeat.position;
+            myXrRig.transform.SetParent(testSeat);
             refUI.SetActive(false);
         } else { // player have no headset
-            refPlayerShip.SetActive(false);
+            myXrRig.transform.position = refUISeat.transform.position;
+            myXrRig.transform.SetParent(refUISeat.transform);
             refUI.SetActive(true);
         }
         if (SpawnedAsteroids.Count < PreferedAsteroidCount) spawnAsteroid();
