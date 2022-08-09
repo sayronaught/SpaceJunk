@@ -9,10 +9,12 @@ public class PlayerVrControls : MonoBehaviour
     List<UnityEngine.XR.InputDevice> rightHandDevices = new List<UnityEngine.XR.InputDevice>();
     List<UnityEngine.XR.InputDevice> headDevices = new List<UnityEngine.XR.InputDevice>();
 
-    // interactions player can press
+    // which controllers so we find?
     public bool playerHasHeadSet = false;
     public bool playerHasLeftController = false;
     public bool playerHasRightController = false;
+
+    // interactions player can press
     public bool playerLeftTrigger = false;
     public bool playerRightTrigger = false;
     public Vector2 playerLeftStick;
@@ -27,6 +29,7 @@ public class PlayerVrControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // we update the connected devices
         UnityEngine.XR.InputDevices.GetDevicesAtXRNode(UnityEngine.XR.XRNode.Head, headDevices);
         UnityEngine.XR.InputDevices.GetDevicesAtXRNode(UnityEngine.XR.XRNode.LeftHand, leftHandDevices);
         UnityEngine.XR.InputDevices.GetDevicesAtXRNode(UnityEngine.XR.XRNode.RightHand, rightHandDevices);

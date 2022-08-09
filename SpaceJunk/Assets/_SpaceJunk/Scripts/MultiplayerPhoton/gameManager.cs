@@ -8,9 +8,7 @@ using System.Threading.Tasks;
 public class gameManager : MonoBehaviour
 {
 
-    List<UnityEngine.XR.InputDevice> leftHandDevices = new List<UnityEngine.XR.InputDevice>();
-    List<UnityEngine.XR.InputDevice> rightHandDevices = new List<UnityEngine.XR.InputDevice>();
-
+    public PlayerVrControls vrControls;
 
     public GameObject myXrRig;
     public Transform testSeat;
@@ -25,23 +23,23 @@ public class gameManager : MonoBehaviour
 
     private Vector3 spawnPosition;
 
-    List<UnityEngine.XR.InputDevice> headDevices = new List<UnityEngine.XR.InputDevice>();
     public GameObject refUI;
     public GameObject refUISeat;
 
     private float nextButtonTimer = 0f;
+
     public void CreatePlayer()
     {
         Debug.Log("Creating player");
         var player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayer"), Vector3.zero, Quaternion.identity);
-        myXrRig.transform.position = testSeat.position;
-        myXrRig.transform.SetParent(testSeat);
+        myXrRig.transform.position = testSeats[seat].transform.position;
+        myXrRig.transform.SetParent(testSeats[seat].transform);
         testSeats[seat].currentPlayers++;
     }
     public async void CreateOtherPlayer()
     {
-        myXrRig.transform.position = testSeat.position;
-        myXrRig.transform.SetParent(testSeat);
+        myXrRig.transform.position = testSeats[seat].transform.position;
+        myXrRig.transform.SetParent(testSeats[seat].transform);
         testSeats[seat].currentPlayers++;
         // while( true )
         // {
@@ -93,22 +91,7 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UnityEngine.XR.InputDevices.GetDevicesAtXRNode(UnityEngine.XR.XRNode.Head, headDevices);
-        UnityEngine.XR.InputDevices.GetDevicesAtXRNode(UnityEngine.XR.XRNode.LeftHand, leftHandDevices);
-        UnityEngine.XR.InputDevices.GetDevicesAtXRNode(UnityEngine.XR.XRNode.RightHand, rightHandDevices);
-        bool nextButton = false;
-        if (leftHandDevices.Count > 0)
-        {
-            //leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out leftTrigger);
-            //leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxis, out leftStick);
-        }
-        if (rightHandDevices.Count > 0)
-        {
-            rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.primaryButton, out nextButton);
-            //rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxis, out rightStick);
-        }
-
-        if ( headDevices.Count > 0 )
+        if ( vrControls.playerHasHeadSet )
         {// player has headset
             myXrRig.transform.position = testSeat.position;
             myXrRig.transform.SetParent(testSeat);
@@ -118,7 +101,7 @@ public class gameManager : MonoBehaviour
             myXrRig.transform.SetParent(refUISeat.transform);
             refUI.SetActive(true);
         }
-        if ( nextButton && nextButtonTimer < 0f )
+        if (vrControls.playerRightPrimary && nextButtonTimer < 0f )
         {
             testSeats[seat].currentPlayers--;
             nextSeat();
