@@ -3,18 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerCount : MonoBehaviour
 {
 
     private float updateTimer = 0f;
 
-    private Text myTxt;
+    private TMP_Text myTxt;
 
     // Start is called before the first frame update
     void Start()
     {
-        myTxt = GetComponent<Text>();
+        myTxt = GetComponent<TMP_Text>();
     }
 
     // Update is called once per frame
