@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.090857305, g: 0.03239295, b: 0.13494563, a: 1}
+  m_IndirectSpecularColor: {r: 0.09117865, g: 0.03316388, b: 0.13493326, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2301,7 +2301,6 @@ GameObject:
   - component: {fileID: 4441225689750691561}
   - component: {fileID: 3539804630929614025}
   - component: {fileID: 8897277017676537962}
-  - component: {fileID: 8897277017676537963}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -2331,15 +2330,3 @@ MonoBehaviour:
   controlSpeedStage: 0
   controlsLeft: {x: 0, y: 0}
   controlsRight: {x: 0, y: 0}
---- !u!114 &8897277017676537963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8897277017676537961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46d829c4d5193974cb473f5048c8444f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

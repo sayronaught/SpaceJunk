@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 public class gameManager : MonoBehaviour
 {
 
+    List<UnityEngine.XR.InputDevice> leftHandDevices = new List<UnityEngine.XR.InputDevice>();
+    List<UnityEngine.XR.InputDevice> rightHandDevices = new List<UnityEngine.XR.InputDevice>();
+
+
     public GameObject myXrRig;
     public Transform testSeat;
     public List<Transform> testSeats;
@@ -72,6 +76,19 @@ public class gameManager : MonoBehaviour
     void Update()
     {
         UnityEngine.XR.InputDevices.GetDevicesAtXRNode(UnityEngine.XR.XRNode.Head, headDevices);
+        UnityEngine.XR.InputDevices.GetDevicesAtXRNode(UnityEngine.XR.XRNode.LeftHand, leftHandDevices);
+        UnityEngine.XR.InputDevices.GetDevicesAtXRNode(UnityEngine.XR.XRNode.RightHand, rightHandDevices);
+        if (leftHandDevices.Count > 0)
+        {
+            //leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out leftTrigger);
+            //leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxis, out leftStick);
+        }
+        if (rightHandDevices.Count > 0)
+        {
+            //leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out leftTrigger);
+            //rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxis, out rightStick);
+        }
+
         if ( headDevices.Count > 0 )
         {// player has headset
             myXrRig.transform.position = testSeat.position;
