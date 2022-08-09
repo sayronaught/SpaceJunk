@@ -648,12 +648,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myXrRig: {fileID: 1725982592}
-  testSeat: {fileID: 1351485386}
+  testSeat: {fileID: 2076597009}
   testSeats:
-  - {fileID: 1351485386}
-  - {fileID: 1909964623}
-  - {fileID: 1242237038}
-  - {fileID: 2076597009}
+  - {fileID: 2076597010}
+  - {fileID: 1351485387}
+  - {fileID: 1909964624}
+  - {fileID: 1242237039}
   seat: 0
   AsteroidContainer: {fileID: 0}
   AsteroidPrefabs:
@@ -964,6 +964,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1242237038}
+  - component: {fileID: 1242237039}
   m_Layer: 0
   m_Name: Central
   m_TagString: Untagged
@@ -986,12 +987,32 @@ Transform:
   m_Father: {fileID: 237582459}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1351485386 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8314906476544233113, guid: 6a82ab22b6bcf1546bfa5318e39bc9ab,
+--- !u!114 &1242237039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242237037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab1c6fbe7e159848a790190ed2c8d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPlayers: 100
+  currentPlayers: 0
+--- !u!114 &1351485387 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8314906476544233112, guid: 6a82ab22b6bcf1546bfa5318e39bc9ab,
     type: 3}
   m_PrefabInstance: {fileID: 8314906475211098451}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab1c6fbe7e159848a790190ed2c8d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1394001445
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,12 +1521,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1749924552}
   m_CullTransparentMesh: 1
---- !u!4 &1909964623 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4681313979233228818, guid: aa43c69f19b2bc945a50fd4636a296d1,
+--- !u!114 &1909964624 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4681313979233228813, guid: aa43c69f19b2bc945a50fd4636a296d1,
     type: 3}
   m_PrefabInstance: {fileID: 4681313977913042781}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab1c6fbe7e159848a790190ed2c8d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1949593302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1767,6 +1794,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2076597009}
+  - component: {fileID: 2076597010}
   m_Layer: 0
   m_Name: Central (1)
   m_TagString: Untagged
@@ -1789,6 +1817,20 @@ Transform:
   m_Father: {fileID: 237582459}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2076597010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076597008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab1c6fbe7e159848a790190ed2c8d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPlayers: 100
+  currentPlayers: 0
 --- !u!1001 &330667375160833604
 PrefabInstance:
   m_ObjectHideFlags: 0

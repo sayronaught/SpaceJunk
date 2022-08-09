@@ -14,7 +14,7 @@ public class gameManager : MonoBehaviour
 
     public GameObject myXrRig;
     public Transform testSeat;
-    public List<Transform> testSeats;
+    public List<PlayerStation> testSeats;
     public int seat = 0;
 
     public Transform AsteroidContainer;
@@ -36,11 +36,13 @@ public class gameManager : MonoBehaviour
         var player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayer"), Vector3.zero, Quaternion.identity);
         myXrRig.transform.position = testSeat.position;
         myXrRig.transform.SetParent(testSeat);
+        testSeats[seat].currentPlayers++;
     }
     public async void CreateOtherPlayer()
     {
         myXrRig.transform.position = testSeat.position;
         myXrRig.transform.SetParent(testSeat);
+        testSeats[seat].currentPlayers++;
         // while( true )
         // {
         /*await Task.Delay(1000);
@@ -49,7 +51,7 @@ public class gameManager : MonoBehaviour
                 myXrRig.transform.SetParent(GameObject.Find("PlayerShip(Clone)").transform);
                 return;
             }*/
-            await Task.Yield();
+        await Task.Yield();
 
        // }       
     }
@@ -61,12 +63,27 @@ public class gameManager : MonoBehaviour
             spawnPosition.y > -100f && spawnPosition.y < 100f &&
             spawnPosition.z > -100f && spawnPosition.z < 100f) return;
         string name = "rock" + Random.Range(1, 5);
-        Debug.Log("Spawning " + name);
+        //Debug.Log("Spawning " + name);
         var Asteroid = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", name), spawnPosition, Quaternion.identity);
         //Asteroid.SetActive(true);
         if ( Asteroid ) SpawnedAsteroids.Add(Asteroid);
     }
 
+    void nextSeat()
+    {
+        seat++;
+        if (seat >= testSeats.Count) seat = 0;
+        if ( testSeats[seat].currentPlayers>=testSeats[seat].maxPlayers)
+        {
+            nextSeat();
+            return;
+        }
+        testSeats[seat].currentPlayers++;
+        testSeat = testSeats[seat].transform;
+        myXrRig.transform.position = testSeat.position;
+        myXrRig.transform.SetParent(testSeat);
+        nextButtonTimer = 1f;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -103,12 +120,8 @@ public class gameManager : MonoBehaviour
         }
         if ( nextButton && nextButtonTimer < 0f )
         {
-            seat++;
-            if (seat >= testSeats.Count) seat = 0;
-            testSeat = testSeats[seat];
-            myXrRig.transform.position = testSeat.position;
-            myXrRig.transform.SetParent(testSeat);
-            nextButtonTimer = 1f;
+            testSeats[seat].currentPlayers--;
+            nextSeat();
         }
         nextButtonTimer -= Time.deltaTime;
         if (SpawnedAsteroids.Count < PreferedAsteroidCount) spawnAsteroid();
