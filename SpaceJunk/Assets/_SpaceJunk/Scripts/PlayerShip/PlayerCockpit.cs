@@ -9,6 +9,8 @@ public class PlayerCockpit : MonoBehaviour
     public bool isPlayerGameHost = false;
     public float checkPlayerSeatTimer = 1f;
 
+    private PlayerStation myStation;
+
     void checkPlayerSeat()
     {
 
@@ -18,7 +20,7 @@ public class PlayerCockpit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        myStation = GetComponent<PlayerStation>();
     }
 
     // Update is called once per frame

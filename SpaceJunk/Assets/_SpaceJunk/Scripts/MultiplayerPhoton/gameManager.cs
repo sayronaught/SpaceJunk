@@ -27,6 +27,7 @@ public class gameManager : MonoBehaviour
     public GameObject refUISeat;
 
     private float nextButtonTimer = 0f;
+    private PlayerVrControls myVrControls;
 
     public void CreatePlayer()
     {
@@ -34,7 +35,7 @@ public class gameManager : MonoBehaviour
         var player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayer"), Vector3.zero, Quaternion.identity);
         myXrRig.transform.position = testSeats[seat].transform.position;
         myXrRig.transform.SetParent(testSeats[seat].transform);
-        testSeats[seat].currentPlayers++;
+        testSeats[seat].addCurrentPlayer(myVrControls);
     }
     public async void CreateOtherPlayer()
     {
@@ -76,7 +77,7 @@ public class gameManager : MonoBehaviour
             nextSeat();
             return;
         }
-        testSeats[seat].currentPlayers++;
+        testSeats[seat].addCurrentPlayer(myVrControls);
         testSeat = testSeats[seat].transform;
         myXrRig.transform.position = testSeat.position;
         myXrRig.transform.SetParent(testSeat);
@@ -85,7 +86,7 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        myVrControls = myXrRig.GetComponent<PlayerVrControls>();
     }
 
     // Update is called once per frame
@@ -103,7 +104,7 @@ public class gameManager : MonoBehaviour
         }
         if (vrControls.playerRightPrimary && nextButtonTimer < 0f )
         {
-            testSeats[seat].currentPlayers--;
+            testSeats[seat].removeCurrentPlayer();
             nextSeat();
         }
         nextButtonTimer -= Time.deltaTime;
