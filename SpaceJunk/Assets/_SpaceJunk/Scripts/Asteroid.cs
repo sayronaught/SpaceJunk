@@ -11,6 +11,22 @@ public class Asteroid : MonoBehaviour
     private Rigidbody myRB;
     private PhotonView myPV;
 
+    //private Vector3 targetPosition;
+
+    private float updateTimer = 5f;
+
+    // asteroid data recieved by anyone who is not host
+    [PunRPC]
+    public void updateAsteroid(Vector3 rbvelocity, Quaternion rbrotation,Vector3 newpos, Quaternion newrot, Vector3 newscale)
+    {
+        myRB.velocity = rbvelocity;
+        myRB.rotation = rbrotation;
+        transform.position = newpos;
+        transform.rotation = newrot;
+        transform.localScale = newscale;
+        //currentPlayers = players;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +34,17 @@ public class Asteroid : MonoBehaviour
         myPV = GetComponent<PhotonView>();
         myRB.AddTorque(new Vector3(Random.Range(-randomRotation, randomRotation), Random.Range(-randomRotation, randomRotation), Random.Range(-randomRotation, randomRotation)));
         myRB.AddForce(new Vector3(Random.Range(-randomSpeed, randomSpeed), Random.Range(-randomSpeed, randomSpeed), Random.Range(-randomSpeed, randomSpeed)));
-        transform.localScale = new Vector3(Random.Range(1,randomScale), Random.Range(1, randomScale), Random.Range(1, randomScale));
+        transform.localScale = new Vector3(Random.Range(2f,randomScale), Random.Range(2f, randomScale), Random.Range(2f, randomScale));
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (PhotonNetwork.IsMasterClient && updateTimer < 0f)
+        {
+            myPV.RPC("updateAsteroid", RpcTarget.All, myRB.velocity,myRB.rotation, transform.position, transform.rotation, transform.localScale);
+            updateTimer = 5f;
+        }
+        updateTimer -= Time.deltaTime;
     }
 }
