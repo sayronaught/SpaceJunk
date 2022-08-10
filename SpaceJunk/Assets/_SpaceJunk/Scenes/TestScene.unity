@@ -831,6 +831,7 @@ GameObject:
   - component: {fileID: 894119117}
   - component: {fileID: 894119116}
   - component: {fileID: 894119120}
+  - component: {fileID: 894119121}
   m_Layer: 0
   m_Name: _gameManager
   m_TagString: Untagged
@@ -913,7 +914,7 @@ MonoBehaviour:
   - {fileID: 1909964624}
   - {fileID: 1242237039}
   seat: 0
-  AsteroidContainer: {fileID: 0}
+  AsteroidContainer: {fileID: 124491588}
   AsteroidPrefabs:
   - {fileID: 100000, guid: d9d1fbfcf69364ffd8f9c6ade9ce90fe, type: 3}
   - {fileID: 100000, guid: a2d308598386f4a0797f87a4b95b9dd1, type: 3}
@@ -924,6 +925,28 @@ MonoBehaviour:
   PreferedAsteroidCount: 100
   refUI: {fileID: 2034550842}
   refUISeat: {fileID: 891639004}
+--- !u!114 &894119121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894119115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 6
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &957373977
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,6 +1561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPlayers: 100
   currentPlayers: 0
+  thisPlayer: {fileID: 0}
 --- !u!114 &1242237040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2823,6 +2847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPlayers: 100
   currentPlayers: 0
+  thisPlayer: {fileID: 0}
 --- !u!114 &2076597011
 MonoBehaviour:
   m_ObjectHideFlags: 0

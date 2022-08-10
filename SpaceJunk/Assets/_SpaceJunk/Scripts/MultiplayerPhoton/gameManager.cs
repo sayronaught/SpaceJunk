@@ -32,7 +32,7 @@ public class gameManager : MonoBehaviour
     public void CreatePlayer()
     {
         Debug.Log("Creating player");
-        var player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayer"), Vector3.zero, Quaternion.identity);
+        //var player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayer"), Vector3.zero, Quaternion.identity);
         myXrRig.transform.position = testSeats[seat].transform.position;
         myXrRig.transform.SetParent(testSeats[seat].transform);
         testSeats[seat].addCurrentPlayer(myVrControls);
@@ -64,8 +64,7 @@ public class gameManager : MonoBehaviour
         string name = "rock" + Random.Range(1, 5);
         //Debug.Log("Spawning " + name);
         var Asteroid = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", name), spawnPosition, Quaternion.identity);
-        //Asteroid.SetActive(true);
-        if ( Asteroid ) SpawnedAsteroids.Add(Asteroid);
+        Asteroid.transform.SetParent(AsteroidContainer);
     }
 
     void nextSeat()
@@ -108,7 +107,13 @@ public class gameManager : MonoBehaviour
             nextSeat();
         }
         nextButtonTimer -= Time.deltaTime;
-        if (SpawnedAsteroids.Count < PreferedAsteroidCount) spawnAsteroid();
+
+        // this bit only for the host
+        if ( PhotonNetwork.IsMasterClient )
+        {
+            if (SpawnedAsteroids.Count < PreferedAsteroidCount) spawnAsteroid();
+        }
+        
     }
 
 }
