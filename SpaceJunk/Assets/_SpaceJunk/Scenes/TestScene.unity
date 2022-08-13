@@ -992,8 +992,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e8583296a28ed42a3ceae775abe5bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretSwivel: {fileID: 552566156}
-  gunMount: {fileID: 2043568287}
+  turretSwivel: {fileID: 0}
+  gunMount: {fileID: 0}
 --- !u!114 &794875988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1268,7 +1268,6 @@ MonoBehaviour:
   - {fileID: 100000, guid: 7b5f2f9ea19c74c659ab8ac969280fb2, type: 3}
   - {fileID: 100000, guid: 24be8e1643b8a474fbb57fcda8a1c454, type: 3}
   - {fileID: 100000, guid: 84376f2a0948947b5a6dfe814a1100a0, type: 3}
-  SpawnedAsteroids: []
   PreferedAsteroidCount: 10
   refUI: {fileID: 2034550842}
   refUISeat: {fileID: 891639004}
@@ -1833,8 +1832,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e8583296a28ed42a3ceae775abe5bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretSwivel: {fileID: 1277209463}
-  gunMount: {fileID: 1825723786}
+  turretSwivel: {fileID: 0}
+  gunMount: {fileID: 0}
 --- !u!114 &981076176
 MonoBehaviour:
   m_ObjectHideFlags: 0

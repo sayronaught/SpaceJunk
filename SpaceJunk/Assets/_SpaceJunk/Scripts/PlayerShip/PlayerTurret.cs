@@ -22,7 +22,8 @@ public class PlayerTurret : MonoBehaviour
     {
         if ( MyStation.thisPlayer != null)
         { // current player is seated in this turret right now
-            turretDirection = transform.position - ((MyStation.thisPlayer.leftController.transform.forward + MyStation.thisPlayer.rightController.transform.forward)*0.5f);
+            //turretDirection = transform.position - ((MyStation.thisPlayer.leftController.transform.forward + MyStation.thisPlayer.rightController.transform.forward)*0.5f);
+            turretDirection = MyStation.thisPlayer.leftController.transform.rotation.eulerAngles;
             turretSwivel.rotation = Quaternion.Euler(0f,turretDirection.y, 0f);
             gunMount.rotation = Quaternion.Euler(turretDirection.x, 0f, 0f);
         }
