@@ -992,8 +992,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e8583296a28ed42a3ceae775abe5bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretSwivel: {fileID: 0}
-  gunMount: {fileID: 0}
+  turretSwivel: {fileID: 552566156}
+  gunMount: {fileID: 2043568287}
+  maxDegreesPerSecond: 35
 --- !u!114 &794875988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1832,8 +1833,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e8583296a28ed42a3ceae775abe5bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretSwivel: {fileID: 0}
-  gunMount: {fileID: 0}
+  turretSwivel: {fileID: 1277209463}
+  gunMount: {fileID: 1825723786}
+  maxDegreesPerSecond: 35
 --- !u!114 &981076176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3022,6 +3024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretSwivel: {fileID: 590504506}
   gunMount: {fileID: 1268467620}
+  maxDegreesPerSecond: 3500
 --- !u!114 &1720783218
 MonoBehaviour:
   m_ObjectHideFlags: 0

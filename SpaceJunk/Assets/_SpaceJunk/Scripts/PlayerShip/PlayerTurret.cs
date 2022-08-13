@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerTurret : MonoBehaviour
 {
     public Transform turretSwivel;
-    public Transform gunMount;
+    public Transform[] barrelEnds;
+
+    public float maxDegreesPerSecond = 35f;
 
     private PlayerStation MyStation;
 
-    private Vector3 turretDirection;
+    private Quaternion aim;
 
     // Start is called before the first frame update
     void Start()
@@ -22,10 +24,8 @@ public class PlayerTurret : MonoBehaviour
     {
         if ( MyStation.thisPlayer != null)
         { // current player is seated in this turret right now
-            //turretDirection = transform.position - ((MyStation.thisPlayer.leftController.transform.forward + MyStation.thisPlayer.rightController.transform.forward)*0.5f);
-            turretDirection = MyStation.thisPlayer.leftController.transform.rotation.eulerAngles;
-            turretSwivel.rotation = Quaternion.Euler(0f,turretDirection.y, 0f);
-            gunMount.rotation = Quaternion.Euler(turretDirection.x, 0f, 0f);
+            turretSwivel.rotation = Quaternion.Lerp(MyStation.thisPlayer.leftController.transform.rotation, MyStation.thisPlayer.rightController.transform.rotation, 0.5f);
+            turretSwivel.Rotate(Vector3.left, -90);
         }
     }
 }
