@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SpatialTracking;
 
 public class PlayerVrControls : MonoBehaviour
 {
+    // XrRig Active Scripts
+    public TrackedPoseDriver headset;
+    public TrackedPoseDriver leftController;
+    public TrackedPoseDriver rightController;
+
     // list of devices
     List<UnityEngine.XR.InputDevice> leftHandDevices = new List<UnityEngine.XR.InputDevice>();
     List<UnityEngine.XR.InputDevice> rightHandDevices = new List<UnityEngine.XR.InputDevice>();

@@ -17,7 +17,6 @@ public class gameManager : MonoBehaviour
 
     public Transform AsteroidContainer;
     public List<GameObject> AsteroidPrefabs;
-    public List<GameObject> SpawnedAsteroids;
     public int PreferedAsteroidCount = 100;
 
 
@@ -111,7 +110,7 @@ public class gameManager : MonoBehaviour
         // this bit only for the host
         if ( PhotonNetwork.IsMasterClient )
         {
-            if (SpawnedAsteroids.Count < PreferedAsteroidCount) spawnAsteroid();
+            if (AsteroidContainer.childCount < PreferedAsteroidCount) spawnAsteroid();
         }
         
     }

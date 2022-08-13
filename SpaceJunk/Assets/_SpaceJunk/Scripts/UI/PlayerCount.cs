@@ -21,7 +21,7 @@ public class PlayerCount : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ( updateTimer < 0f )
+        if ( updateTimer < 0f && PhotonNetwork.InRoom )
         {
             myTxt.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString();
             updateTimer = 1f;
