@@ -11,6 +11,8 @@ public class PlayerLever : MonoBehaviour
     public BoxCollider leverDown;
     public TMP_Text display;
 
+    
+
     [System.Serializable]
     public class leverState
     {
@@ -22,6 +24,9 @@ public class PlayerLever : MonoBehaviour
     }
     public leverState[] leverStates;
     public int currentLeverPosition;
+
+    private bool isGrabbedLeft = false;
+    private bool isGrabbedRight = false;
 
     private AudioSource myAS;
 
@@ -42,6 +47,7 @@ public class PlayerLever : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if ( isGrabbedLeft && !)
 /*
 if(hitToTest.collider.bounds.Contains(telePosition))
 {
