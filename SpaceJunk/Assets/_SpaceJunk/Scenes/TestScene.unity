@@ -6230,19 +6230,19 @@ MonoBehaviour:
   display: {fileID: 26011433}
   myStation: {fileID: 1351485387}
   leverStates:
-  - Angle: -40
+  - Angle: -120
     text: Backwards
     color: {r: 0.19357423, g: 0.4716981, b: 0.4695911, a: 1}
-  - Angle: -20
+  - Angle: -100
     text: Speed Lever
     color: {r: 0.3882353, g: 0.90588236, b: 0.9019608, a: 1}
-  - Angle: 0
+  - Angle: -80
     text: Forward
     color: {r: 0.7685564, g: 0.9528302, b: 0.9514342, a: 1}
-  - Angle: 20
+  - Angle: -60
     text: Hyper speed
     color: {r: 1, g: 1, b: 1, a: 1}
-  - Angle: 40
+  - Angle: -40
     text: Ludicrous Speed
     color: {r: 1, g: 0, b: 0, a: 1}
   currentLeverPosition: 1
