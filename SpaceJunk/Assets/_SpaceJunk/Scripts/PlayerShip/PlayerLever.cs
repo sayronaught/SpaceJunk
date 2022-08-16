@@ -62,10 +62,12 @@ public class PlayerLever : MonoBehaviour
         { // they have grabbed it, lets check if they move it
             if (leverUp.bounds.Contains(myStation.thisPlayer.leftController.transform.position))
             {
-                if (currentLeverPosition < leverStates.Length)
-                {
-                    changeLeverState(currentLeverPosition + 1);
-                }
+                if (currentLeverPosition < leverStates.Length) changeLeverState(currentLeverPosition + 1);
+      
+            }
+            if (leverDown.bounds.Contains(myStation.thisPlayer.leftController.transform.position))
+            {
+                if (currentLeverPosition > 0) changeLeverState(currentLeverPosition - 1);
             }
         }
         return currentLeverPosition;
