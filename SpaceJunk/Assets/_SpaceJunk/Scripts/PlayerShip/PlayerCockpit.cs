@@ -9,6 +9,7 @@ public class PlayerCockpit : MonoBehaviour
 //    public bool isPlayerGameHost = false;
     public float checkPlayerSeatTimer = 1f;
 
+    public PlayerShip myShip;
     public PlayerLever controlsSpeedLever;
 
     private PlayerStation myStation;
