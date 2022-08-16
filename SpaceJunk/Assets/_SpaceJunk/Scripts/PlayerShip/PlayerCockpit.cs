@@ -41,6 +41,7 @@ public class PlayerCockpit : MonoBehaviour
         if ( isPlayerInSeat )
         {
             speedLeverState = controlsSpeedLever.getLeverState();
+            myShip.controlSpeedStage = speedLeverState;
         }
     }
 }
