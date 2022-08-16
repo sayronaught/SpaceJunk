@@ -11,7 +11,7 @@ public class PlayerLever : MonoBehaviour
     public BoxCollider leverDown;
     public TMP_Text display;
 
-    
+    public PlayerStation myStation;
 
     [System.Serializable]
     public class leverState
@@ -36,6 +36,40 @@ public class PlayerLever : MonoBehaviour
         display.text = leverStates[currentLeverPosition].text;
         display.color = leverStates[currentLeverPosition].color;
     }
+    public void changeLeverState(int newState)
+    { // change lever state, from player pulling it, or from engine failure or such..
+        currentLeverPosition = newState;
+        setLever();
+        isGrabbedLeft = false;
+        isGrabbedRight = false;
+        myAS.Play();
+    }
+
+    public int getLeverState()
+    {
+        if ( !myStation.thisPlayer)
+        {
+            isGrabbedRight = false;
+            isGrabbedLeft = false;
+            return currentLeverPosition;
+        }
+        if (isGrabbedLeft && !myStation.thisPlayer.playerLeftGrab) isGrabbedLeft = false;
+        if ( !isGrabbedLeft && myStation.thisPlayer.playerLeftGrab)
+        {// only do this check when both are true, since this takes come CPU time
+            if (leverGrab.bounds.Contains(myStation.thisPlayer.leftController.transform.position)) isGrabbedLeft = true;
+        }
+        if ( isGrabbedLeft )
+        { // they have grabbed it, lets check if they move it
+            if (leverUp.bounds.Contains(myStation.thisPlayer.leftController.transform.position))
+            {
+                if (currentLeverPosition < leverStates.Length)
+                {
+                    changeLeverState(currentLeverPosition + 1);
+                }
+            }
+        }
+        return currentLeverPosition;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +81,7 @@ public class PlayerLever : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ( isGrabbedLeft && !)
+    //    if ( isGrabbedLeft && !)
 /*
 if(hitToTest.collider.bounds.Contains(telePosition))
 {

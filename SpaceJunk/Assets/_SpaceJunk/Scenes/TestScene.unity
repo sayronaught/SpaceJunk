@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.09117865, g: 0.03316388, b: 0.13493326, a: 1}
+  m_IndirectSpecularColor: {r: 0.090857305, g: 0.03239295, b: 0.13494563, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -964,7 +964,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.002, y: 0.001, z: 0.001}
+  m_Size: {x: 0.002, y: 0.0015, z: 0.0015}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &590504505
 GameObject:
@@ -6228,6 +6228,7 @@ MonoBehaviour:
   leverGrab: {fileID: 1337094298}
   leverDown: {fileID: 556826556}
   display: {fileID: 26011433}
+  myStation: {fileID: 1351485387}
   leverStates:
   - Angle: -30
     text: Backwards
@@ -7358,7 +7359,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.002, y: 0.001, z: 0.001}
+  m_Size: {x: 0.002, y: 0.0015, z: 0.0015}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &981076172
 GameObject:
@@ -8103,7 +8104,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1337094296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0015}
+  m_LocalPosition: {x: 0, y: -4.6938693e-11, z: 0.0015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8121,7 +8122,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.002, y: 0.001, z: 0.001}
+  m_Size: {x: 0.002, y: 0.0015, z: 0.0015}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1342616841
 GameObject:

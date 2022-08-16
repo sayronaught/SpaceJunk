@@ -6,16 +6,23 @@ public class PlayerCockpit : MonoBehaviour
 {
 
     public bool isPlayerInSeat = false;
-    public bool isPlayerGameHost = false;
+//    public bool isPlayerGameHost = false;
     public float checkPlayerSeatTimer = 1f;
 
     public PlayerLever controlsSpeedLever;
 
     private PlayerStation myStation;
 
+    private int speedLeverState;
+
     void checkPlayerSeat()
     {
-
+        if (myStation.thisPlayer != null)
+        {
+            isPlayerInSeat = true;
+        } else {
+            isPlayerInSeat = false;
+        }
         checkPlayerSeatTimer = 1f;
     }
 
@@ -29,5 +36,10 @@ public class PlayerCockpit : MonoBehaviour
     void Update()
     {
         if (checkPlayerSeatTimer < 0f) checkPlayerSeat();
+        checkPlayerSeatTimer -= Time.deltaTime;
+        if ( isPlayerInSeat )
+        {
+            speedLeverState = controlsSpeedLever.getLeverState();
+        }
     }
 }
