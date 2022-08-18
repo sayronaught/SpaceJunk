@@ -10676,6 +10676,7 @@ GameObject:
   - component: {fileID: 1822585634}
   - component: {fileID: 1822585636}
   - component: {fileID: 1822585635}
+  - component: {fileID: 1822585637}
   m_Layer: 5
   m_Name: Basic Stats
   m_TagString: Untagged
@@ -10742,6 +10743,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1822585633}
   m_CullTransparentMesh: 1
+--- !u!114 &1822585637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822585633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f673754f81d6c49bea7be9c80b9d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myShip: {fileID: 8897277017676537962}
+  energyBar: {fileID: 2131624192}
+  energyText: {fileID: 27656025}
+  hpBar: {fileID: 2065751765}
+  hpText: {fileID: 402035322}
 --- !u!1 &1825723785
 GameObject:
   m_ObjectHideFlags: 0
@@ -12917,6 +12935,8 @@ MonoBehaviour:
   - {fileID: 3894067318438648844}
   energy: 500
   energyMax: 1000
+  hp: 500
+  hpMax: 1000
   metal: 500
   metalMax: 1000
   metalFatigue: 0
