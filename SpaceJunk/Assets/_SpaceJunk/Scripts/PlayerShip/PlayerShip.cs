@@ -9,6 +9,9 @@ public class PlayerShip : MonoBehaviour
     public float energy = 500f;
     public float energyMax = 1000f;
 
+    public float hp = 500f;
+    public float hpMax = 1000f;
+
     public float metal = 500f;
     public float metalMax = 1000f;
 
