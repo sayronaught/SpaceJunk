@@ -32,7 +32,7 @@ public class PlayerLever : MonoBehaviour
 
     void setLever()
     {
-        leverStick.transform.rotation = Quaternion.Euler(leverStates[currentLeverPosition].Angle, 0f, 0f);
+        leverStick.transform.localRotation = Quaternion.Euler(leverStates[currentLeverPosition].Angle, 0f, 0f);
         display.text = leverStates[currentLeverPosition].text;
         display.color = leverStates[currentLeverPosition].color;
     }

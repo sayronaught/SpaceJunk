@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,8 +14,16 @@ public class PlayerCockpit : MonoBehaviour
     public PlayerLever controlsSpeedLever;
 
     private PlayerStation myStation;
+    private PhotonView myPV;
 
     private int speedLeverState;
+    private int speedLeverOldState;
+
+    [PunRPC]
+    public void sendCockpitControlSpeed(int changeSpeed)
+    {
+        myShip.controlSpeedStage = speedLeverState = changeSpeed;
+    }
 
     void checkPlayerSeat()
     {
@@ -31,6 +40,7 @@ public class PlayerCockpit : MonoBehaviour
     void Start()
     {
         myStation = GetComponent<PlayerStation>();
+        myPV = myShip.gameObject.GetPhotonView();
     }
 
     // Update is called once per frame
@@ -42,6 +52,11 @@ public class PlayerCockpit : MonoBehaviour
         {
             speedLeverState = controlsSpeedLever.getLeverState();
             myShip.controlSpeedStage = speedLeverState;
+            if (speedLeverState != speedLeverOldState)
+            {
+                myPV.RPC("sendCockpitControlSpeed", RpcTarget.All, speedLeverState);
+                speedLeverOldState = speedLeverState;
+            }            
         }
     }
 }

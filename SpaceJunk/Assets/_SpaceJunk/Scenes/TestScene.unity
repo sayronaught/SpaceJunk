@@ -6923,19 +6923,19 @@ MonoBehaviour:
   display: {fileID: 26011433}
   myStation: {fileID: 1351485387}
   leverStates:
-  - Angle: -120
+  - Angle: -30
     text: Backwards
     color: {r: 0.19357423, g: 0.4716981, b: 0.4695911, a: 1}
-  - Angle: -100
+  - Angle: -10
     text: Speed Lever
     color: {r: 0.3882353, g: 0.90588236, b: 0.9019608, a: 1}
-  - Angle: -80
+  - Angle: 10
     text: Forward
     color: {r: 0.7685564, g: 0.9528302, b: 0.9514342, a: 1}
-  - Angle: -60
+  - Angle: 30
     text: Hyper speed
     color: {r: 1, g: 1, b: 1, a: 1}
-  - Angle: -40
+  - Angle: 50
     text: Ludicrous Speed
     color: {r: 1, g: 0, b: 0, a: 1}
   currentLeverPosition: 1
@@ -12833,6 +12833,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.00003
       objectReference: {fileID: 0}
+    - target: {fileID: 8314906476544233119, guid: 6a82ab22b6bcf1546bfa5318e39bc9ab,
+        type: 3}
+      propertyPath: myShip
+      value: 
+      objectReference: {fileID: 8897277017676537962}
     - target: {fileID: 8314906476544233119, guid: 6a82ab22b6bcf1546bfa5318e39bc9ab,
         type: 3}
       propertyPath: controlsSpeedLever

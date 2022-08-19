@@ -20,10 +20,13 @@ public class PlayerEngine : MonoBehaviour
 
     public int lastThrustState = 1;
 
+    private Rigidbody myShipRB;
+    private float thrust = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        myShipRB = myShip.gameObject.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -39,5 +42,16 @@ public class PlayerEngine : MonoBehaviour
                 Thruster.SetActive(false);
             }
         }
+        switch (myShip.controlSpeedStage)
+        {
+            case 0: thrust = -500f; break;
+            case 1: thrust = 500f; break;
+            case 2: thrust = 1000f; break;
+            case 3: thrust = 2500f; break;
+            case 4: thrust = 15000f; break;
+            default:
+                thrust = 0f; break;
+        }
+        if (thrust != 0f) myShipRB.AddRelativeForce(Vector3.forward * thrust * Time.deltaTime);
     }
 }
