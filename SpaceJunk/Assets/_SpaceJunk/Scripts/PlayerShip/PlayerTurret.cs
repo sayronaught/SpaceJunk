@@ -36,6 +36,7 @@ public class PlayerTurret : MonoBehaviour
         }
     }
 
+    [PunRPC]
     private void fireTheTurret()
     {
         var shot = Instantiate(AmmoPrefab, barrelEnds[currentBarrel].position, barrelEnds[currentBarrel].rotation);
@@ -68,7 +69,8 @@ public class PlayerTurret : MonoBehaviour
             shootDelay -= Time.deltaTime;
             if ( shootDelay < 0f && (MyStation.thisPlayer.playerLeftTrigger || MyStation.thisPlayer.playerRightTrigger))
             {
-                fireTheTurret();
+                //fireTheTurret();
+                myPV.RPC("fireTheTurret", RpcTarget.All);
                 shootDelay = 0.5f;
             }
         }
