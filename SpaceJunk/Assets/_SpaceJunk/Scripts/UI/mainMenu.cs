@@ -7,14 +7,17 @@ public class mainMenu : MonoBehaviour
 
     public GameObject[] Pages;
 
-
     public void mainMenuPageOpen(int page)
     {
-        foreach (GameObject Page in Pages)
+        int lastOpen = -1;
+
+        //foreach (GameObject Page in Pages)
+        for (int i = 0; i < Pages.Length; i++)
         {
-            Page.SetActive(false);
+            if (Pages[i].activeSelf) lastOpen = i;
+            Pages[i].SetActive(false);
         }
-        Pages[page].SetActive(true);
+        if ( lastOpen != page ) Pages[page].SetActive(true);
     }
 
     // Start is called before the first frame update
