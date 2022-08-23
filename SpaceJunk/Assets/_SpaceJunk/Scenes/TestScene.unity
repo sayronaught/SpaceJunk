@@ -9770,6 +9770,7 @@ MonoBehaviour:
   myShip: {fileID: 8897277017676537962}
   ModuleListItemPrefab: {fileID: 7842494992017927234, guid: b76616066081cee4ea4ae635843ab636,
     type: 3}
+  moduleSpaceing: 0
 --- !u!1 &1394001445
 GameObject:
   m_ObjectHideFlags: 0
@@ -10050,7 +10051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73664d189a093d1449a2ae061fbcca45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moduleName: Standard name
+  moduleName: Turret 1
   moduleDescription: Standard desc
   Ports: []
   Stations: []
@@ -11878,7 +11879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73664d189a093d1449a2ae061fbcca45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moduleName: Standard name
+  moduleName: Turret 3
   moduleDescription: Standard desc
   Ports: []
   Stations: []
@@ -13101,7 +13102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73664d189a093d1449a2ae061fbcca45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moduleName: Standard name
+  moduleName: Turret 2
   moduleDescription: Standard desc
   Ports: []
   Stations: []
@@ -13737,7 +13738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73664d189a093d1449a2ae061fbcca45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moduleName: Standard name
+  moduleName: Engine
   moduleDescription: Standard desc
   Ports: []
   Stations: []
@@ -13837,7 +13838,7 @@ PrefabInstance:
     - target: {fileID: 3699726995628764613, guid: 4b52cf9d37117274eb27d0efb26c683c,
         type: 3}
       propertyPath: moduleName
-      value: Standard name
+      value: Frame
       objectReference: {fileID: 0}
     - target: {fileID: 3699726995628764613, guid: 4b52cf9d37117274eb27d0efb26c683c,
         type: 3}
@@ -13861,7 +13862,7 @@ PrefabInstance:
     - target: {fileID: 4257835340930146821, guid: 6a82ab22b6bcf1546bfa5318e39bc9ab,
         type: 3}
       propertyPath: moduleName
-      value: Standard name
+      value: Cockpit
       objectReference: {fileID: 0}
     - target: {fileID: 4257835340930146821, guid: 6a82ab22b6bcf1546bfa5318e39bc9ab,
         type: 3}

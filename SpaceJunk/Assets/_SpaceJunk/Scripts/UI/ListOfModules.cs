@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ListOfModules : MonoBehaviour
 {
@@ -12,9 +13,13 @@ public class ListOfModules : MonoBehaviour
 
     void MakeListOfModules()
     {
+        int pos = -50;
         foreach ( PlayerModule module in myShip.Modules)
         {
-            Instantiate(ModuleListItemPrefab, transform.parent);
+            var listItem = Instantiate(ModuleListItemPrefab, transform);
+            listItem.transform.localPosition = new Vector3(0,pos,0);
+            pos -= 50;
+            listItem.transform.GetChild(0).GetComponent<TMP_Text>().text = module.moduleName;
         }
     }
 
