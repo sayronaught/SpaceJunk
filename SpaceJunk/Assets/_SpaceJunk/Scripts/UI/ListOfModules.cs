@@ -20,6 +20,7 @@ public class ListOfModules : MonoBehaviour
             listItem.transform.localPosition = new Vector3(0,pos,0);
             pos -= 50;
             listItem.transform.GetChild(0).GetComponent<TMP_Text>().text = module.moduleName;
+            listItem.transform.GetChild(1).GetComponent<TMP_Text>().text = module.moduleDescription;
         }
     }
 
