@@ -8,11 +8,13 @@ public class ListOfModules : MonoBehaviour
 
     public GameObject ModuleListItemPrefab;
 
+    public float moduleSpaceing = 0f;
+
     void MakeListOfModules()
     {
         foreach ( PlayerModule module in myShip.Modules)
         {
-
+            Instantiate(ModuleListItemPrefab, transform.parent);
         }
     }
 
