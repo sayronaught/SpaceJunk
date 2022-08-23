@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerModule : MonoBehaviour
 {
+    public string moduleName = "Standard Name";
+    public string moduleDescription = "Standard desc";
+
     public List<Transform> Ports;
     public List<PlayerStation> Stations;
     public List<PlayerModule> ModulesConnected;
