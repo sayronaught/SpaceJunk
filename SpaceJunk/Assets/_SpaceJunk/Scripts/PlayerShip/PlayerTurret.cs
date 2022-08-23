@@ -69,6 +69,8 @@ public class PlayerTurret : MonoBehaviour
             shootDelay -= Time.deltaTime;
             if ( shootDelay < 0f && (MyStation.thisPlayer.playerLeftTrigger || MyStation.thisPlayer.playerRightTrigger))
             {
+                MyStation.thisPlayer.SendRightHaptics(0,.25f, 0.25f);
+                MyStation.thisPlayer.SendLeftHaptics(0,.25f, 0.25f);
                 //fireTheTurret();
                 myPV.RPC("fireTheTurret", RpcTarget.All);
                 shootDelay = 0.5f;

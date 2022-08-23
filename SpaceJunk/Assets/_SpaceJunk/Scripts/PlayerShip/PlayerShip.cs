@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerShip : MonoBehaviour
 {
+    public PlayerVrControls playerVrControls;
     public List<PlayerModule> Modules;
 
     public float energy = 500f;
@@ -54,6 +55,8 @@ public class PlayerShip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //playerVrControls.SendLeftHaptics(0, 0.1f, 1f);
+        //playerVrControls.SendRightHaptics(0, 0.1f, 1f);
         if (PhotonNetwork.IsMasterClient)
         { // host sends ship updates
             if ( updateTimer < 0 )

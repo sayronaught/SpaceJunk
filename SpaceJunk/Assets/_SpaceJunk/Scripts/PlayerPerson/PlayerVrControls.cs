@@ -31,6 +31,19 @@ public class PlayerVrControls : MonoBehaviour
     public bool playerRightSecondary = false;
     public bool playerLeftGrab = false;
     public bool playerRightGrab = false;
+    public bool playerLeftStickClick = false;
+    public bool playerRightStickClick = false;
+
+    public void SendLeftHaptics( uint channel, float magnitude, float seconds)
+    {
+        if (leftHandDevices.Count > 0)
+            leftHandDevices[0].SendHapticImpulse(channel, magnitude, seconds);
+    }
+    public void SendRightHaptics( uint channel, float magnitude, float seconds)
+    {
+        if (rightHandDevices.Count > 0)
+            rightHandDevices[0].SendHapticImpulse(channel, magnitude, seconds);
+    }
 
     // Update is called once per frame
     void Update()
@@ -52,6 +65,7 @@ public class PlayerVrControls : MonoBehaviour
             leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.primaryButton, out playerLeftPrimary);
             leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.secondaryButton, out playerLeftSecondary);
             leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.gripButton, out playerLeftGrab);
+            leftHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxisClick, out playerLeftStickClick);
             playerHasLeftController = true;
         }
         else playerHasLeftController = false;
@@ -64,6 +78,7 @@ public class PlayerVrControls : MonoBehaviour
             rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.primaryButton, out playerRightPrimary);
             rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.secondaryButton, out playerRightSecondary);
             rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.gripButton, out playerRightGrab);
+            rightHandDevices[0].TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxisClick, out playerRightStickClick);
             playerHasRightController = true;
         }
         else playerHasRightController = false;
