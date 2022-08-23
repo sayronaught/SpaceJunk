@@ -7063,7 +7063,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 5059facf88300eb4fac850910c1865eb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00447
+      value: 0.00273
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5059facf88300eb4fac850910c1865eb,
         type: 3}
@@ -7840,6 +7840,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 811010643}
   m_CullTransparentMesh: 1
+--- !u!4 &813495889 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -7196221093255114824, guid: 7db22cd921313ba4c801dd7e548cb95b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1703349139}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &876087314 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000011333640090, guid: 7105fbbfff4b9af46886e2c1451b06d9,
@@ -8523,6 +8529,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974717543}
   m_CullTransparentMesh: 1
+--- !u!1 &975125464 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7db22cd921313ba4c801dd7e548cb95b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1703349139}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &975125465 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7db22cd921313ba4c801dd7e548cb95b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1703349139}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &975125468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975125464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2d03110381c5f44db8d6919c79ada27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joyStick: {fileID: 813495889}
+  JoystickZone: {fileID: 986215660}
+  myStation: {fileID: 1351485387}
+  isGrabbedLeft: 0
+  isGrabbedRight: 0
+  StickInput: {x: 0, y: 0}
 --- !u!1 &976469359
 GameObject:
   m_ObjectHideFlags: 0
@@ -8831,6 +8867,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 984694105}
   m_CullTransparentMesh: 1
+--- !u!1 &986215658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 986215659}
+  - component: {fileID: 986215660}
+  m_Layer: 0
+  m_Name: JoystickZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &986215659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986215658}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 975125465}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &986215660
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986215658}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.003, y: 0.003, z: 0.002}
+  m_Center: {x: 0, y: 0, z: 0.0025}
 --- !u!1 &999403360
 GameObject:
   m_ObjectHideFlags: 0
@@ -10617,7 +10698,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 7db22cd921313ba4c801dd7e548cb95b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.00468
+      value: -0.00291
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7db22cd921313ba4c801dd7e548cb95b,
         type: 3}
@@ -14023,6 +14104,11 @@ PrefabInstance:
       propertyPath: myShip
       value: 
       objectReference: {fileID: 8897277017676537962}
+    - target: {fileID: 8314906476544233119, guid: 6a82ab22b6bcf1546bfa5318e39bc9ab,
+        type: 3}
+      propertyPath: controlsJoyStick
+      value: 
+      objectReference: {fileID: 975125468}
     - target: {fileID: 8314906476544233119, guid: 6a82ab22b6bcf1546bfa5318e39bc9ab,
         type: 3}
       propertyPath: controlsSpeedLever

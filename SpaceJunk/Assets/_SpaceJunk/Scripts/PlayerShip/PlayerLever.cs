@@ -83,12 +83,6 @@ public class PlayerLever : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    //    if ( isGrabbedLeft && !)
-/*
-if(hitToTest.collider.bounds.Contains(telePosition))
-{
-   print("point is inside collider");
-}
-*/
+
     }
 }

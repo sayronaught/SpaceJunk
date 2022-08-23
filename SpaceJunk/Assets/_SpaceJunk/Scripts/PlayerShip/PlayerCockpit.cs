@@ -12,12 +12,15 @@ public class PlayerCockpit : MonoBehaviour
 
     public PlayerShip myShip;
     public PlayerLever controlsSpeedLever;
+    public PlayerJoystick controlsJoyStick;
 
     private PlayerStation myStation;
     private PhotonView myPV;
 
     private int speedLeverState;
     private int speedLeverOldState;
+    private Vector2 joyStickInput;
+    private bool holdingJoyStick = false;
 
     [PunRPC]
     public void sendCockpitControlSpeed(int changeSpeed)
@@ -50,8 +53,15 @@ public class PlayerCockpit : MonoBehaviour
         checkPlayerSeatTimer -= Time.deltaTime;
         if ( isPlayerInSeat )
         {
+            // getting the inputs
             speedLeverState = controlsSpeedLever.getLeverState();
+            joyStickInput = controlsJoyStick.getJoyStickInput();
+            holdingJoyStick = controlsJoyStick.isGrabbedRight;
+
+            // setting the inputs
             myShip.controlSpeedStage = speedLeverState;
+            myShip.controlsYawPitch = joyStickInput;
+
             if (speedLeverState != speedLeverOldState)
             {
                 myPV.RPC("sendCockpitControlSpeed", RpcTarget.All, speedLeverState);

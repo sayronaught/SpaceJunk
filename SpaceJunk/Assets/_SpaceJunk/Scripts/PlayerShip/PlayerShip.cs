@@ -20,6 +20,7 @@ public class PlayerShip : MonoBehaviour
     public float metalFatigue = 0f;
 
     public int controlSpeedStage = 0;
+    public Vector2 controlsYawPitch;
     public Vector2 controlsLeft;
     public Vector2 controlsRight;
 
