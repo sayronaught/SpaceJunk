@@ -27,6 +27,12 @@ public class PlayerCockpit : MonoBehaviour
     {
         myShip.controlSpeedStage = speedLeverState = changeSpeed;
     }
+    [PunRPC]
+    public void sendCockpitControlStick(Vector2 stickInput)
+    {
+        //myShip.controlSpeedStage = speedLeverState = changeSpeed;
+        myShip.controlsYawPitch = stickInput;
+    }
 
     void checkPlayerSeat()
     {
@@ -63,10 +69,14 @@ public class PlayerCockpit : MonoBehaviour
             myShip.controlsYawPitch = joyStickInput;
 
             if (speedLeverState != speedLeverOldState)
-            {
+            { // if speed has been changed
                 myPV.RPC("sendCockpitControlSpeed", RpcTarget.All, speedLeverState);
                 speedLeverOldState = speedLeverState;
-            }            
+            }   
+            if ((joyStickInput.x != 0f || joyStickInput.y != 0f) && holdingJoyStick )
+            { // in there is joystick input, and player is actively holding the stick
+                myPV.RPC("sendCockpitControlStick", RpcTarget.All, joyStickInput);
+            }
         }
     }
 }

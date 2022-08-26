@@ -53,5 +53,13 @@ public class PlayerEngine : MonoBehaviour
                 thrust = 0f; break;
         }
         if (thrust != 0f) myShipRB.AddRelativeForce(Vector3.forward * thrust * Time.deltaTime);
+        if ( myShip.controlsYawPitch.x != 0)
+        {
+            myShipRB.AddRelativeTorque(Vector3.up * myShip.controlsYawPitch.x * 3000f * Time.deltaTime);
+        }
+        if (myShip.controlsYawPitch.y != 0)
+        {
+            myShipRB.AddRelativeTorque(Vector3.left * myShip.controlsYawPitch.y * 3000f * Time.deltaTime);
+        }
     }
 }
