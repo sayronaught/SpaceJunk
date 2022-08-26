@@ -1,6 +1,7 @@
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class PlayerTurret : MonoBehaviour
@@ -9,7 +10,10 @@ public class PlayerTurret : MonoBehaviour
     public Transform[] barrelEnds;
     private int currentBarrel = 0;
     private float shootDelay = 0f;
-    public GameObject AmmoPrefab;
+    //public GameObject AmmoPrefab;
+    public string AmmoPrefabName = "Laser1";
+    public float AmmoSpeed = 10000f;
+    public float AmmoLifetime = 3f;
 
     public float maxDegreesPerSecond = 35f;
 
@@ -39,9 +43,13 @@ public class PlayerTurret : MonoBehaviour
     [PunRPC]
     private void fireTheTurret()
     {
-        var shot = Instantiate(AmmoPrefab, barrelEnds[currentBarrel].position, barrelEnds[currentBarrel].rotation);
-        shot.GetComponent<Rigidbody>().AddForce(barrelEnds[currentBarrel].forward * 10000f);
-        Destroy(shot, 3000);
+        foreach ( Transform barrel in barrelEnds)
+        {
+            //var shot = Instantiate(AmmoPrefab, barrelEnds[currentBarrel].position, barrelEnds[currentBarrel].rotation);
+            var shot = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", AmmoPrefabName), barrel.position, barrel.rotation);
+            shot.GetComponent<Rigidbody>().AddForce(barrelEnds[currentBarrel].forward * AmmoSpeed);
+            Destroy(shot, AmmoLifetime);
+        }
         myAS.Play();
     }
 
