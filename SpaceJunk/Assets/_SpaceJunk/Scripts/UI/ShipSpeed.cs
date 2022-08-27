@@ -24,7 +24,7 @@ public class ShipSpeed : MonoBehaviour
     {
         if (updateTimer < 0f)
         {
-            myTxt.text = shipRB.velocity.magnitude.ToString()+ " m/s";
+            myTxt.text = shipRB.velocity.magnitude.ToString("F2")+ " m/s";
             updateTimer = 1f;
         }
         updateTimer -= Time.deltaTime;
