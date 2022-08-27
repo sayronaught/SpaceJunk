@@ -56,7 +56,7 @@ public class PlayerTurret : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MyStation = GetComponent<PlayerStation>();
+        MyStation = GetComponentInChildren<PlayerStation>();
         myAS = GetComponent<AudioSource>();
         myPV = GetComponent<PhotonView>();
     }

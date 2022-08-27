@@ -36,7 +36,7 @@ public class PlayerCockpit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myStation = GetComponent<PlayerStation>();
+        myStation = GetComponentInChildren<PlayerStation>();
         myPV = myShip.gameObject.GetPhotonView();
     }
 

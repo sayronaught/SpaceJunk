@@ -22,10 +22,13 @@ public class PlayerJoystick : MonoBehaviour
             isGrabbedRight = false;
         }
         if (isGrabbedRight && !myStation.thisPlayer.playerRightGrab) isGrabbedRight = false;
-        if (!isGrabbedRight && myStation.thisPlayer.playerRightGrab)
-        {// only do this check when both are true, since this takes come CPU time
-            if (JoystickZone.bounds.Contains(myStation.thisPlayer.rightController.transform.position))
-                isGrabbedRight = true;
+        if (myStation.thisPlayer )
+        { 
+            if (!isGrabbedRight && myStation.thisPlayer.playerRightGrab)
+            {// only do this check when both are true, since this takes come CPU time
+                if (JoystickZone.bounds.Contains(myStation.thisPlayer.rightController.transform.position))
+                    isGrabbedRight = true;
+            }
         }
         if ( isGrabbedRight)
         {
