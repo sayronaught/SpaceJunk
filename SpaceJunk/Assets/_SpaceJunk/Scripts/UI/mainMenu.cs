@@ -6,6 +6,7 @@ public class mainMenu : MonoBehaviour
 {
 
     public GameObject[] Pages;
+    public AudioSource buttonSound;
 
     public void mainMenuPageOpen(int page)
     {
@@ -18,6 +19,7 @@ public class mainMenu : MonoBehaviour
             Pages[i].SetActive(false);
         }
         if ( lastOpen != page ) Pages[page].SetActive(true);
+        buttonSound.Play();
     }
 
     // Start is called before the first frame update
