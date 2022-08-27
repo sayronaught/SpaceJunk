@@ -11,8 +11,8 @@ public class PlayerShip : MonoBehaviour
     public float energy = 500f;
     public float energyMax = 1000f;
 
-    public float hp = 500f;
-    public float hpMax = 1000f;
+    public float structureHP = 500f;
+    public float structureHPMax = 1000f;
 
     public float metal = 500f;
     public float metalMax = 1000f;
@@ -28,8 +28,11 @@ public class PlayerShip : MonoBehaviour
     private Vector3 targetPosition;
     private Quaternion targetRotation;
     private float updateTimer = 0f;
+    private int updateTimerSkips = 0;
     private PhotonView myPV;
     private Rigidbody myRB;
+
+    private float CalculateHullStrain;
 
     [PunRPC]
     public void sendCockpitControlSpeed(int changeSpeed)
@@ -51,6 +54,32 @@ public class PlayerShip : MonoBehaviour
         myRB.angularVelocity = rotation;
     }
 
+    [PunRPC]
+    public void updateClientFromMasterUpdateTick()
+    { // host sends tick info
+        
+    }
+
+    private void masterClientUpdateTick()
+    { // master client ticks energy & HP
+        updateTimerSkips++;
+        if ( updateTimerSkips > 4 )
+        { // current settings around each second
+            structureHP = 0;
+            structureHPMax = 0;
+            energyMax = 0;
+            CalculateHullStrain = myRB.velocity.magnitude * (myRB.angularVelocity.magnitude + 2f);
+            foreach ( PlayerModule Module in Modules)
+            {
+                structureHP += Module.structureHP;
+                structureHPMax += Module.structureMaxHP;
+                energyMax += Module.energyCapacity;
+            }
+            energy++;
+            updateTimerSkips = 0;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +97,7 @@ public class PlayerShip : MonoBehaviour
             if ( updateTimer < 0 )
             {
                 myPV.RPC("updateShipFromHost", RpcTarget.All, transform.position, transform.rotation,myRB.velocity,myRB.angularVelocity);
+                masterClientUpdateTick();
                 updateTimer = 0.2f;
             }
             updateTimer -= Time.deltaTime;

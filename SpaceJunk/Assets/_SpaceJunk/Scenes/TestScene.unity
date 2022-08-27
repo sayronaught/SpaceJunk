@@ -10122,6 +10122,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4681313977913042781}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1127926132 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4681313978937847337, guid: aa43c69f19b2bc945a50fd4636a296d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 4681313977913042781}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73664d189a093d1449a2ae061fbcca45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1198873379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11524,8 +11536,9 @@ MonoBehaviour:
   Ports: []
   Stations: []
   ModulesConnected: []
-  structureHP: 100
+  structureHP: 50
   structureMaxHP: 100
+  energyCapacity: 100
 --- !u!82 &1430748251
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13906,8 +13919,9 @@ MonoBehaviour:
   Ports: []
   Stations: []
   ModulesConnected: []
-  structureHP: 100
+  structureHP: 50
   structureMaxHP: 100
+  energyCapacity: 100
 --- !u!82 &1880524285
 AudioSource:
   m_ObjectHideFlags: 0
@@ -15538,8 +15552,9 @@ MonoBehaviour:
   Ports: []
   Stations: []
   ModulesConnected: []
-  structureHP: 100
+  structureHP: 50
   structureMaxHP: 100
+  energyCapacity: 100
 --- !u!82 &2091759014
 AudioSource:
   m_ObjectHideFlags: 0
@@ -15855,12 +15870,12 @@ PrefabInstance:
     - target: {fileID: 4359111471994340606, guid: 7c0431192da386c46b331c41d144209a,
         type: 3}
       propertyPath: moduleName
-      value: Standard name
+      value: Wings
       objectReference: {fileID: 0}
     - target: {fileID: 4359111471994340606, guid: 7c0431192da386c46b331c41d144209a,
         type: 3}
       propertyPath: moduleDescription
-      value: Standard desc
+      value: flap flap flap
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c0431192da386c46b331c41d144209a, type: 3}
@@ -15956,6 +15971,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 330667375160833604}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1129603032869984017 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4359111471994340606, guid: 7c0431192da386c46b331c41d144209a,
+    type: 3}
+  m_PrefabInstance: {fileID: 330667375160833604}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73664d189a093d1449a2ae061fbcca45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2858423368969695690
 Transform:
   m_ObjectHideFlags: 0
@@ -16071,12 +16098,12 @@ PrefabInstance:
     - target: {fileID: 4681313978937847337, guid: aa43c69f19b2bc945a50fd4636a296d1,
         type: 3}
       propertyPath: moduleName
-      value: Standard name
+      value: Robot Arm
       objectReference: {fileID: 0}
     - target: {fileID: 4681313978937847337, guid: aa43c69f19b2bc945a50fd4636a296d1,
         type: 3}
       propertyPath: moduleDescription
-      value: Standard desc
+      value: All your base are belong to us!
       objectReference: {fileID: 0}
     - target: {fileID: 4681313978937847342, guid: aa43c69f19b2bc945a50fd4636a296d1,
         type: 3}
@@ -16257,6 +16284,7 @@ MonoBehaviour:
   ModulesConnected: []
   structureHP: 100
   structureMaxHP: 100
+  energyCapacity: 100
 --- !u!114 &8074190405654835298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16569,10 +16597,12 @@ MonoBehaviour:
   - {fileID: 1880524284}
   - {fileID: 8074190405654835297}
   - {fileID: 4740566429205196354}
+  - {fileID: 1129603032869984017}
+  - {fileID: 1127926132}
   energy: 500
   energyMax: 1000
-  hp: 500
-  hpMax: 1000
+  structureHP: 500
+  structureHPMax: 1000
   metal: 500
   metalMax: 1000
   metalFatigue: 0
