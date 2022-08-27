@@ -30,7 +30,6 @@ public class PlayerJoystick : MonoBehaviour
         if ( isGrabbedRight)
         {
             joyStick.transform.LookAt(myStation.thisPlayer.rightController.transform.position, transform.up);
-            //StickInput = new Vector2(joyStick.transform.rotation.z*-3f,joyStick.transform.rotation.z*3f);
             StickInput = new Vector2(joyStick.transform.localRotation.eulerAngles.y,joyStick.transform.localRotation.eulerAngles.x);
             if (StickInput.x > 180f) StickInput.x -= 360f;
             if (StickInput.y > 180f) StickInput.y -= 360f;

@@ -22,18 +22,6 @@ public class PlayerCockpit : MonoBehaviour
     private Vector2 joyStickInput;
     private bool holdingJoyStick = false;
 
-    [PunRPC]
-    public void sendCockpitControlSpeed(int changeSpeed)
-    {
-        myShip.controlSpeedStage = speedLeverState = changeSpeed;
-    }
-    [PunRPC]
-    public void sendCockpitControlStick(Vector2 stickInput)
-    {
-        //myShip.controlSpeedStage = speedLeverState = changeSpeed;
-        myShip.controlsYawPitch = stickInput;
-    }
-
     void checkPlayerSeat()
     {
         if (myStation.thisPlayer != null)

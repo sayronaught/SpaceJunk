@@ -36,6 +36,11 @@ public class PlayerShip : MonoBehaviour
     {
         controlSpeedStage = changeSpeed;
     }
+    [PunRPC]
+    public void sendCockpitControlStick(Vector2 stickInput)
+    {
+        controlsYawPitch = stickInput;
+    }
 
     [PunRPC]
     public void updateShipFromHost(Vector3 targetPos,Quaternion targetRot, Vector3 velocity, Vector3 rotation)

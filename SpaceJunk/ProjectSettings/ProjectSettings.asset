@@ -163,7 +163,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.TrollByte.SpaceJunk
-    Standalone: unity.DefaultCompany.FPS2
+    Standalone: com.TrollByte.SpaceJunk
     Tizen: com.Company.ProductName
     iPhone: com.Company.ProductName
     tvOS: com.Company.ProductName

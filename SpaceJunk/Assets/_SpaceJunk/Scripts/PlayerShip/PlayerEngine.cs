@@ -11,14 +11,19 @@ public class PlayerEngine : MonoBehaviour
     [System.Serializable]
     public class thrustState
     {
-        [Header("Lever State")]
+        [Header("Thrust state")]
+        [Tooltip("Is the visible thrust cones on or off?")]
         public bool onOrOff;
-        [Tooltip("What will be written in the display?")]
+        [Tooltip("How big are the thrusters?")]
         public float Size;
+        [Tooltip("how much force does this engine apply?")]
+        public float Force;
     }
     public thrustState[] thrustStates;
 
     public int lastThrustState = 1;
+    [Tooltip("how much force does this engine apply when turning?")]
+    public float navigationThrustForce = 100f;
 
     private Rigidbody myShipRB;
     private float thrust = 0f;
@@ -42,24 +47,16 @@ public class PlayerEngine : MonoBehaviour
                 Thruster.SetActive(false);
             }
         }
-        switch (myShip.controlSpeedStage)
-        {
-            case 0: thrust = -500f; break;
-            case 1: thrust = 500f; break;
-            case 2: thrust = 1000f; break;
-            case 3: thrust = 2500f; break;
-            case 4: thrust = 15000f; break;
-            default:
-                thrust = 0f; break;
-        }
+        thrust = thrustStates[myShip.controlSpeedStage].Force;
+
         if (thrust != 0f) myShipRB.AddRelativeForce(Vector3.forward * thrust * Time.deltaTime);
         if ( myShip.controlsYawPitch.x != 0)
         {
-            myShipRB.AddRelativeTorque(Vector3.up * myShip.controlsYawPitch.x * 500f * Time.deltaTime);
+            myShipRB.AddRelativeTorque(Vector3.up * myShip.controlsYawPitch.x * navigationThrustForce * Time.deltaTime);
         }
         if (myShip.controlsYawPitch.y != 0)
         {
-            myShipRB.AddRelativeTorque(Vector3.left * myShip.controlsYawPitch.y * 500f * Time.deltaTime);
+            myShipRB.AddRelativeTorque(Vector3.left * myShip.controlsYawPitch.y * navigationThrustForce * -1f * Time.deltaTime);
         }
     }
 }
