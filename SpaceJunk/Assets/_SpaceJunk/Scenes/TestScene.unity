@@ -11723,6 +11723,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca8a89e101a8f84ab0a0a64cc040f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MetalStrainLow: []
+  MetalStrainMedium: []
+  MetalStrainHigh: []
 --- !u!1 &1477605480
 GameObject:
   m_ObjectHideFlags: 0
@@ -14238,6 +14241,7 @@ GameObject:
   - component: {fileID: 1950354611}
   - component: {fileID: 1950354613}
   - component: {fileID: 1950354612}
+  - component: {fileID: 1950354614}
   m_Layer: 0
   m_Name: RawImage
   m_TagString: Untagged
@@ -14300,6 +14304,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1950354610}
   m_CullTransparentMesh: 1
+--- !u!114 &1950354614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950354610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2b22ad8c3d3944d8c4b30f5b90372e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Posters:
+  - {fileID: 2800000, guid: 49f5be526b8bb9e41966864562b10a7f, type: 3}
+  - {fileID: 2800000, guid: 7dc51e27e4f8f1b44af53b32525aadc0, type: 3}
+  - {fileID: 2800000, guid: c878bb0e77014bf4c9faab254b71c813, type: 3}
+  Timer: 15
 --- !u!1 &1951001621
 GameObject:
   m_ObjectHideFlags: 0
