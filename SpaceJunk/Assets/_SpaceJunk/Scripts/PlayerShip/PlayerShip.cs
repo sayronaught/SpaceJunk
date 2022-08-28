@@ -24,11 +24,15 @@ public class PlayerShip : MonoBehaviour
     public Vector2 controlsLeft;
     public Vector2 controlsRight;
 
+    public gameManager myGM;
+
     // non hosts, needs to know hwere to move ship towards
     private Vector3 targetPosition;
     private Quaternion targetRotation;
     private float updateTimer = 0f;
     private int updateTimerSkips = 0;
+
+
     private PhotonView myPV;
     private Rigidbody myRB;
 

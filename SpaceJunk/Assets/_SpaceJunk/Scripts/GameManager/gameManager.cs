@@ -19,6 +19,7 @@ public class gameManager : MonoBehaviour
     public List<GameObject> AsteroidPrefabs;
     public int PreferedAsteroidCount = 100;
 
+    public ListOfSoundEffects SoundBank;
 
     private Vector3 spawnPosition;
 

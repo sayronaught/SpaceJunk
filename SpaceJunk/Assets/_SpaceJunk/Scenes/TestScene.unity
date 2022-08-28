@@ -8926,6 +8926,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 124491588}
+  - {fileID: 1436632032}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8961,6 +8962,7 @@ MonoBehaviour:
   - {fileID: 100000, guid: 24be8e1643b8a474fbb57fcda8a1c454, type: 3}
   - {fileID: 100000, guid: 84376f2a0948947b5a6dfe814a1100a0, type: 3}
   PreferedAsteroidCount: 100
+  SoundBank: {fileID: 1436632033}
   refUI: {fileID: 2034550842}
   refUISeat: {fileID: 891639004}
 --- !u!114 &894119121
@@ -11536,6 +11538,7 @@ MonoBehaviour:
   Ports: []
   Stations: []
   ModulesConnected: []
+  myShip: {fileID: 0}
   structureHP: 50
   structureMaxHP: 100
   energyCapacity: 100
@@ -11676,6 +11679,50 @@ MonoBehaviour:
   AmmoSpeed: 10000
   AmmoLifetime: 3
   maxDegreesPerSecond: 3500
+--- !u!1 &1436632031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1436632032}
+  - component: {fileID: 1436632033}
+  m_Layer: 0
+  m_Name: SoundEffects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1436632032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436632031}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 894119119}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1436632033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436632031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca8a89e101a8f84ab0a0a64cc040f9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1477605480
 GameObject:
   m_ObjectHideFlags: 0
@@ -13919,6 +13966,7 @@ MonoBehaviour:
   Ports: []
   Stations: []
   ModulesConnected: []
+  myShip: {fileID: 0}
   structureHP: 50
   structureMaxHP: 100
   energyCapacity: 100
@@ -15552,6 +15600,7 @@ MonoBehaviour:
   Ports: []
   Stations: []
   ModulesConnected: []
+  myShip: {fileID: 0}
   structureHP: 50
   structureMaxHP: 100
   energyCapacity: 100
@@ -16282,6 +16331,7 @@ MonoBehaviour:
   Ports: []
   Stations: []
   ModulesConnected: []
+  myShip: {fileID: 0}
   structureHP: 100
   structureMaxHP: 100
   energyCapacity: 100
@@ -16526,18 +16576,6 @@ MonoBehaviour:
   sceneViewId: 2
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &8897277017676537959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8897277017676537961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46d829c4d5193974cb473f5048c8444f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &8897277017676537960
 Transform:
   m_ObjectHideFlags: 0
@@ -16565,7 +16603,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8897277017676537960}
-  - component: {fileID: 8897277017676537959}
   - component: {fileID: 495481238372652340}
   - component: {fileID: 4441225689750691561}
   - component: {fileID: 3539804630929614025}
@@ -16610,3 +16647,4 @@ MonoBehaviour:
   controlsYawPitch: {x: 0, y: 0}
   controlsLeft: {x: 0, y: 0}
   controlsRight: {x: 0, y: 0}
+  myGM: {fileID: 894119120}
