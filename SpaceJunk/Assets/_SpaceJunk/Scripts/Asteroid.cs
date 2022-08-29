@@ -30,6 +30,7 @@ public class Asteroid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //transform.SetParent(GameObject.Find("Astroids").transform);
         myRB = GetComponent<Rigidbody>();
         myPV = GetComponent<PhotonView>();
         myRB.AddTorque(new Vector3(Random.Range(-randomRotation, randomRotation), Random.Range(-randomRotation, randomRotation), Random.Range(-randomRotation, randomRotation)));
