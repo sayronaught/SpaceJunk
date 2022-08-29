@@ -20,6 +20,6 @@ public class ListOfModulesHpBar : MonoBehaviour
     void Update()
     {
         hpBar.localScale = new Vector3(myMod.structureHP / myMod.structureMaxHP, 1, 1);
-        hpText.text = myMod.structureHP.ToString() + "/" + myMod.structureMaxHP.ToString();
+        hpText.text = myMod.structureHP.ToString("F0") + "/" + myMod.structureMaxHP.ToString();
     }
 }

@@ -19,7 +19,7 @@ public class BasicStats : MonoBehaviour
         energyBar.localScale = new Vector3(myShip.energy/myShip.energyMax, 1, 1);
         energyText.text = myShip.energy.ToString()+"/"+myShip.energyMax.ToString();
         hpBar.localScale = new Vector3(myShip.structureHP / myShip.structureHPMax, 1,1);
-        hpText.text = myShip.structureHP.ToString()+"/"+myShip.structureHPMax.ToString();
+        hpText.text = myShip.structureHP.ToString("F0")+"/"+myShip.structureHPMax.ToString();
         updateTiming = 0.5f;
     }
 

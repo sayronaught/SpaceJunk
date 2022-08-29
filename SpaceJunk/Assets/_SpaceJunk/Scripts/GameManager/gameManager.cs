@@ -64,6 +64,7 @@ public class gameManager : MonoBehaviour
         string name = "rock" + Random.Range(1, 5);
         //Debug.Log("Spawning " + name);
         var Asteroid = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", name), spawnPosition, Quaternion.identity);
+        Asteroid.transform.SetParent(AsteroidContainer);
     }
 
     void nextSeat()

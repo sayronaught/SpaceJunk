@@ -75,6 +75,7 @@ public class PlayerShip : MonoBehaviour
             CalculateHullStrain = myRB.velocity.magnitude * (myRB.angularVelocity.magnitude + 2f);
             foreach ( PlayerModule Module in Modules)
             {
+                Module.TestHullStrain(CalculateHullStrain);
                 structureHP += Module.structureHP;
                 structureHPMax += Module.structureMaxHP;
                 energyMax += Module.energyCapacity;
