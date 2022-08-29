@@ -11421,6 +11421,7 @@ GameObject:
   - component: {fileID: 1424294148}
   - component: {fileID: 1424294150}
   - component: {fileID: 1424294149}
+  - component: {fileID: 1424294151}
   m_Layer: 0
   m_Name: RawImage
   m_TagString: Untagged
@@ -11443,10 +11444,10 @@ RectTransform:
   m_Father: {fileID: 216997002}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -400}
-  m_SizeDelta: {x: 200, y: 800}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1424294149
 MonoBehaviour:
@@ -11483,6 +11484,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1424294147}
   m_CullTransparentMesh: 1
+--- !u!114 &1424294151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424294147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 3
+  m_AspectRatio: 0.25
 --- !u!1 &1430748248
 GameObject:
   m_ObjectHideFlags: 0
@@ -14242,6 +14257,7 @@ GameObject:
   - component: {fileID: 1950354613}
   - component: {fileID: 1950354612}
   - component: {fileID: 1950354614}
+  - component: {fileID: 1950354615}
   m_Layer: 0
   m_Name: RawImage
   m_TagString: Untagged
@@ -14264,10 +14280,10 @@ RectTransform:
   m_Father: {fileID: 1279338890}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -342}
-  m_SizeDelta: {x: 400, y: 400}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1950354612
 MonoBehaviour:
@@ -14321,6 +14337,20 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 7dc51e27e4f8f1b44af53b32525aadc0, type: 3}
   - {fileID: 2800000, guid: c878bb0e77014bf4c9faab254b71c813, type: 3}
   Timer: 15
+--- !u!114 &1950354615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950354610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 3
+  m_AspectRatio: 1
 --- !u!1 &1951001621
 GameObject:
   m_ObjectHideFlags: 0
