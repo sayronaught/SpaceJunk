@@ -47,8 +47,8 @@ public class PlayerTurret : MonoBehaviour
         {
             //var shot = Instantiate(AmmoPrefab, barrelEnds[currentBarrel].position, barrelEnds[currentBarrel].rotation);
             var shot = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", AmmoPrefabName), barrel.position, barrel.rotation);
-            shot.GetComponent<Rigidbody>().AddForce(barrelEnds[currentBarrel].forward * AmmoSpeed);
-            Destroy(shot, AmmoLifetime);
+            //shot.GetComponent<Rigidbody>().AddForce(barrel.forward * AmmoSpeed);
+            //Destroy(shot, AmmoLifetime);
         }
         myAS.Play();
     }
