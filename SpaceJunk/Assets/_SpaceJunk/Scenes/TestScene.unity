@@ -11937,6 +11937,7 @@ GameObject:
   - component: {fileID: 1424294150}
   - component: {fileID: 1424294149}
   - component: {fileID: 1424294151}
+  - component: {fileID: 1424294152}
   m_Layer: 0
   m_Name: RawImage
   m_TagString: Untagged
@@ -12013,6 +12014,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AspectMode: 3
   m_AspectRatio: 0.25
+--- !u!114 &1424294152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424294147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2b22ad8c3d3944d8c4b30f5b90372e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Posters:
+  - {fileID: 2800000, guid: 230a824c8d227c340ac0cbe6ce02bfb3, type: 3}
+  - {fileID: 2800000, guid: 4698a3df8acd4334cababa393293fe9f, type: 3}
+  - {fileID: 2800000, guid: 0496e6daf55768448afa834f87a76065, type: 3}
+  Timer: 15
+  dontChange: 0
+  randomChange: 1
 --- !u!1 &1430748248
 GameObject:
   m_ObjectHideFlags: 0
@@ -15244,9 +15264,10 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 49f5be526b8bb9e41966864562b10a7f, type: 3}
   - {fileID: 2800000, guid: 7dc51e27e4f8f1b44af53b32525aadc0, type: 3}
   - {fileID: 2800000, guid: c878bb0e77014bf4c9faab254b71c813, type: 3}
+  - {fileID: 2800000, guid: 850e3902672561f489282b71e21dbb19, type: 3}
   Timer: 15
   dontChange: 0
-  randomChange: 0
+  randomChange: 1
 --- !u!114 &1950354615
 MonoBehaviour:
   m_ObjectHideFlags: 0
