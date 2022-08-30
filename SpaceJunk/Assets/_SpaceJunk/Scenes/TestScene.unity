@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.090857305, g: 0.03239295, b: 0.13494563, a: 1}
+  m_IndirectSpecularColor: {r: 0.09117865, g: 0.03316388, b: 0.13493326, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -825,7 +825,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1278153459}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999999
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15035,7 +15035,7 @@ MonoBehaviour:
   AmmoLifetime: 3
   energyCost: 50
   maxDegreesPerSecond: 35
-  myShip: {fileID: 0}
+  myShip: {fileID: 8897277017676537962}
 --- !u!114 &1880524287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16859,7 +16859,7 @@ MonoBehaviour:
   AmmoLifetime: 3
   energyCost: 50
   maxDegreesPerSecond: 35
-  myShip: {fileID: 0}
+  myShip: {fileID: 8897277017676537962}
 --- !u!1 &2131624191
 GameObject:
   m_ObjectHideFlags: 0

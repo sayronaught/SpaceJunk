@@ -59,9 +59,12 @@ public class PlayerShip : MonoBehaviour
     }
 
     [PunRPC]
-    public void updateClientFromMasterUpdateTick()
+    public void updateClientFromMasterUpdateTick(int en, int enMax, int hp, int hpMax)
     { // host sends tick info
-        
+        energy = en;
+        energyMax = enMax;
+        structureHP = hp;
+        structureHPMax = hpMax;
     }
 
     private void masterClientUpdateTick()
@@ -81,6 +84,7 @@ public class PlayerShip : MonoBehaviour
                 energyMax += Module.energyCapacity;
             }
             if (energy < energyMax) energy++;
+            myPV.RPC("updateClientFromMasterUpdateTick", RpcTarget.All, energy, energyMax, structureHP, structureHPMax);
             updateTimerSkips = 0;
         }
     }
