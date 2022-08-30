@@ -12,6 +12,8 @@ public class PlayerJoystick : MonoBehaviour
     public bool isGrabbedLeft = false;
     public bool isGrabbedRight = false;
 
+    public float engineTurnRate = 0.3f;
+
     public Vector2 StickInput;
 
     public Vector2 getJoyStickInput()
@@ -42,7 +44,10 @@ public class PlayerJoystick : MonoBehaviour
             joyStick.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
             StickInput = Vector2.zero;
         }
-        
+
+        StickInput.x *= engineTurnRate;
+        StickInput.y *= engineTurnRate;
+
         return StickInput;
     }
 
