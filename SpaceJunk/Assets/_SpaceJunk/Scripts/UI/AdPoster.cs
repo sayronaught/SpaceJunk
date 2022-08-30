@@ -8,10 +8,14 @@ public class AdPoster : MonoBehaviour
     public List<Texture> Posters;
     public float Timer = 15f;
 
+    public bool dontChange;
+    public bool randomChange;
+
     private RawImage myImage;
 
     private int currentImage = 0;
     private float nextTimer = 200f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,13 +27,29 @@ public class AdPoster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ( nextTimer < 0f)
+        if (!dontChange && Posters.Count > 1)
         {
-            currentImage++;
-            if (currentImage >= Posters.Count) currentImage = 0;
-            myImage.texture = Posters[currentImage];
-            nextTimer = Timer;
+            Debug.Log("cc");
+            if (nextTimer < 0f)
+            {
+                if (!randomChange)
+                {
+                    currentImage++;
+                    if (currentImage >= Posters.Count) currentImage = 0;
+                    myImage.texture = Posters[currentImage];
+                }
+                if (randomChange)
+                {
+                    int oldPoster = currentImage;
+                    while(oldPoster == currentImage)
+                    {
+                        currentImage = Random.Range(0, Posters.Count);
+                    }
+                    myImage.texture = Posters[currentImage];
+                }
+                nextTimer = Timer;
+            }
+            nextTimer -= Time.deltaTime;
         }
-        nextTimer -= Time.deltaTime;
     }
 }
