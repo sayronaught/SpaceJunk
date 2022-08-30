@@ -14,8 +14,11 @@ public class PlayerTurret : MonoBehaviour
     public string AmmoPrefabName = "Laser1";
     public float AmmoSpeed = 10000f;
     public float AmmoLifetime = 3f;
+    public float energyCost = 50f;
 
     public float maxDegreesPerSecond = 35f;
+
+    public PlayerShip myShip;
 
     private PlayerStation MyStation;
     private AudioSource myAS;
@@ -43,14 +46,19 @@ public class PlayerTurret : MonoBehaviour
     [PunRPC]
     private void fireTheTurret()
     {
-        foreach ( Transform barrel in barrelEnds)
+        if (myShip.energy >= energyCost)
         {
-            //var shot = Instantiate(AmmoPrefab, barrelEnds[currentBarrel].position, barrelEnds[currentBarrel].rotation);
-            var shot = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", AmmoPrefabName), barrel.position, barrel.rotation);
-            //shot.GetComponent<Rigidbody>().AddForce(barrel.forward * AmmoSpeed);
-            //Destroy(shot, AmmoLifetime);
+            myShip.energy -= energyCost;
+            foreach (Transform barrel in barrelEnds)
+            {
+                //var shot = Instantiate(AmmoPrefab, barrelEnds[currentBarrel].position, barrelEnds[currentBarrel].rotation);
+                var shot = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", AmmoPrefabName), barrel.position, barrel.rotation);
+                //shot.GetComponent<Rigidbody>().AddForce(barrel.forward * AmmoSpeed);
+                //Destroy(shot, AmmoLifetime);
+            }
+            myAS.Play();
         }
-        myAS.Play();
+        else myAS.Play();
     }
 
     // Start is called before the first frame update

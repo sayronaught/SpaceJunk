@@ -80,7 +80,7 @@ public class PlayerShip : MonoBehaviour
                 structureHPMax += Module.structureMaxHP;
                 energyMax += Module.energyCapacity;
             }
-            energy++;
+            if (energy < energyMax) energy++;
             updateTimerSkips = 0;
         }
     }

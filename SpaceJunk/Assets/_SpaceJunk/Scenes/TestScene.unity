@@ -12230,7 +12230,9 @@ MonoBehaviour:
   AmmoPrefabName: Laser1
   AmmoSpeed: 10000
   AmmoLifetime: 3
+  energyCost: 50
   maxDegreesPerSecond: 3500
+  myShip: {fileID: 8897277017676537962}
 --- !u!1 &1436632031
 GameObject:
   m_ObjectHideFlags: 0
@@ -15031,7 +15033,9 @@ MonoBehaviour:
   AmmoPrefabName: Laser1
   AmmoSpeed: 10000
   AmmoLifetime: 3
+  energyCost: 50
   maxDegreesPerSecond: 35
+  myShip: {fileID: 0}
 --- !u!114 &1880524287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16853,7 +16857,9 @@ MonoBehaviour:
   AmmoPrefabName: Laser1
   AmmoSpeed: 10000
   AmmoLifetime: 3
+  energyCost: 50
   maxDegreesPerSecond: 35
+  myShip: {fileID: 0}
 --- !u!1 &2131624191
 GameObject:
   m_ObjectHideFlags: 0
