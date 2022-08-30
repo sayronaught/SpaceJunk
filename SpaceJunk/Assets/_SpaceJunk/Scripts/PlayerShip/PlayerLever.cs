@@ -25,10 +25,14 @@ public class PlayerLever : MonoBehaviour
     public leverState[] leverStates;
     public int currentLeverPosition;
 
+    public float nextStepDelay = 1f;
+
     private bool isGrabbedLeft = false;
     private bool isGrabbedRight = false;
 
     private AudioSource myAS;
+
+    private float gearChangeTimer = 0f;
 
     void setLever()
     {
@@ -60,14 +64,46 @@ public class PlayerLever : MonoBehaviour
         }
         if ( isGrabbedLeft )
         { // they have grabbed it, lets check if they move it
-            if (leverUp.bounds.Contains(myStation.thisPlayer.leftController.transform.position))
+            if (leverUp.bounds.Contains(myStation.thisPlayer.leftController.transform.position) && gearChangeTimer <= 0f )
             {
-                if (currentLeverPosition < leverStates.Length) changeLeverState(currentLeverPosition + 1);
-      
+                if (currentLeverPosition < leverStates.Length)
+                {
+                    changeLeverState(currentLeverPosition + 1);
+                    gearChangeTimer = nextStepDelay;
+                }
             }
-            if (leverDown.bounds.Contains(myStation.thisPlayer.leftController.transform.position))
+            if (leverDown.bounds.Contains(myStation.thisPlayer.leftController.transform.position) && gearChangeTimer <= 0f )
             {
-                if (currentLeverPosition > 0) changeLeverState(currentLeverPosition - 1);
+                if (currentLeverPosition > 0) 
+                {
+                    changeLeverState(currentLeverPosition - 1);
+                    gearChangeTimer = nextStepDelay;
+                }
+            }
+        }
+
+        if (isGrabbedRight && !myStation.thisPlayer.playerRightGrab) isGrabbedRight = false;
+        if (!isGrabbedRight && myStation.thisPlayer.playerRightGrab)
+        {// only do this check when both are true, since this takes come CPU time
+            if (leverGrab.bounds.Contains(myStation.thisPlayer.rightController.transform.position)) isGrabbedRight = true;
+        }
+        if (isGrabbedRight)
+        { // they have grabbed it, lets check if they move it
+            if (leverUp.bounds.Contains(myStation.thisPlayer.rightController.transform.position) && gearChangeTimer <= 0f)
+            {
+                if (currentLeverPosition < leverStates.Length)
+                {
+                    changeLeverState(currentLeverPosition + 1);
+                    gearChangeTimer = nextStepDelay;
+                }
+            }
+            if (leverDown.bounds.Contains(myStation.thisPlayer.rightController.transform.position) && gearChangeTimer <= 0f)
+            {
+                if (currentLeverPosition > 0)
+                {
+                    changeLeverState(currentLeverPosition - 1);
+                    gearChangeTimer = nextStepDelay;
+                }
             }
         }
         return currentLeverPosition;
@@ -83,6 +119,8 @@ public class PlayerLever : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        gearChangeTimer -= Time.deltaTime;
     }
+
+    
 }

@@ -23,6 +23,26 @@ public class PlayerJoystick : MonoBehaviour
             isGrabbedLeft = false;
             isGrabbedRight = false;
         }
+        if (isGrabbedLeft && !myStation.thisPlayer.playerLeftGrab) isGrabbedLeft = false;
+        if (myStation.thisPlayer)
+        {
+            if (!isGrabbedLeft && myStation.thisPlayer.playerLeftGrab)
+            {// only do this check when both are true, since this takes come CPU time
+                if (JoystickZone.bounds.Contains(myStation.thisPlayer.leftController.transform.position))
+                    isGrabbedLeft = true;
+            }
+        }
+        if (isGrabbedLeft)
+        {
+            joyStick.transform.LookAt(myStation.thisPlayer.leftController.transform.position, transform.up);
+            StickInput = new Vector2(joyStick.transform.localRotation.eulerAngles.y, joyStick.transform.localRotation.eulerAngles.x);
+            if (StickInput.x > 180f) StickInput.x -= 360f;
+            if (StickInput.y > 180f) StickInput.y -= 360f;
+            if (!JoystickZone.bounds.Contains(myStation.thisPlayer.leftController.transform.position))
+                isGrabbedLeft = false;
+        }
+
+
         if (isGrabbedRight && !myStation.thisPlayer.playerRightGrab) isGrabbedRight = false;
         if (myStation.thisPlayer )
         { 
@@ -40,7 +60,10 @@ public class PlayerJoystick : MonoBehaviour
             if (StickInput.y > 180f) StickInput.y -= 360f;
             if (!JoystickZone.bounds.Contains(myStation.thisPlayer.rightController.transform.position))
                 isGrabbedRight = false;
-        } else {
+        }
+
+        if (!isGrabbedRight && !isGrabbedLeft)
+        {
             joyStick.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
             StickInput = Vector2.zero;
         }

@@ -8439,6 +8439,7 @@ MonoBehaviour:
     text: Ludicrous Speed
     color: {r: 1, g: 0, b: 0, a: 1}
   currentLeverPosition: 1
+  nextStepDelay: 1
 --- !u!82 &766638935
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9756,7 +9757,7 @@ MonoBehaviour:
   myStation: {fileID: 1351485387}
   isGrabbedLeft: 0
   isGrabbedRight: 0
-  engineTurnRate: 0.3
+  engineTurnRate: 0.2
   StickInput: {x: 0, y: 0}
 --- !u!1 &976469359
 GameObject:
@@ -9992,7 +9993,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0035, y: 0.0035, z: 0.0025}
+  m_Size: {x: 0.003, y: 0.003, z: 0.002}
   m_Center: {x: 0, y: 0, z: 0.0025}
 --- !u!1 &999403360
 GameObject:

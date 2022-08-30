@@ -60,3 +60,8 @@ crashlytics-build.properties
 
 SpaceJunk/UserSettings/Layouts/default-2021.dwlt
 *.dwlt
+SpaceJunk/Assets/XR/Settings/Open XR Package Settings.asset
+SpaceJunk/Assets/Resources/PhotonPrefabs/rock4.prefab
+SpaceJunk/Assets/Resources/PhotonPrefabs/rock3.prefab
+SpaceJunk/Assets/Resources/PhotonPrefabs/rock2.prefab
+SpaceJunk/Assets/Resources/PhotonPrefabs/rock1.prefab
