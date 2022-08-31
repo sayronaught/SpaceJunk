@@ -8584,6 +8584,8 @@ MonoBehaviour:
   maxPlayers: 1
   currentPlayers: 0
   thisPlayer: {fileID: 0}
+  DroneStation: 0
+  DronePrefabName: 
 --- !u!114 &794875989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9201,6 +9203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vrControls: {fileID: 1725982595}
   myXrRig: {fileID: 1725982592}
+  myShip: {fileID: 8897277017676537962}
   testSeat: {fileID: 2076597009}
   testSeats:
   - {fileID: 2076597010}
@@ -9210,6 +9213,7 @@ MonoBehaviour:
   - {fileID: 1720783218}
   - {fileID: 794875988}
   - {fileID: 981076176}
+  - {fileID: 8075730555623660096}
   seat: 0
   AsteroidContainer: {fileID: 124491588}
   AsteroidPrefabs:
@@ -9218,7 +9222,7 @@ MonoBehaviour:
   - {fileID: 100000, guid: 7b5f2f9ea19c74c659ab8ac969280fb2, type: 3}
   - {fileID: 100000, guid: 24be8e1643b8a474fbb57fcda8a1c454, type: 3}
   - {fileID: 100000, guid: 84376f2a0948947b5a6dfe814a1100a0, type: 3}
-  PreferedAsteroidCount: 100
+  PreferedAsteroidCount: 300
   SoundBank: {fileID: 1436632033}
   refUI: {fileID: 2034550842}
   refUISeat: {fileID: 891639004}
@@ -9852,6 +9856,8 @@ MonoBehaviour:
   maxPlayers: 1
   currentPlayers: 0
   thisPlayer: {fileID: 0}
+  DroneStation: 0
+  DronePrefabName: 
 --- !u!114 &981076177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10743,6 +10749,8 @@ MonoBehaviour:
   maxPlayers: 100
   currentPlayers: 0
   thisPlayer: {fileID: 0}
+  DroneStation: 0
+  DronePrefabName: 
 --- !u!114 &1242237040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13597,6 +13605,8 @@ MonoBehaviour:
   maxPlayers: 1
   currentPlayers: 0
   thisPlayer: {fileID: 0}
+  DroneStation: 0
+  DronePrefabName: 
 --- !u!114 &1720783219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16637,6 +16647,8 @@ MonoBehaviour:
   maxPlayers: 100
   currentPlayers: 0
   thisPlayer: {fileID: 0}
+  DroneStation: 0
+  DronePrefabName: 
 --- !u!114 &2076597011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17516,6 +17528,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 543450653614574722}
     m_Modifications:
+    - target: {fileID: 250296492898403631, guid: 4b52cf9d37117274eb27d0efb26c683c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3592502699114738814, guid: 4b52cf9d37117274eb27d0efb26c683c,
         type: 3}
       propertyPath: m_RootOrder
@@ -17596,8 +17613,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: StarterFrame
       objectReference: {fileID: 0}
+    - target: {fileID: 5816668228855698968, guid: 4b52cf9d37117274eb27d0efb26c683c,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b52cf9d37117274eb27d0efb26c683c, type: 3}
+--- !u!114 &8075730555623660096 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3424884611570424640, guid: 4b52cf9d37117274eb27d0efb26c683c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8075730555623660095}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab1c6fbe7e159848a790190ed2c8d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8314906475211098451
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17689,6 +17723,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314906476544233113, guid: 6a82ab22b6bcf1546bfa5318e39bc9ab,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314906476544233113, guid: 6a82ab22b6bcf1546bfa5318e39bc9ab,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314906476544233113, guid: 6a82ab22b6bcf1546bfa5318e39bc9ab,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8314906476544233113, guid: 6a82ab22b6bcf1546bfa5318e39bc9ab,
         type: 3}

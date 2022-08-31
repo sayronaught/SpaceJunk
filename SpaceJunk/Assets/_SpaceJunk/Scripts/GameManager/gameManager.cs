@@ -11,6 +11,7 @@ public class gameManager : MonoBehaviour
     public PlayerVrControls vrControls;
 
     public GameObject myXrRig;
+    public PlayerShip myShip;
     public Transform testSeat;
     public List<PlayerStation> testSeats;
     public int seat = 0;
@@ -47,13 +48,13 @@ public class gameManager : MonoBehaviour
 
     void spawnAsteroid()
     {
-        spawnPosition = new Vector3(Random.Range(-200f, 200f), Random.Range(-200f, 200f), Random.Range(-200f, 200f));
-        if (spawnPosition.x > -100f && spawnPosition.x < 100f &&
-            spawnPosition.y > -100f && spawnPosition.y < 100f &&
-            spawnPosition.z > -100f && spawnPosition.z < 100f) return;
+        spawnPosition = new Vector3(Random.Range(-500f, 500f), Random.Range(-500f, 500f), Random.Range(-500f, 500f));
+        if (spawnPosition.x > -200f && spawnPosition.x < 200f &&
+            spawnPosition.y > -200f && spawnPosition.y < 200f &&
+            spawnPosition.z > -200f && spawnPosition.z < 200f) return;
         string name = "rock" + Random.Range(1, 5);
-        //Debug.Log("Spawning " + name);
-        var Asteroid = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", name), spawnPosition, Quaternion.identity);
+        var Asteroid = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", name), myShip.transform.position + spawnPosition, Quaternion.identity);
+        Asteroid.GetComponent<Asteroid>().ThePlayersShip = myShip;
         Asteroid.transform.SetParent(AsteroidContainer);
     }
 
@@ -70,7 +71,10 @@ public class gameManager : MonoBehaviour
         testSeat = testSeats[seat].transform;
         if ( testSeats[seat].DroneStation )
         { // Drone station
-            var Asteroid = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", testSeats[seat].DronePrefabName), testSeat.position, testSeat.rotation);
+            var Drone = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", testSeats[seat].DronePrefabName), testSeat.position, testSeat.rotation);
+            myXrRig.transform.position = Drone.transform.GetChild(0).position;
+            myXrRig.transform.SetParent(Drone.transform.GetChild(0));
+            Drone.GetComponent<PlayerDroneController>().thisPlayer = myVrControls;
         } else { // regular seat
             myXrRig.transform.position = testSeat.position;
             myXrRig.transform.SetParent(testSeat);

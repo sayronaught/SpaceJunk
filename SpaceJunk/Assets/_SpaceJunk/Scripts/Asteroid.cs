@@ -8,6 +8,9 @@ public class Asteroid : MonoBehaviour
     public float randomRotation = 500f;
     public float randomSpeed = 150f;
     public float randomScale = 5f;
+
+    public PlayerShip ThePlayersShip;
+
     private Rigidbody myRB;
     private PhotonView myPV;
 
@@ -27,6 +30,12 @@ public class Asteroid : MonoBehaviour
         //currentPlayers = players;
     }
 
+    [PunRPC]
+    public void RemoveAsteroid()
+    {
+        Destroy(gameObject, 1f);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +52,13 @@ public class Asteroid : MonoBehaviour
     {
         if (PhotonNetwork.IsMasterClient && updateTimer < 0f)
         {
-            myPV.RPC("updateAsteroid", RpcTarget.All, myRB.velocity,myRB.rotation, transform.position, transform.rotation, transform.localScale);
+            if ( Vector3.Distance(ThePlayersShip.transform.position,transform.position) < 500f)
+            {// close enough
+                myPV.RPC("updateAsteroid", RpcTarget.All, myRB.velocity, myRB.rotation, transform.position, transform.rotation, transform.localScale);
+            } else { // too far away
+                myPV.RPC("RemoveAsteroid", RpcTarget.All);
+            }
+            
             updateTimer = 5f;
         }
         updateTimer -= Time.deltaTime;

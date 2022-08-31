@@ -116,6 +116,7 @@ MonoBehaviour:
   randomRotation: 500
   randomSpeed: 500
   randomScale: 10
+  ThePlayersShip: {fileID: 0}
 --- !u!54 &-7131422313435995016
 Rigidbody:
   m_ObjectHideFlags: 0
