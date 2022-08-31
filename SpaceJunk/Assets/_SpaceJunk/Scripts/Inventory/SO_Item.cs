@@ -5,6 +5,8 @@ public class SO_Item : ScriptableObject
 {
     public string itemName;
 
+    public string itemDescription;
+
     public Texture itemIcon;
 
     public float itemMass;

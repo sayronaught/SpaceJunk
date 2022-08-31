@@ -6,6 +6,13 @@ using UnityEngine;
 public class PlayerDroneController : MonoBehaviour
 {
 
+    public GameObject MyThruster;
+    public Transform myDrill;
+    public Transform drillActive;
+    public Transform drillInactive;
+    public AudioSource myDrillSound;
+    public BoxCollider miningZone;
+
     public PlayerVrControls thisPlayer;
 
     public bool holdingRight;
@@ -40,6 +47,7 @@ public class PlayerDroneController : MonoBehaviour
         { // this Drone is controlled by player, otherwise ignore
             if (thisPlayer.playerRightGrab)
             {
+                MyThruster.SetActive(true);
                 if (holdingRight)
                 { // we have a start pos
                     moveFromRight();
@@ -49,9 +57,18 @@ public class PlayerDroneController : MonoBehaviour
                     RightStartRot = thisPlayer.rightController.transform.localRotation;
                 }
             } else {
+                MyThruster.SetActive(false);
                 holdingRight = false;
                 RightStartPos = Vector3.zero;
                 RightStartRot = Quaternion.identity;
+            }
+            if ( thisPlayer.playerRightTrigger)
+            {
+                myDrill.transform.localPosition = Vector3.Slerp(myDrill.transform.localPosition, drillActive.transform.localPosition, Time.deltaTime * 0.25f);
+                myDrillSound.volume = 0.2f;
+            } else {
+                myDrill.transform.localPosition = Vector3.Slerp(myDrill.transform.localPosition, drillInactive.transform.localPosition, Time.deltaTime * 0.25f);
+                myDrillSound.volume = 0f;
             }
         }
     }
