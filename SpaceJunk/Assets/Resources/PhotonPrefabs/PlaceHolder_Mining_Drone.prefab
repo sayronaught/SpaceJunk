@@ -293,6 +293,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisPlayer: {fileID: 0}
+  holdingRight: 0
+  RightStartPos: {x: 0, y: 0, z: 0}
+  RightStartRot: {x: 0, y: 0, z: 0}
 --- !u!114 &4038861346641551109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,7 +388,7 @@ PrefabInstance:
     - target: {fileID: 82000010889710720, guid: 7105fbbfff4b9af46886e2c1451b06d9,
         type: 3}
       propertyPath: m_Volume
-      value: 0.2
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 114000012879519352, guid: 7105fbbfff4b9af46886e2c1451b06d9,
         type: 3}

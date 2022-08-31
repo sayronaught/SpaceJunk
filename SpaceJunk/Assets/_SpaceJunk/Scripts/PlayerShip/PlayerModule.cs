@@ -20,7 +20,6 @@ public class PlayerModule : MonoBehaviour
 
     public void TestHullStrain(float CalculateHullStrain)
     {
-        Debug.Log("den kører");
         if ((Random.Range(1, 6) == 1)) structureHP++;
         if ( Random.Range(0f,100f) <= CalculateHullStrain )
         { // percentage chance each hull part takes damage
