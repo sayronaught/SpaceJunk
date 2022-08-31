@@ -16,6 +16,8 @@ public class gameManager : MonoBehaviour
     public List<PlayerStation> testSeats;
     public int seat = 0;
 
+    public PlayerDroneController activeDrone;
+
     public Transform AsteroidContainer;
     public List<GameObject> AsteroidPrefabs;
     public int PreferedAsteroidCount = 100;
@@ -72,9 +74,8 @@ public class gameManager : MonoBehaviour
         if ( testSeats[seat].DroneStation )
         { // Drone station
             var Drone = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", testSeats[seat].DronePrefabName), testSeat.position, testSeat.rotation);
-            myXrRig.transform.position = Drone.transform.GetChild(0).position;
-            myXrRig.transform.SetParent(Drone.transform.GetChild(0));
-            Drone.GetComponent<PlayerDroneController>().thisPlayer = myVrControls;
+            activeDrone = Drone.GetComponent<PlayerDroneController>();
+            activeDrone.thisPlayer = myVrControls;
         } else { // regular seat
             myXrRig.transform.position = testSeat.position;
             myXrRig.transform.SetParent(testSeat);
@@ -92,9 +93,15 @@ public class gameManager : MonoBehaviour
     {
         if ( vrControls.playerHasHeadSet )
         {// player has headset
-            myXrRig.transform.position = testSeat.position;
-            myXrRig.transform.SetParent(testSeat);
             refUI.SetActive(false);
+            if ( activeDrone )
+            { // move player into drone
+                myXrRig.transform.position = activeDrone.transform.GetChild(0).position;
+                myXrRig.transform.SetParent(activeDrone.transform.GetChild(0));
+            } else {
+                myXrRig.transform.position = testSeat.position;
+                myXrRig.transform.SetParent(testSeat);
+            }
         } else { // player have no headset
             myXrRig.transform.position = refUISeat.transform.position;
             myXrRig.transform.SetParent(refUISeat.transform);
