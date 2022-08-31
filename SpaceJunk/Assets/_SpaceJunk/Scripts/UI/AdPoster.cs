@@ -29,7 +29,6 @@ public class AdPoster : MonoBehaviour
     {
         if (!dontChange && Posters.Count > 1)
         {
-            Debug.Log("cc");
             if (nextTimer < 0f)
             {
                 if (!randomChange)

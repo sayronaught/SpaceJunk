@@ -59,7 +59,7 @@ public class PlayerShip : MonoBehaviour
     }
 
     [PunRPC]
-    public void updateClientFromMasterUpdateTick(int en, int enMax, int hp, int hpMax)
+    public void updateClientFromMasterUpdateTick(float en, float enMax, float hp, float hpMax)
     { // host sends tick info
         energy = en;
         energyMax = enMax;
