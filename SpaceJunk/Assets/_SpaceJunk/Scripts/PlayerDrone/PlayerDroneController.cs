@@ -10,13 +10,13 @@ public class PlayerDroneController : MonoBehaviour
 
     public bool holdingRight;
     public Vector3 RightStartPos;
-    public Vector3 RightStartRot;
+    public Quaternion RightStartRot;
 
     private PhotonView myPV;
     private Rigidbody myRB;
 
     private Vector3 movementCalc;
-    private Vector3 rotationCalc;
+    private Quaternion rotationCalc;
 
     // Start is called before the first frame update
     void Start()
@@ -28,12 +28,9 @@ public class PlayerDroneController : MonoBehaviour
     private void moveFromRight()
     {
         movementCalc = RightStartPos - thisPlayer.rightController.transform.localPosition;
-        myRB.AddForce(movementCalc*-100f);
-        rotationCalc = RightStartRot - thisPlayer.rightController.transform.localRotation.eulerAngles;
-        if (rotationCalc.x > 180f) rotationCalc.x -= 360f;
-        if (rotationCalc.y > 180f) rotationCalc.y -= 360f;
-        if (rotationCalc.z > 180f) rotationCalc.z -= 360f;
-        myRB.AddRelativeTorque(rotationCalc*0.00005f);
+        myRB.AddRelativeForce(movementCalc*-100f);
+        rotationCalc = RightStartRot * Quaternion.Inverse(thisPlayer.rightController.transform.localRotation);
+        myRB.AddRelativeTorque(rotationCalc.x*-2f,rotationCalc.y * -2f, rotationCalc.z * -1f);
     }
 
     // Update is called once per frame
@@ -49,12 +46,12 @@ public class PlayerDroneController : MonoBehaviour
                 } else { // we do not, this is the time get one
                     holdingRight = true;
                     RightStartPos = thisPlayer.rightController.transform.localPosition;
-                    RightStartRot = thisPlayer.rightController.transform.localRotation.eulerAngles;
+                    RightStartRot = thisPlayer.rightController.transform.localRotation;
                 }
             } else {
                 holdingRight = false;
                 RightStartPos = Vector3.zero;
-                RightStartRot = Vector3.zero;
+                RightStartRot = Quaternion.identity;
             }
         }
     }
