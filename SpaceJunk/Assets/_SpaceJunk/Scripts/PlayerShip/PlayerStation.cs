@@ -10,6 +10,9 @@ public class PlayerStation : MonoBehaviour
 
     public PlayerVrControls thisPlayer;
 
+    public bool DroneStation = false;
+    public string DronePrefabName;
+
     private PhotonView myPV;
 
     // update this number on other machines in-game

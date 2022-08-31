@@ -42,17 +42,7 @@ public class gameManager : MonoBehaviour
         myXrRig.transform.position = testSeats[seat].transform.position;
         myXrRig.transform.SetParent(testSeats[seat].transform);
         testSeats[seat].currentPlayers++;
-        // while( true )
-        // {
-        /*await Task.Delay(1000);
-            if ( GameObject.Find("PlayerShip(Clone)") != null )
-            {
-                myXrRig.transform.SetParent(GameObject.Find("PlayerShip(Clone)").transform);
-                return;
-            }*/
         await Task.Yield();
-
-       // }       
     }
 
     void spawnAsteroid()
@@ -78,8 +68,13 @@ public class gameManager : MonoBehaviour
         }
         testSeats[seat].addCurrentPlayer(myVrControls);
         testSeat = testSeats[seat].transform;
-        myXrRig.transform.position = testSeat.position;
-        myXrRig.transform.SetParent(testSeat);
+        if ( testSeats[seat].DroneStation )
+        { // Drone station
+            var Asteroid = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", testSeats[seat].DronePrefabName), testSeat.position, testSeat.rotation);
+        } else { // regular seat
+            myXrRig.transform.position = testSeat.position;
+            myXrRig.transform.SetParent(testSeat);
+        }
         nextButtonTimer = 1f;
     }
     // Start is called before the first frame update
