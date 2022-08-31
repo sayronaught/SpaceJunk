@@ -11,6 +11,14 @@ public class Asteroid : MonoBehaviour
 
     public PlayerShip ThePlayersShip;
 
+    [System.Serializable]
+    public class Resource
+    {
+        public SO_Item item;
+        public float amount;
+    }
+    public List<Resource> MineableResources;
+
     private Rigidbody myRB;
     private PhotonView myPV;
 
