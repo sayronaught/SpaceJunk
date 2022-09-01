@@ -11,9 +11,10 @@ public class PlayerDroneController : MonoBehaviour
     public Transform drillActive;
     public Transform drillInactive;
     public AudioSource myDrillSound;
-    public BoxCollider miningZone;
+    public PlayerDroneDrillHead myDrillHead;
 
     public PlayerVrControls thisPlayer;
+    public PlayerStation thisStation;
 
     public bool holdingRight;
     public Vector3 RightStartPos;
@@ -33,16 +34,32 @@ public class PlayerDroneController : MonoBehaviour
     }
 
     private void moveFromRight()
-    {
+    { // player is controlling from right controller
         movementCalc = RightStartPos - thisPlayer.rightController.transform.localPosition;
         myRB.AddRelativeForce(movementCalc*-100f);
         rotationCalc = RightStartRot * Quaternion.Inverse(thisPlayer.rightController.transform.localRotation);
         myRB.AddRelativeTorque(rotationCalc.x*-2f,rotationCalc.y * -2f, rotationCalc.z * -1f);
     }
 
+    private void Mining()
+    { // player is trying to mine
+        if ( myDrillHead.AsteroidsInRange.Count > 0)
+        { // is there any asteroid in range?
+
+        }
+    }
+
+    private void PlayerLeftDrone()
+    { // player has moved on from the drone
+
+        // move to bay, transfer inventory, THEN remove it.. for now, just remove it..
+        Destroy(gameObject, 10f);
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (!thisStation.thisPlayer) PlayerLeftDrone();
         if (thisPlayer)
         { // this Drone is controlled by player, otherwise ignore
             if (thisPlayer.playerRightGrab)
@@ -62,10 +79,11 @@ public class PlayerDroneController : MonoBehaviour
                 RightStartPos = Vector3.zero;
                 RightStartRot = Quaternion.identity;
             }
-            if ( thisPlayer.playerRightTrigger)
+            if ( thisPlayer.playerRightTrigger || thisPlayer.playerLeftTrigger )
             {
                 myDrill.transform.localPosition = Vector3.Slerp(myDrill.transform.localPosition, drillActive.transform.localPosition, Time.deltaTime * 0.25f);
                 myDrillSound.volume = 0.2f;
+                Mining();
             } else {
                 myDrill.transform.localPosition = Vector3.Slerp(myDrill.transform.localPosition, drillInactive.transform.localPosition, Time.deltaTime * 0.25f);
                 myDrillSound.volume = 0f;

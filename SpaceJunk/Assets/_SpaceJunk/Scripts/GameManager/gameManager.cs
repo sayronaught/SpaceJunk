@@ -76,6 +76,7 @@ public class gameManager : MonoBehaviour
             var Drone = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", testSeats[seat].DronePrefabName), testSeat.position, testSeat.rotation);
             activeDrone = Drone.GetComponent<PlayerDroneController>();
             activeDrone.thisPlayer = myVrControls;
+            activeDrone.thisStation = testSeats[seat];
         } else { // regular seat
             myXrRig.transform.position = testSeat.position;
             myXrRig.transform.SetParent(testSeat);

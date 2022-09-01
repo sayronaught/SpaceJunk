@@ -9215,6 +9215,7 @@ MonoBehaviour:
   - {fileID: 981076176}
   - {fileID: 8075730555623660096}
   seat: 0
+  activeDrone: {fileID: 0}
   AsteroidContainer: {fileID: 124491588}
   AsteroidPrefabs:
   - {fileID: 100000, guid: d9d1fbfcf69364ffd8f9c6ade9ce90fe, type: 3}
