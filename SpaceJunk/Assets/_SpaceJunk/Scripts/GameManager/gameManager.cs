@@ -78,6 +78,7 @@ public class gameManager : MonoBehaviour
             activeDrone.thisPlayer = myVrControls;
             activeDrone.thisStation = testSeats[seat];
         } else { // regular seat
+            activeDrone = null;
             myXrRig.transform.position = testSeat.position;
             myXrRig.transform.SetParent(testSeat);
         }
