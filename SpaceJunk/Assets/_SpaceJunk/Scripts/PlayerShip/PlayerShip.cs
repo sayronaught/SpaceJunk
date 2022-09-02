@@ -24,6 +24,11 @@ public class PlayerShip : MonoBehaviour
     public Vector2 controlsLeft;
     public Vector2 controlsRight;
 
+    // speed particles
+    public Transform SpeedParticles;
+    private ParticleSystem SpeedParticlesFast;
+
+
     public gameManager myGM;
 
     // non hosts, needs to know hwere to move ship towards
@@ -37,6 +42,7 @@ public class PlayerShip : MonoBehaviour
     private Rigidbody myRB;
 
     private float CalculateHullStrain;
+    private ParticleSystem.EmissionModule em;
 
     [PunRPC]
     public void sendCockpitControlSpeed(int changeSpeed)
@@ -67,6 +73,15 @@ public class PlayerShip : MonoBehaviour
         structureHPMax = hpMax;
     }
 
+    private void SpeedParticlesUpdate()
+    {
+        if (myRB.velocity.magnitude > 1)
+            SpeedParticles.LookAt(transform.position + myRB.velocity);
+        em = SpeedParticlesFast.emission;
+        em.rateOverTime = Mathf.Clamp(myRB.velocity.magnitude, 0f, 20f);
+        //SpeedParticlesFast.emission.rateOverTime = Mathf.Clamp(myRB.velocity.magnitude, 0f, 20f);
+    }
+
     private void masterClientUpdateTick()
     { // master client ticks energy & HP
         updateTimerSkips++;
@@ -94,6 +109,7 @@ public class PlayerShip : MonoBehaviour
     {
         myPV = GetComponent<PhotonView>();
         myRB = GetComponent<Rigidbody>();
+        SpeedParticlesFast = SpeedParticles.GetChild(0).GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -116,5 +132,6 @@ public class PlayerShip : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime);
         }
+        SpeedParticlesUpdate();
     }
 }

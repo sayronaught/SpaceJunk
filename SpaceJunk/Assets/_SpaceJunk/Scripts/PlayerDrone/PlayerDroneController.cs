@@ -12,6 +12,8 @@ public class PlayerDroneController : MonoBehaviour
     public Transform drillInactive;
     public AudioSource myDrillSound;
     public PlayerDroneDrillHead myDrillHead;
+    public AudioClip sfxDrillingLoop;
+    public AudioClip sfxMiningLoop;
 
     public PlayerVrControls thisPlayer;
     public PlayerStation thisStation;
@@ -45,7 +47,9 @@ public class PlayerDroneController : MonoBehaviour
     { // player is trying to mine
         if ( myDrillHead.AsteroidsInRange.Count > 0)
         { // is there any asteroid in range?
-
+            if (myDrillSound.clip != sfxMiningLoop) myDrillSound.clip = sfxMiningLoop;
+        } else { // no asteroid in range
+            if (myDrillSound.clip != sfxDrillingLoop) myDrillSound.clip = sfxDrillingLoop;
         }
     }
 

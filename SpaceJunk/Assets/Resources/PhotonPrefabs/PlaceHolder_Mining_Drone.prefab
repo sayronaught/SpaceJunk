@@ -401,6 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb629a57a0f56034a829204946d2338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AsteroidsInRange: []
 --- !u!1 &7740857990952323354
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,6 +472,8 @@ MonoBehaviour:
   drillInactive: {fileID: 6368149794564566131}
   myDrillSound: {fileID: 103139491041526431}
   myDrillHead: {fileID: 2509304572699155327}
+  sfxDrillingLoop: {fileID: 8300000, guid: 5fa870077af71044c963c0662daa6be2, type: 3}
+  sfxMiningLoop: {fileID: 8300000, guid: b564456a4bca3104c82e3f90e5a149ce, type: 3}
   thisPlayer: {fileID: 0}
   thisStation: {fileID: 0}
   holdingRight: 0

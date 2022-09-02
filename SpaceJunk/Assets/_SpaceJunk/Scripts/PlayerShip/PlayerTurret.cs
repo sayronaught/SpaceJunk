@@ -12,9 +12,9 @@ public class PlayerTurret : MonoBehaviour
     private float shootDelay = 0f;
     //public GameObject AmmoPrefab;
     public string AmmoPrefabName = "Laser1";
-    public float AmmoSpeed = 10000f;
-    public float AmmoLifetime = 3f;
     public float energyCost = 50f;
+    public AudioClip sfxShoot;
+    public AudioClip sfxMisfire;
 
     public float maxDegreesPerSecond = 35f;
 
