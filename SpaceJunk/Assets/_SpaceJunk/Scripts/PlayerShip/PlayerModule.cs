@@ -22,9 +22,10 @@ public class PlayerModule : MonoBehaviour
     private PhotonView myPV;
 
     [PunRPC]
-    public void playModuleSound(AudioClip theClip)
+    public void playModuleSound(float strain)
     {
-        myStructureSound.clip = theClip;
+        Debug.Log(moduleName + " plays "+strain.ToString());
+        myStructureSound.clip = myShip.myGM.SoundBank.MetalStrainHigh[0];
         myStructureSound.Play();
     }
 
@@ -34,8 +35,7 @@ public class PlayerModule : MonoBehaviour
         if ( Random.Range(0f,1000f) <= CalculateHullStrain )
         { // percentage chance each hull part takes damage
             structureHP -= CalculateHullStrain * 0.1f;
-            myPV.RPC("playModuleSound", RpcTarget.All, myShip.myGM.SoundBank.MetalStrainHigh[0];);
-
+            myPV.RPC("playModuleSound", RpcTarget.All,CalculateHullStrain);
         }
         if (structureHP > structureMaxHP) structureHP = structureMaxHP;
         if (structureHP < 0) structureHP = 0;

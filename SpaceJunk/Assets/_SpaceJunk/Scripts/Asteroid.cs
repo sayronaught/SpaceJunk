@@ -9,6 +9,10 @@ public class Asteroid : MonoBehaviour
     public float randomSpeed = 150f;
     public float randomScale = 5f;
 
+    public float mineAble = 1f;
+    public Vector3 scaleMineAble;
+    public bool wasMinedSinceLast = false;
+
     public PlayerShip ThePlayersShip;
 
     [System.Serializable]
@@ -35,7 +39,15 @@ public class Asteroid : MonoBehaviour
         transform.position = newpos;
         transform.rotation = newrot;
         transform.localScale = newscale;
-        //currentPlayers = players;
+        if ( scaleMineAble == Vector3.zero ) scaleMineAble = newscale;
+    }
+
+    // asteroid mining data recieved by anyone who is not mining
+    [PunRPC]
+    public void wasMinedAsteroid(float newMineAble,List<Resource> newResources)
+    {
+        mineAble = newMineAble;
+        MineableResources = newResources;
     }
 
     [PunRPC]
@@ -60,13 +72,19 @@ public class Asteroid : MonoBehaviour
     {
         if (PhotonNetwork.IsMasterClient && updateTimer < 0f)
         {
-            if ( Vector3.Distance(ThePlayersShip.transform.position,transform.position) < 500f)
+            if ( Vector3.Distance(ThePlayersShip.transform.position,transform.position) < 500f && mineAble > 0.1f)
             {// close enough
                 myPV.RPC("updateAsteroid", RpcTarget.All, myRB.velocity, myRB.rotation, transform.position, transform.rotation, transform.localScale);
             } else { // too far away
                 myPV.RPC("RemoveAsteroid", RpcTarget.All);
             }
-            
+            updateTimer = 5f;
+        }
+        if ( wasMinedSinceLast && updateTimer < 4.75f )
+        {    
+            myPV.RPC("updateAsteroid", RpcTarget.All, myRB.velocity, myRB.rotation, transform.position, transform.rotation, transform.localScale);
+            myPV.RPC("wasMinedAsteroid", RpcTarget.All, mineAble, MineableResources);
+            wasMinedSinceLast = false;
             updateTimer = 5f;
         }
         updateTimer -= Time.deltaTime;

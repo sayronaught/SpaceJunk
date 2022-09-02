@@ -48,8 +48,19 @@ public class PlayerDroneController : MonoBehaviour
         if ( myDrillHead.AsteroidsInRange.Count > 0)
         { // is there any asteroid in range?
             if (myDrillSound.clip != sfxMiningLoop) myDrillSound.clip = sfxMiningLoop;
+            myDrillSound.volume = 0.25f;
+            foreach (Asteroid ast in myDrillHead.AsteroidsInRange)
+            {
+                if ( ast.mineAble > 0f)
+                {
+                    ast.wasMinedSinceLast = true;
+                    ast.mineAble -= Time.deltaTime * 0.5f;
+                    ast.transform.localScale = ast.scaleMineAble*ast.mineAble;
+                }
+            }
         } else { // no asteroid in range
             if (myDrillSound.clip != sfxDrillingLoop) myDrillSound.clip = sfxDrillingLoop;
+            myDrillSound.volume = 0.25f;
         }
     }
 
@@ -86,7 +97,7 @@ public class PlayerDroneController : MonoBehaviour
             if ( thisPlayer.playerRightTrigger || thisPlayer.playerLeftTrigger )
             {
                 myDrill.transform.localPosition = Vector3.Slerp(myDrill.transform.localPosition, drillActive.transform.localPosition, Time.deltaTime * 0.25f);
-                myDrillSound.volume = 0.2f;
+                
                 Mining();
             } else {
                 myDrill.transform.localPosition = Vector3.Slerp(myDrill.transform.localPosition, drillInactive.transform.localPosition, Time.deltaTime * 0.25f);
