@@ -120,11 +120,12 @@ MonoBehaviour:
   scaleMineAble: {x: 0, y: 0, z: 0}
   wasMinedSinceLast: 0
   ThePlayersShip: {fileID: 0}
-  MineableResources:
-  - item: {fileID: 11400000, guid: 5b57bb841fd27be41b0c1cd002fb099f, type: 2}
-    amount: 5
-  - item: {fileID: 11400000, guid: bfe37082dc51b624ea0da3c395266b39, type: 2}
-    amount: 5
+  Inventory:
+    Inventory:
+    - item: {fileID: 11400000, guid: 5b57bb841fd27be41b0c1cd002fb099f, type: 2}
+      amount: 5
+    - item: {fileID: 11400000, guid: bfe37082dc51b624ea0da3c395266b39, type: 2}
+      amount: 15
 --- !u!54 &-2427704919466613433
 Rigidbody:
   m_ObjectHideFlags: 0

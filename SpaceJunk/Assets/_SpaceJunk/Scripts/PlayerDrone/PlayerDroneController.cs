@@ -59,10 +59,9 @@ public class PlayerDroneController : MonoBehaviour
                     ast.mineAble -= Time.deltaTime * 0.5f;
                     ast.transform.localScale = ast.scaleMineAble*ast.mineAble;
                 }
-                if ( ast.mineAble < 0.5f && ast.Inventory.Count > 0)
-                {
-                    int rand = Random.Range(0, ast.Inventory.Count);
-
+                if ( ast.mineAble < 0.9f && ast.Inventory.Inventory.Count > 0)
+                { // Can be mined and there is things to mine
+                    Inventory.addItem( ast.Inventory.removeRandom() );
                 }
             }
         } else { // no asteroid in range
