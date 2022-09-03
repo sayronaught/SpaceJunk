@@ -22,6 +22,8 @@ public class PlayerDroneController : MonoBehaviour
     public Vector3 RightStartPos;
     public Quaternion RightStartRot;
 
+    public SO_Item_Inventory Inventory;
+
     private PhotonView myPV;
     private Rigidbody myRB;
 
@@ -56,6 +58,11 @@ public class PlayerDroneController : MonoBehaviour
                     ast.wasMinedSinceLast = true;
                     ast.mineAble -= Time.deltaTime * 0.5f;
                     ast.transform.localScale = ast.scaleMineAble*ast.mineAble;
+                }
+                if ( ast.mineAble < 0.5f && ast.Inventory.Count > 0)
+                {
+                    int rand = Random.Range(0, ast.Inventory.Count);
+
                 }
             }
         } else { // no asteroid in range

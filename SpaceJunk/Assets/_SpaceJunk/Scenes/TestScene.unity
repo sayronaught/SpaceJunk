@@ -22815,4 +22815,8 @@ MonoBehaviour:
   controlsLeft: {x: 0, y: 0}
   controlsRight: {x: 0, y: 0}
   SpeedParticles: {fileID: 2120938817}
+  Inventory:
+    Inventory:
+    - item: {fileID: 0}
+      amount: 0
   myGM: {fileID: 894119120}

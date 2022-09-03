@@ -28,6 +28,7 @@ public class PlayerShip : MonoBehaviour
     public Transform SpeedParticles;
     private ParticleSystem SpeedParticlesFast;
 
+    public SO_Item_Inventory Inventory;
 
     public gameManager myGM;
 

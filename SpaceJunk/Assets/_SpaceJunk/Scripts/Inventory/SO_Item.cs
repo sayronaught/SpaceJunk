@@ -13,4 +13,5 @@ public class SO_Item : ScriptableObject
 
     public float itemBaseValue;
 
+    public int Amount = 0;
 }

@@ -2,6 +2,7 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Asteroid : MonoBehaviour
 {
@@ -15,13 +16,7 @@ public class Asteroid : MonoBehaviour
 
     public PlayerShip ThePlayersShip;
 
-    [System.Serializable]
-    public class Resource
-    {
-        public SO_Item item;
-        public float amount;
-    }
-    public List<Resource> MineableResources;
+    public SO_Item_Inventory Inventory;
 
     private Rigidbody myRB;
     private PhotonView myPV;
@@ -44,10 +39,10 @@ public class Asteroid : MonoBehaviour
 
     // asteroid mining data recieved by anyone who is not mining
     [PunRPC]
-    public void wasMinedAsteroid(float newMineAble,List<Resource> newResources)
+    public void wasMinedAsteroid(float newMineAble, string newInventory)
     {
         mineAble = newMineAble;
-        MineableResources = newResources;
+        Inventory = JsonUtility.FromJson<SO_Item_Inventory>(newInventory);
     }
 
     [PunRPC]
@@ -83,7 +78,7 @@ public class Asteroid : MonoBehaviour
         if ( wasMinedSinceLast && updateTimer < 4.75f )
         {    
             myPV.RPC("updateAsteroid", RpcTarget.All, myRB.velocity, myRB.rotation, transform.position, transform.rotation, transform.localScale);
-            myPV.RPC("wasMinedAsteroid", RpcTarget.All, mineAble, MineableResources);
+            myPV.RPC("wasMinedAsteroid", RpcTarget.All, mineAble, JsonUtility.ToJson(Inventory) );
             wasMinedSinceLast = false;
             updateTimer = 5f;
         }

@@ -125,6 +125,7 @@ MonoBehaviour:
     amount: 5
   - item: {fileID: 11400000, guid: bfe37082dc51b624ea0da3c395266b39, type: 2}
     amount: 5
+  MineableResources2: []
 --- !u!54 &6239051718336367726
 Rigidbody:
   m_ObjectHideFlags: 0
