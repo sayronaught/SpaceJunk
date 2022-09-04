@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 [System.Serializable]
 public class SO_Item_Inventory
@@ -14,15 +15,15 @@ public class SO_Item_Inventory
         public Resource set(SO_Item newitem, int newamount)
         {
             var newResource = new Resource();
-            item = item;
-            amount = amount;
+            item = newitem;
+            amount = newamount;
             return newResource;
         }
     }
     public List<Resource> Inventory;
 
     public SO_Item removeRandom()
-    {
+    { // remove one random item and return it
         if (Inventory.Count < 1) return null;
         int rand = Random.Range(0, Inventory.Count);
         SO_Item item = Inventory[rand].item;
@@ -31,7 +32,7 @@ public class SO_Item_Inventory
         return item;
     }
 
-    public void addItem( SO_Item item )
+    public void addItem( SO_Item item, int num )
     { // this one can easily crash the whole thing
         if ( Inventory.Count> 0)
         {// if there is things on the list, we can do a foreach
@@ -39,13 +40,27 @@ public class SO_Item_Inventory
             {
                 if ( res.item == item )
                 {
-                    res.amount++;
+                    res.amount += num;
                     return;
                 }
             }
         }  // there is no list or items is not found, so we add it
         var newItem = new Resource();
-        Inventory.Add(newItem.set(item, 1));
+        Inventory.Add(newItem.set(item, num));
+    }
+    public void addItem(SO_Item item)
+    { // just add one
+        addItem(item, 1);
+    }
+
+    public void addJSON(string newItems)
+    { // get a JSON string, and adds that to inventory
+        SO_Item_Inventory temp = JsonUtility.FromJson<SO_Item_Inventory>(newItems);
+        while ( temp.Inventory.Count > 0 )
+        { // keep adding and removing until none are left
+            addItem(temp.Inventory[0].item, temp.Inventory[0].amount);
+            temp.Inventory.RemoveAt(0);
+        }
     }
 
 }
