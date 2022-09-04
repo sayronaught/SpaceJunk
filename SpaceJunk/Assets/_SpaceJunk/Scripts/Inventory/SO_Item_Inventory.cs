@@ -22,6 +22,12 @@ public class SO_Item_Inventory
     }
     public List<Resource> Inventory;
 
+    //constructor
+    public SO_Item_Inventory()
+    {
+        Inventory = new List<Resource>();
+    }
+
     public SO_Item removeRandom()
     { // remove one random item and return it
         if (Inventory.Count < 1) return null;

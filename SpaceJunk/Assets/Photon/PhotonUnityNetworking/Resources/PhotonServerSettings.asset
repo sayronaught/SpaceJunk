@@ -54,6 +54,7 @@ MonoBehaviour:
   - playModuleSound
   - wasMinedAsteroid
   - removeDrone
+  - updateInventory
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

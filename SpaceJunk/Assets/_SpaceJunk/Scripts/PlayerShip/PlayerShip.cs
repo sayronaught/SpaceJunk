@@ -74,9 +74,17 @@ public class PlayerShip : MonoBehaviour
         structureHPMax = hpMax;
     }
 
+    [PunRPC]
+    public void updateInventory(string newInv)
+    { // host sends tick info
+        Inventory = new SO_Item_Inventory();
+        Inventory.addJSON(newInv);
+    }
+
     public void addToInventory( string stuffToAdd )
     {
         Inventory.addJSON(stuffToAdd);
+        myPV.RPC("updateInventory", RpcTarget.All, JsonUtility.ToJson(Inventory));
     }
 
     private void SpeedParticlesUpdate()
