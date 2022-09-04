@@ -479,6 +479,8 @@ MonoBehaviour:
   holdingRight: 0
   RightStartPos: {x: 0, y: 0, z: 0}
   RightStartRot: {x: 0, y: 0, z: 0, w: 0}
+  Inventory:
+    Inventory: []
 --- !u!114 &4038861346641551109
 MonoBehaviour:
   m_ObjectHideFlags: 0

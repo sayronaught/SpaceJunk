@@ -26,14 +26,15 @@ public class SO_Item_Inventory
     { // remove one random item and return it
         if (Inventory.Count < 1) return null;
         int rand = Random.Range(0, Inventory.Count);
-        SO_Item item = Inventory[rand].item;
+        SO_Item tempitem = Inventory[rand].item;
         if (Inventory[rand].amount > 1) Inventory[rand].amount--;
         else Inventory.RemoveAt(rand);
-        return item;
+        return tempitem;
     }
 
     public void addItem( SO_Item item, int num )
     { // this one can easily crash the whole thing
+        if (item == null) return;
         if ( Inventory.Count> 0)
         {// if there is things on the list, we can do a foreach
             foreach (Resource res in Inventory)
@@ -46,7 +47,8 @@ public class SO_Item_Inventory
             }
         }  // there is no list or items is not found, so we add it
         var newItem = new Resource();
-        Inventory.Add(newItem.set(item, num));
+        newItem.set(item, num);
+        Inventory.Add(newItem);
     }
     public void addItem(SO_Item item)
     { // just add one
