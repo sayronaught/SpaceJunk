@@ -6,7 +6,7 @@ using System.Linq;
 
 public class Asteroid : MonoBehaviour
 {
-    public float randomRotation = 500f;
+    public float randomRotation = 250f;
     public float randomSpeed = 150f;
     public float randomScale = 5f;
 

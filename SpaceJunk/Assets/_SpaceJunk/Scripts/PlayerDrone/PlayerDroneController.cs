@@ -17,6 +17,7 @@ public class PlayerDroneController : MonoBehaviour
 
     public PlayerVrControls thisPlayer;
     public PlayerStation thisStation;
+    public PlayerShip thisShip;
 
     public bool holdingRight;
     public Vector3 RightStartPos;
@@ -27,7 +28,7 @@ public class PlayerDroneController : MonoBehaviour
     private PhotonView myPV;
     private Rigidbody myRB;
 
-    private bool playerLeft;
+    private bool playerLeftTheDrone = false;
     private Vector3 movementCalc;
     private Quaternion rotationCalc;
 
@@ -83,6 +84,9 @@ public class PlayerDroneController : MonoBehaviour
     { // player has moved on from the drone
 
         // move to bay, transfer inventory, THEN remove it.. for now, just remove it..
+        if (playerLeftTheDrone) return;
+        playerLeftTheDrone = true;
+        thisShip.addToInventory(JsonUtility.ToJson(Inventory));
         Destroy(gameObject, 10f);
     }
 

@@ -77,6 +77,7 @@ public class gameManager : MonoBehaviour
             activeDrone = Drone.GetComponent<PlayerDroneController>();
             activeDrone.thisPlayer = myVrControls;
             activeDrone.thisStation = testSeats[seat];
+            activeDrone.thisShip = myShip;
         } else { // regular seat
             activeDrone = null;
             myXrRig.transform.position = testSeat.position;
@@ -99,9 +100,11 @@ public class gameManager : MonoBehaviour
             if ( activeDrone )
             { // move player into drone
                 myXrRig.transform.position = activeDrone.transform.GetChild(0).position;
+                myXrRig.transform.rotation = activeDrone.transform.GetChild(0).rotation;
                 myXrRig.transform.SetParent(activeDrone.transform.GetChild(0));
             } else {
                 myXrRig.transform.position = testSeat.position;
+                myXrRig.transform.rotation = testSeat.rotation;
                 myXrRig.transform.SetParent(testSeat);
             }
         } else { // player have no headset

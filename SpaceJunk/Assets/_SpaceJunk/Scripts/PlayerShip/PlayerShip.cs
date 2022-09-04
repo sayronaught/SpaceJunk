@@ -74,6 +74,11 @@ public class PlayerShip : MonoBehaviour
         structureHPMax = hpMax;
     }
 
+    public void addToInventory( string stuffToAdd )
+    {
+        Inventory.addJSON(stuffToAdd);
+    }
+
     private void SpeedParticlesUpdate()
     {
         if (myRB.velocity.magnitude > 1)

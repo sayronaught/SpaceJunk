@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e17494f2cca36642bb36391cf3f44a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomRotation: 500
+  randomRotation: 250
   randomSpeed: 500
   randomScale: 10
   mineAble: 1

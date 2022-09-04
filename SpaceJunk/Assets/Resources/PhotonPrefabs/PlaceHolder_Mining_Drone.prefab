@@ -476,6 +476,7 @@ MonoBehaviour:
   sfxMiningLoop: {fileID: 8300000, guid: b564456a4bca3104c82e3f90e5a149ce, type: 3}
   thisPlayer: {fileID: 0}
   thisStation: {fileID: 0}
+  thisShip: {fileID: 0}
   holdingRight: 0
   RightStartPos: {x: 0, y: 0, z: 0}
   RightStartRot: {x: 0, y: 0, z: 0, w: 0}
