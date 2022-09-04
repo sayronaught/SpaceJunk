@@ -27,6 +27,7 @@ public class PlayerDroneController : MonoBehaviour
     private PhotonView myPV;
     private Rigidbody myRB;
 
+    private bool playerLeft;
     private Vector3 movementCalc;
     private Quaternion rotationCalc;
 
@@ -68,6 +69,14 @@ public class PlayerDroneController : MonoBehaviour
             if (myDrillSound.clip != sfxDrillingLoop) myDrillSound.clip = sfxDrillingLoop;
             myDrillSound.volume = 0.25f;
         }
+    }
+
+
+    // asteroid mining data recieved by anyone who is not mining
+    [PunRPC]
+    public void removeDrone()
+    {
+        Destroy(gameObject);
     }
 
     private void PlayerLeftDrone()
