@@ -35,13 +35,13 @@ public class PlayerModule : MonoBehaviour
         }
         else if (structureHP <= structureMaxHP * 0.7) // med strain
         {
-            myStructureSound.clip = myShip.myGM.SoundBank.MetalStrainHigh[Random.Range(0, myShip.myGM.SoundBank.MetalStrainMedium.Count-1)];
+            myStructureSound.clip = myShip.myGM.SoundBank.MetalStrainMedium[Random.Range(0, myShip.myGM.SoundBank.MetalStrainMedium.Count-1)];
             myStructureSound.Play();
             Debug.Log("M");
         }
         else // low strain
         {
-            myStructureSound.clip = myShip.myGM.SoundBank.MetalStrainHigh[Random.Range(0, myShip.myGM.SoundBank.MetalStrainLow.Count-1)];
+            myStructureSound.clip = myShip.myGM.SoundBank.MetalStrainLow[Random.Range(0, myShip.myGM.SoundBank.MetalStrainLow.Count-1)];
             myStructureSound.Play();
             Debug.Log("L");
         }
