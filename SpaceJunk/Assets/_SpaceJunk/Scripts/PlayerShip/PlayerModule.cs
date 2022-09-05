@@ -8,6 +8,8 @@ public class PlayerModule : MonoBehaviour
     public string moduleName = "Standard Name";
     public string moduleDescription = "Standard desc";
 
+    public float myMass = 500f; //500kg as standard
+
     public List<Transform> Ports;
     public List<PlayerStation> Stations;
     public List<PlayerModule> ModulesConnected;

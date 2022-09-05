@@ -23,7 +23,7 @@ public class PlayerEngine : MonoBehaviour
 
     public int lastThrustState = 1;
     [Tooltip("how much force does this engine apply when turning?")]
-    public float navigationThrustForce = 100f;
+    public float navigationThrustForce = 400000f;
 
     private Rigidbody myShipRB;
     private float thrust = 0f;

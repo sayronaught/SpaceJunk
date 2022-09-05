@@ -43,6 +43,7 @@ public class PlayerShip : MonoBehaviour
     private Rigidbody myRB;
 
     private float CalculateHullStrain;
+    private float CalculateMass;
     private ParticleSystem.EmissionModule em;
 
     [PunRPC]
@@ -147,5 +148,13 @@ public class PlayerShip : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime);
         }
         SpeedParticlesUpdate();
+
+        // Mass
+        CalculateMass = 0f;
+        foreach ( PlayerModule module in Modules)
+        {
+            CalculateMass += module.myMass;
+        }
+        myRB.mass = CalculateMass + Inventory.getCombinedMass();
     }
 }
