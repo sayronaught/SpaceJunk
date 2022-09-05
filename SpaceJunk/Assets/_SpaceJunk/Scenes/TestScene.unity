@@ -941,6 +941,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 82000010889710720, guid: 7105fbbfff4b9af46886e2c1451b06d9,
+        type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114000012879519352, guid: 7105fbbfff4b9af46886e2c1451b06d9,
         type: 3}
       propertyPath: end.b
@@ -7691,6 +7696,12 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!82 &506993172 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 82000010889710720, guid: 7105fbbfff4b9af46886e2c1451b06d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1978422938}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &541096545
 GameObject:
   m_ObjectHideFlags: 0
@@ -8073,6 +8084,12 @@ Transform:
   m_Father: {fileID: 1797448401}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!82 &682428348 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 82000010889710720, guid: 7105fbbfff4b9af46886e2c1451b06d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 79484388}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -27864,21 +27881,34 @@ MonoBehaviour:
   Thrusters:
   - {fileID: 423526848}
   - {fileID: 1542871050}
+  ThrusterAudio:
+  - {fileID: 682428348}
+  - {fileID: 506993172}
   thrustStates:
-  - onOrOff: 0
-    Size: 0
+  - onOrOff: 1
+    Size: 0.5
+    Volume: 0.2
+    Pitch: 1.2
     Force: -2000000
   - onOrOff: 0
     Size: 0
+    Volume: 0
+    Pitch: 0
     Force: 0
   - onOrOff: 1
     Size: 0.5
+    Volume: 0.2
+    Pitch: 1
     Force: 2000000
   - onOrOff: 1
     Size: 1
+    Volume: 0.35
+    Pitch: 0.9
     Force: 6000000
   - onOrOff: 1
     Size: 2
+    Volume: 1
+    Pitch: 0.8
     Force: 20000000
   lastThrustState: 1
   navigationThrustForce: 200000

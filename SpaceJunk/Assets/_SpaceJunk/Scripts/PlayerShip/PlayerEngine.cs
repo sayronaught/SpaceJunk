@@ -7,6 +7,7 @@ public class PlayerEngine : MonoBehaviour
     public PlayerShip myShip;
 
     public GameObject[] Thrusters;
+    public AudioSource[] ThrusterAudio;
 
     [System.Serializable]
     public class thrustState
@@ -16,6 +17,10 @@ public class PlayerEngine : MonoBehaviour
         public bool onOrOff;
         [Tooltip("How big are the thrusters?")]
         public float Size;
+        [Tooltip("How loud are the thrusters?")]
+        public float Volume;
+        [Tooltip("How do I play the sound?")]
+        public float Pitch;
         [Tooltip("how much force does this engine apply?")]
         public float Force;
     }
@@ -46,6 +51,11 @@ public class PlayerEngine : MonoBehaviour
             } else {
                 Thruster.SetActive(false);
             }
+        }
+        foreach (AudioSource ass in ThrusterAudio)
+        {
+            ass.volume = thrustStates[myShip.controlSpeedStage].Volume;
+            ass.pitch = thrustStates[myShip.controlSpeedStage].Pitch;
         }
         thrust = thrustStates[myShip.controlSpeedStage].Force;
 
