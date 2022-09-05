@@ -12,6 +12,8 @@ public class ShipSpeed : MonoBehaviour
 
     private Rigidbody shipRB;
 
+    private float convertSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +26,8 @@ public class ShipSpeed : MonoBehaviour
     {
         if (updateTimer < 0f)
         {
-            myTxt.text = shipRB.velocity.magnitude.ToString("F2")+ " m/s";
+            convertSpeed = shipRB.velocity.magnitude * 3.6f;
+            myTxt.text = convertSpeed.ToString("F2")+ " km/h";
             updateTimer = 1f;
         }
         updateTimer -= Time.deltaTime;

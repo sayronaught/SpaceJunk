@@ -89,11 +89,11 @@ public class PlayerShip : MonoBehaviour
 
     private void SpeedParticlesUpdate()
     {
+        // slow = 0-10, hyper = 11-30, ludicrous = 31-200, 
         if (myRB.velocity.magnitude > 1)
             SpeedParticles.LookAt(transform.position + myRB.velocity);
         em = SpeedParticlesFast.emission;
-        em.rateOverTime = Mathf.Clamp(myRB.velocity.magnitude, 0f, 20f);
-        //SpeedParticlesFast.emission.rateOverTime = Mathf.Clamp(myRB.velocity.magnitude, 0f, 20f);
+        em.rateOverTime = Mathf.Clamp(myRB.velocity.magnitude-5f, 0f, 20f);
     }
 
     private void masterClientUpdateTick()
