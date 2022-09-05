@@ -24,9 +24,25 @@ public class PlayerModule : MonoBehaviour
     [PunRPC]
     public void playModuleSound(float strain)
     {
-        Debug.Log(moduleName + " plays "+strain.ToString());
-        myStructureSound.clip = myShip.myGM.SoundBank.MetalStrainHigh[0];
-        myStructureSound.Play();
+        
+        if (structureHP <= structureMaxHP * 0.4) // heavy strain
+        {
+            myStructureSound.clip = myShip.myGM.SoundBank.MetalStrainHigh[Random.Range(0, myShip.myGM.SoundBank.MetalStrainHigh.Count)];
+            myStructureSound.Play();
+            Debug.Log("H");
+        }
+        else if (structureHP <= structureMaxHP * 0.7) // med strain
+        {
+            myStructureSound.clip = myShip.myGM.SoundBank.MetalStrainHigh[Random.Range(0, myShip.myGM.SoundBank.MetalStrainMedium.Count)];
+            myStructureSound.Play();
+            Debug.Log("M");
+        }
+        else // low strain
+        {
+            myStructureSound.clip = myShip.myGM.SoundBank.MetalStrainHigh[Random.Range(0, myShip.myGM.SoundBank.MetalStrainLow.Count)];
+            myStructureSound.Play();
+            Debug.Log("L");
+        }
     }
 
     public void TestHullStrain(float CalculateHullStrain)
