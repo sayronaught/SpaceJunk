@@ -22,6 +22,8 @@ public class SO_Item_Inventory
     }
     public List<Resource> Inventory;
 
+    private float massCalc;
+
     //constructor
     public SO_Item_Inventory()
     {
@@ -69,6 +71,19 @@ public class SO_Item_Inventory
             addItem(temp.Inventory[0].item, temp.Inventory[0].amount);
             temp.Inventory.RemoveAt(0);
         }
+    }
+
+    public float getCombinedMass()
+    {
+        massCalc = 0f;
+        if (Inventory.Count > 0)
+        {
+            foreach (Resource eachItem in Inventory)
+            {
+                massCalc += (float)eachItem.amount * eachItem.item.itemMass;
+            }
+        }
+        return massCalc;
     }
 
 }

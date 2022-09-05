@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerDroneController : MonoBehaviour
 {
+    public float myMass = 200f; //200kg as standard
 
     public GameObject MyThruster;
     public Transform myDrill;
@@ -42,9 +43,9 @@ public class PlayerDroneController : MonoBehaviour
     private void moveFromRight()
     { // player is controlling from right controller
         movementCalc = RightStartPos - thisPlayer.rightController.transform.localPosition;
-        myRB.AddRelativeForce(movementCalc*-100f);
+        myRB.AddRelativeForce(movementCalc*-100f*myMass);
         rotationCalc = RightStartRot * Quaternion.Inverse(thisPlayer.rightController.transform.localRotation);
-        myRB.AddRelativeTorque(rotationCalc.x*-2f,rotationCalc.y * -2f, rotationCalc.z * -1f);
+        myRB.AddRelativeTorque(rotationCalc.x*-1f*myMass,rotationCalc.y * -1f*myMass, rotationCalc.z * -0.5f*myMass);
     }
 
     private void Mining()
@@ -122,6 +123,9 @@ public class PlayerDroneController : MonoBehaviour
                 myDrill.transform.localPosition = Vector3.Slerp(myDrill.transform.localPosition, drillInactive.transform.localPosition, Time.deltaTime * 0.25f);
                 myDrillSound.volume = 0f;
             }
+
+            // mass calculations
+            myRB.mass = myMass + Inventory.getCombinedMass();
         }
     }
 }
