@@ -29,19 +29,19 @@ public class PlayerModule : MonoBehaviour
         
         if (structureHP <= structureMaxHP * 0.4) // heavy strain
         {
-            myStructureSound.clip = myShip.myGM.SoundBank.MetalStrainHigh[Random.Range(0, myShip.myGM.SoundBank.MetalStrainHigh.Count)];
+            myStructureSound.clip = myShip.myGM.SoundBank.MetalStrainHigh[Random.Range(0, myShip.myGM.SoundBank.MetalStrainHigh.Count-1)];
             myStructureSound.Play();
             Debug.Log("H");
         }
         else if (structureHP <= structureMaxHP * 0.7) // med strain
         {
-            myStructureSound.clip = myShip.myGM.SoundBank.MetalStrainHigh[Random.Range(0, myShip.myGM.SoundBank.MetalStrainMedium.Count)];
+            myStructureSound.clip = myShip.myGM.SoundBank.MetalStrainHigh[Random.Range(0, myShip.myGM.SoundBank.MetalStrainMedium.Count-1)];
             myStructureSound.Play();
             Debug.Log("M");
         }
         else // low strain
         {
-            myStructureSound.clip = myShip.myGM.SoundBank.MetalStrainHigh[Random.Range(0, myShip.myGM.SoundBank.MetalStrainLow.Count)];
+            myStructureSound.clip = myShip.myGM.SoundBank.MetalStrainHigh[Random.Range(0, myShip.myGM.SoundBank.MetalStrainLow.Count-1)];
             myStructureSound.Play();
             Debug.Log("L");
         }
@@ -52,7 +52,7 @@ public class PlayerModule : MonoBehaviour
         if ((Random.Range(1, 6) == 1)) structureHP++;
         if ( Random.Range(0f,1000f) <= CalculateHullStrain )
         { // percentage chance each hull part takes damage
-            structureHP -= CalculateHullStrain * 0.1f;
+            structureHP -= CalculateHullStrain * 0.0001f;
             myPV.RPC("playModuleSound", RpcTarget.All,CalculateHullStrain);
         }
         if (structureHP > structureMaxHP) structureHP = structureMaxHP;

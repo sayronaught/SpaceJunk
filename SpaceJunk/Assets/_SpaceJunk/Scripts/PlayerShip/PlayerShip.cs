@@ -27,6 +27,8 @@ public class PlayerShip : MonoBehaviour
     // speed particles
     public Transform SpeedParticles;
     private ParticleSystem SpeedParticlesFast;
+    private ParticleSystem SpeedParticlesHyper;
+    private ParticleSystem SpeedParticlesLudicrous;
 
     public SO_Item_Inventory Inventory;
 
@@ -95,6 +97,10 @@ public class PlayerShip : MonoBehaviour
             SpeedParticles.LookAt(transform.position + myRB.velocity);
         em = SpeedParticlesFast.emission;
         em.rateOverTime = Mathf.Clamp(myRB.velocity.magnitude-5f, 0f, 20f);
+        em = SpeedParticlesHyper.emission;
+        em.rateOverTime = Mathf.Clamp(myRB.velocity.magnitude-15f, 0f, 30f);
+        em = SpeedParticlesLudicrous.emission;
+        em.rateOverTime = Mathf.Clamp(myRB.velocity.magnitude -50f, 0f, 40f);
     }
 
     private void masterClientUpdateTick()
@@ -125,6 +131,8 @@ public class PlayerShip : MonoBehaviour
         myPV = GetComponent<PhotonView>();
         myRB = GetComponent<Rigidbody>();
         SpeedParticlesFast = SpeedParticles.GetChild(0).GetComponent<ParticleSystem>();
+        SpeedParticlesHyper = SpeedParticles.GetChild(1).GetComponent<ParticleSystem>();
+        SpeedParticlesLudicrous = SpeedParticles.GetChild(2).GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
