@@ -26,7 +26,7 @@ public class PlayerModule : MonoBehaviour
     [PunRPC]
     public void playModuleSound(float strain)
     {
-        
+
         if (structureHP <= structureMaxHP * 0.4) // heavy strain
         {
             myStructureSound.clip = myShip.myGM.SoundBank.MetalStrainHigh[Random.Range(0, myShip.myGM.SoundBank.MetalStrainHigh.Count-1)];
