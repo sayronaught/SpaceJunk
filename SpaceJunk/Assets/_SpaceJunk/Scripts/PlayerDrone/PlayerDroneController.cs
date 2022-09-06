@@ -29,9 +29,25 @@ public class PlayerDroneController : MonoBehaviour
     private PhotonView myPV;
     private Rigidbody myRB;
 
+
+    // non hosts, needs to know hwere to move ship towards
+    private Vector3 targetPosition;
+    private Quaternion targetRotation;
+    private float updateTimer = 0f;
+    private int updateTimerSkips = 0;
+
     private bool playerLeftTheDrone = false;
     private Vector3 movementCalc;
     private Quaternion rotationCalc;
+
+    [PunRPC]
+    public void updateDroneFromController(Vector3 targetPos, Quaternion targetRot, Vector3 velocity, Vector3 rotation)
+    { // host sends position and movement to other ships
+        targetPosition = targetPos;
+        targetRotation = targetRot;
+        myRB.velocity = velocity;
+        myRB.angularVelocity = rotation;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -124,8 +140,23 @@ public class PlayerDroneController : MonoBehaviour
                 myDrillSound.volume = 0f;
             }
 
+            // update other clients
+            if (updateTimer < 0)
+            {
+                myPV.RPC("updateDroneFromHost", RpcTarget.All, transform.position, transform.rotation, myRB.velocity, myRB.angularVelocity);
+                updateTimer = 0.2f;
+            }
+            updateTimer -= Time.deltaTime;
+
             // mass calculations
             myRB.mass = myMass + Inventory.getCombinedMass();
+        } else { // this drone is controlled by another player
+
+            targetPosition += myRB.velocity;
+            targetRotation *= Quaternion.Euler(myRB.angularVelocity);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime);
+
         }
     }
 }
