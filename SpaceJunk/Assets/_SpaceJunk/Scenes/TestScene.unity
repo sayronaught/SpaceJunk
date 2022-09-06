@@ -36974,7 +36974,11 @@ MonoBehaviour:
   controlsRight: {x: 0, y: 0}
   SpeedParticles: {fileID: 2120938817}
   Inventory:
-    Inventory: []
+    Inventory:
+    - item: {fileID: 11400000, guid: 5b57bb841fd27be41b0c1cd002fb099f, type: 2}
+      amount: 50
+    - item: {fileID: 11400000, guid: bfe37082dc51b624ea0da3c395266b39, type: 2}
+      amount: 60
   Recipes:
     RecipeList:
     - {fileID: 11400000, guid: c1300e6d9160398428087e8662d1f8be, type: 2}
