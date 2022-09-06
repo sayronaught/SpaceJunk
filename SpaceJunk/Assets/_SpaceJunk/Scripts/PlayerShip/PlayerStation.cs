@@ -10,6 +10,8 @@ public class PlayerStation : MonoBehaviour
 
     public PlayerVrControls thisPlayer;
 
+    public List<GameObject> playerActiveObjects;
+
     public bool DroneStation = false;
     public string DronePrefabName;
 
@@ -28,6 +30,13 @@ public class PlayerStation : MonoBehaviour
         thisPlayer = playerControl;
         currentPlayers++;
         myPV.RPC("updatePlayerCount", RpcTarget.All, currentPlayers);
+        if (playerActiveObjects.Count > 0)
+        {
+            foreach (GameObject playerActiveObjects in playerActiveObjects)
+            {
+                playerActiveObjects.gameObject.SetActive(true);
+            }
+        }
     }
 
     // removes the current player from this seat
@@ -36,12 +45,26 @@ public class PlayerStation : MonoBehaviour
         thisPlayer = null;
         currentPlayers--;
         myPV.RPC("updatePlayerCount", RpcTarget.All, currentPlayers);
+        if (playerActiveObjects.Count > 0)
+        {
+            foreach (GameObject playerActiveObjects in playerActiveObjects)
+            {
+                playerActiveObjects.gameObject.SetActive(false);
+            }
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
         myPV = GetComponent<PhotonView>();
+        if (playerActiveObjects.Count > 0)
+        {
+            foreach (GameObject playerActiveObjects in playerActiveObjects)
+            {
+                playerActiveObjects.gameObject.SetActive(false);
+            }
+        }
     }
 
     // Update is called once per frame

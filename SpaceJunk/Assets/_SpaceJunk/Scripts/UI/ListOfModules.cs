@@ -10,20 +10,16 @@ public class ListOfModules : MonoBehaviour
 
     public GameObject ModuleListItemPrefab;
 
-    public int modulePadding = 20;
-    public int moduleSpaceing = 50;
+    public float spacing = 55f;
 
     private RectTransform myRect;
 
     void MakeListOfModules()
     {
-        myRect.sizeDelta = new Vector2(0, moduleSpaceing*myShip.Modules.Count+(modulePadding*2));
-        int pos = -(moduleSpaceing + modulePadding);
+        myRect.sizeDelta = new Vector2(0, myShip.Modules.Count * spacing);
         foreach ( PlayerModule module in myShip.Modules)
         {
             var listItem = Instantiate(ModuleListItemPrefab, transform);
-            listItem.transform.localPosition = new Vector3(0,pos,0);
-            pos -= moduleSpaceing;
             listItem.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = module.moduleName;
             listItem.transform.GetChild(0).GetChild(1).GetComponent<TMP_Text>().text = module.moduleDescription;
             listItem.transform.GetChild(1).GetComponent<ListOfModulesHpBar>().myMod = module;
