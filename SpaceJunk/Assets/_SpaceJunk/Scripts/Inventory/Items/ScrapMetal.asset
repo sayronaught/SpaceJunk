@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ScrapMetal
   m_EditorClassIdentifier: 
   itemName: Scrap Metal
-  itemDescription: 
-  itemIcon: {fileID: 0}
-  itemMass: 0
+  itemDescription: Useless Junk
+  itemIcon: {fileID: 2800000, guid: 1fbac5114c5ed17469c3c8d6a79e174c, type: 3}
+  itemMass: 3
   itemBaseValue: 0
   Amount: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: PatchKit
   itemDescription: Patch yer holes
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 2800000, guid: 692dfb4e8e7b63040a0e594dabe42e4d, type: 3}
   itemMass: 15
-  itemBaseValue: 0
+  itemBaseValue: 30
   Amount: 0
