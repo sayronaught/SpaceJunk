@@ -36975,4 +36975,7 @@ MonoBehaviour:
   SpeedParticles: {fileID: 2120938817}
   Inventory:
     Inventory: []
+  Recipes:
+    RecipeList:
+    - {fileID: 11400000, guid: c1300e6d9160398428087e8662d1f8be, type: 2}
   myGM: {fileID: 894119120}

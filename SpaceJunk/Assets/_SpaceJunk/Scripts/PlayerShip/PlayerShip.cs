@@ -31,6 +31,7 @@ public class PlayerShip : MonoBehaviour
     private ParticleSystem SpeedParticlesLudicrous;
 
     public SO_Item_Inventory Inventory;
+    public SO_Recipe_List Recipes;
 
     public gameManager myGM;
 
