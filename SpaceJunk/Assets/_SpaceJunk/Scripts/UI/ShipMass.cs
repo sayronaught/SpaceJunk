@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ShipSpeed : MonoBehaviour
+public class ShipMass : MonoBehaviour
 {
 
     private float updateTimer = 0f;
@@ -12,7 +12,7 @@ public class ShipSpeed : MonoBehaviour
 
     private Rigidbody shipRB;
 
-    private float convertSpeed;
+    private float convertMass;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +26,8 @@ public class ShipSpeed : MonoBehaviour
     {
         if (updateTimer < 0f)
         {
-            convertSpeed = shipRB.velocity.magnitude * 3.6f;
-            myTxt.text = convertSpeed.ToString("F3").Replace(".", ",") + " km/h";
+            convertMass = shipRB.mass * 0.001f;
+            myTxt.text = convertMass.ToString("F3").Replace(".", ",") + " Tons";
             updateTimer = 1f;
         }
         updateTimer -= Time.deltaTime;
