@@ -104,7 +104,8 @@ public class PlayerDroneController : MonoBehaviour
         if (playerLeftTheDrone) return;
         playerLeftTheDrone = true;
         thisShip.addToInventory(JsonUtility.ToJson(Inventory));
-        Destroy(gameObject, 10f);
+        myPV.RPC("removeDrone", RpcTarget.All);
+        //Destroy(gameObject, 10f);
     }
 
     // Update is called once per frame
