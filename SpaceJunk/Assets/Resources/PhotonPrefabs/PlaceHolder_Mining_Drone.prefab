@@ -466,6 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab1dd2e63a683544b6b7c774ee30e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myMass: 200
   MyThruster: {fileID: 7741266465086621604}
   myDrill: {fileID: 7740857990776481113}
   drillActive: {fileID: 332321592315892615}
