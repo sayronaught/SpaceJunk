@@ -143,7 +143,7 @@ public class PlayerDroneController : MonoBehaviour
             // update other clients
             if (updateTimer < 0)
             {
-                myPV.RPC("updateDroneFromHost", RpcTarget.All, transform.position, transform.rotation, myRB.velocity, myRB.angularVelocity);
+                myPV.RPC("updateDroneFromController", RpcTarget.All, transform.position, transform.rotation, myRB.velocity, myRB.angularVelocity);
                 updateTimer = 0.2f;
             }
             updateTimer -= Time.deltaTime;
