@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Metal
   m_EditorClassIdentifier: 
   itemName: Metal
+  itemDescription: Now THATS Metal!!
   itemIcon: {fileID: 2800000, guid: a0597ecc4ad692c4bac62d9c258effc5, type: 3}
   itemMass: 2
   itemBaseValue: 6
+  Amount: 0

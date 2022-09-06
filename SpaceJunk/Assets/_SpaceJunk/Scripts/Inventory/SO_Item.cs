@@ -14,6 +14,6 @@ public class SO_Item : ScriptableObject
 
     public float itemBaseValue;
 
-    [Tooltip("Keep at zero until we get this to work!!! ;)")]
-    public int Amount = 0;
+    //[Tooltip("Keep at zero until we get this to work!!! ;)")]
+    //public int Amount = 0;
 }

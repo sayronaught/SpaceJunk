@@ -15,8 +15,17 @@ public class ListInventory : MonoBehaviour
 
     private RectTransform myRect;
 
+    private float updateTimer = 1f;
+
     void MakeInventoryList()
     {
+        if (myRect.transform.childCount > 0)
+        {
+            foreach (Transform child in myRect.transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+        }
         myRect.sizeDelta = new Vector2(0, myShip.Inventory.Inventory.Count * spacing);
         if ( myShip.Inventory.Inventory.Count > 0)
         {
@@ -29,7 +38,8 @@ public class ListInventory : MonoBehaviour
                 listItem.transform.GetChild(3).GetComponent<TMP_Text>().text = myShip.Inventory.Inventory[i].amount.ToString();
                 listItem.transform.GetChild(4).GetComponent<TMP_Text>().text = (myShip.Inventory.Inventory[i].item.itemMass * myShip.Inventory.Inventory[i].amount).ToString() + " Kg";
             }
-        }        
+        }
+        updateTimer = 1f;
     }
 
     // Start is called before the first frame update
@@ -43,6 +53,7 @@ public class ListInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (updateTimer < 0f) MakeInventoryList();
+        updateTimer -= Time.deltaTime;
     }
 }

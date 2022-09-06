@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PatchKit
   m_EditorClassIdentifier: 
   recipeName: PatchKit
-  recipeDescription: 
-  recipeIcon: {fileID: 0}
+  recipeDescription: Fix Hull Breaches
+  recipeIcon: {fileID: 2800000, guid: 692dfb4e8e7b63040a0e594dabe42e4d, type: 3}
   energyCost: 50
   timeCost: 5
   required:
