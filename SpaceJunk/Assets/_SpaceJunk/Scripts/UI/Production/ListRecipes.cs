@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Threading.Tasks;
 
 public class ListRecipes : MonoBehaviour
 {
@@ -35,6 +36,9 @@ public class ListRecipes : MonoBehaviour
                 listItem.transform.GetChild(0).GetComponent<RawImage>().texture = myShip.Recipes.RecipeList[i].recipeIcon;
                 listItem.transform.GetChild(1).GetComponent<TMP_Text>().text = myShip.Recipes.RecipeList[i].recipeName;
                 listItem.transform.GetChild(2).GetComponent<TMP_Text>().text = myShip.Recipes.RecipeList[i].recipeDescription;
+                int x = i; // weird bug, it delegates all as the last number unless you do this crappy hack
+                var button = listItem.transform.GetChild(4).GetComponent<Button>();
+                button.onClick.AddListener(delegate { CraftButton(x,button); });
                 string usedUp = "Power: " + myShip.Recipes.RecipeList[i].energyCost;
                 if (myShip.Recipes.RecipeList[i].usedup.Length > 0)
                 {
@@ -47,6 +51,14 @@ public class ListRecipes : MonoBehaviour
             }
         }
         updateTimer = 1f;
+    }
+
+    public async void CraftButton(int i,Button button)
+    {
+        //button.interactable = false;
+        myShip.CraftRecipe(i);
+        await Task.Delay(0);
+        //button.interactable = true;
     }
 
     // Start is called before the first frame update

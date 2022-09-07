@@ -15,7 +15,7 @@ public class ListOfModules : MonoBehaviour
 
     private RectTransform myRect;
 
-    private float updateTimer = 1f;
+    private float updateTimer = 30f;
 
     void MakeListOfModules()
     {
@@ -34,7 +34,7 @@ public class ListOfModules : MonoBehaviour
             listItem.transform.GetChild(0).GetChild(1).GetComponent<TMP_Text>().text = module.moduleDescription;
             listItem.transform.GetChild(1).GetComponent<ListOfModulesHpBar>().myMod = module;
         }
-        updateTimer = 1f;
+        updateTimer = 30f;
     }
 
     // Start is called before the first frame update

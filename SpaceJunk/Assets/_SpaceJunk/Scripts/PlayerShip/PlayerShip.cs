@@ -85,6 +85,20 @@ public class PlayerShip : MonoBehaviour
         Inventory.addJSON(newInv);
     }
 
+    public void CraftRecipe(int i)
+    {
+        energy -= Recipes.RecipeList[i].energyCost;
+        for (int usedUp = 0; usedUp < Recipes.RecipeList[i].usedup.Length; usedUp++)
+        {
+            Inventory.removeItem(Recipes.RecipeList[i].usedup[usedUp].item, Recipes.RecipeList[i].usedup[usedUp].amount);
+        }
+        for (int resultProduct = 0; resultProduct < Recipes.RecipeList[i].result.Length; resultProduct++ )
+        {
+            Inventory.addItem(Recipes.RecipeList[i].result[resultProduct].item, Recipes.RecipeList[i].result[resultProduct].amount);
+        }
+        myPV.RPC("updateInventory", RpcTarget.All, JsonUtility.ToJson(Inventory));
+    }
+
     public void addToInventory( string stuffToAdd )
     {
         Inventory.addJSON(stuffToAdd);

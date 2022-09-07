@@ -63,6 +63,24 @@ public class SO_Item_Inventory
         addItem(item, 1);
     }
 
+    public void removeItem( SO_Item item, int num )
+    {
+        if (item == null) return;
+        if (Inventory.Count > 0)
+        {// if there is things on the list, we can do a foreach
+            foreach (Resource res in Inventory)
+            {
+                if (res.item == item)
+                {
+                    res.amount -= num;
+                    if (res.amount <= 0) Inventory.Remove(res);
+                    return;
+                }
+            }
+        }  // there is no list or items is not found, bugger!
+        Debug.Log("Trying to remove something that isn't there: " + item.itemName);
+    }
+
     public void addJSON(string newItems)
     { // get a JSON string, and adds that to inventory
         SO_Item_Inventory temp = JsonUtility.FromJson<SO_Item_Inventory>(newItems);
