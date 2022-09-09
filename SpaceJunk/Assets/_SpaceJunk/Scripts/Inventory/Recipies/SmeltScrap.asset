@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ea75f5e3111a214aa8ad6b4c5afb934, type: 3}
+  m_Name: SmeltScrap
+  m_EditorClassIdentifier: 
+  recipeName: Metal
+  recipeDescription: Smelt yer scrap
+  recipeIcon: {fileID: 2800000, guid: 1fbac5114c5ed17469c3c8d6a79e174c, type: 3}
+  energyCost: 100
+  timeCost: 15
+  required:
+  - item: {fileID: 11400000, guid: a812b589edc18464c9df10d7bf3e0f2c, type: 2}
+    amount: 10
+  usedup:
+  - item: {fileID: 11400000, guid: a812b589edc18464c9df10d7bf3e0f2c, type: 2}
+    amount: 10
+  result:
+  - item: {fileID: 11400000, guid: 5b57bb841fd27be41b0c1cd002fb099f, type: 2}
+    amount: 8

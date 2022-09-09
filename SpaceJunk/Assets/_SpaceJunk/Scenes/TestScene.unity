@@ -35485,6 +35485,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4329622103212470934, guid: 608204a87eaad1142818bfafdc4a7c69,
+        type: 3}
+      propertyPath: myShip
+      value: 
+      objectReference: {fileID: 8897277017676537962}
     - target: {fileID: 5338060449162956952, guid: 608204a87eaad1142818bfafdc4a7c69,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -37246,4 +37251,6 @@ MonoBehaviour:
   Recipes:
     RecipeList:
     - {fileID: 11400000, guid: c1300e6d9160398428087e8662d1f8be, type: 2}
+    - {fileID: 11400000, guid: e2a9bb2240afd7b44b8e5c1f7868150b, type: 2}
+    - {fileID: 11400000, guid: e37c2a6a14696d440925e7fc539849fd, type: 2}
   myGM: {fileID: 894119120}
