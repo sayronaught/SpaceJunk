@@ -4,21 +4,6 @@ using UnityEngine;
 public class SO_Recipe : ScriptableObject
 {
 
-    [System.Serializable]
-    public class Resource
-    {
-        public SO_Item item;
-        public int amount;
-
-        public Resource set(SO_Item newitem, int newamount)
-        {
-            var newResource = new Resource();
-            item = newitem;
-            amount = newamount;
-            return newResource;
-        }
-    }
-
     public string recipeName;
 
     public string recipeDescription;
@@ -30,10 +15,10 @@ public class SO_Recipe : ScriptableObject
 
     public float timeCost;
 
-    public Resource[] required;
+    public SO_Item_Inventory.Resource[] required;
 
-    public Resource[] usedup;
+    public SO_Item_Inventory.Resource[] usedup;
 
-    public Resource[] result;
+    public SO_Item_Inventory.Resource[] result;
 
 }

@@ -18,33 +18,59 @@ public class ListRecipes : MonoBehaviour
 
     private float updateTimer = 1f;
 
-    void MakeRecipeList()
+    private SO_Recipe_List recipeFilter;
+
+    void clearTransformChildren(Transform needToClear)
     {
-        if ( myRect.transform.childCount > 0)
+        if (needToClear.childCount > 0)
         {
-            foreach (Transform child in myRect.transform)
+            foreach (Transform child in needToClear)
             {
                 GameObject.Destroy(child.gameObject);
             }
         }
-        myRect.sizeDelta = new Vector2(0, myShip.Recipes.RecipeList.Count * spacing);
+    }
+
+    void filterRecipies()
+    {
+        recipeFilter = new SO_Recipe_List();
         if (myShip.Recipes.RecipeList.Count > 0)
         {
             for (int i = 0; i < myShip.Recipes.RecipeList.Count; i++)
             {
+                if ( myShip.energy >= myShip.Recipes.RecipeList[i].energyCost)
+                {
+                    if ( myShip.Inventory.checkInventoryForRecipe(myShip.Recipes.RecipeList[i].required) )
+                    {
+                        recipeFilter.RecipeList.Add(myShip.Recipes.RecipeList[i]);
+                    }
+                }
+            }
+        }
+    }
+
+    void MakeRecipeList()
+    {
+        clearTransformChildren(myRect.transform);
+        filterRecipies();
+        myRect.sizeDelta = new Vector2(0, recipeFilter.RecipeList.Count * spacing);
+        if (myShip.Recipes.RecipeList.Count > 0)
+        {
+            for (int i = 0; i < recipeFilter.RecipeList.Count; i++)
+            {
                 var listItem = Instantiate(RecipeListItemPrefab, transform);
-                listItem.transform.GetChild(0).GetComponent<RawImage>().texture = myShip.Recipes.RecipeList[i].recipeIcon;
-                listItem.transform.GetChild(1).GetComponent<TMP_Text>().text = myShip.Recipes.RecipeList[i].recipeName;
-                listItem.transform.GetChild(2).GetComponent<TMP_Text>().text = myShip.Recipes.RecipeList[i].recipeDescription;
+                listItem.transform.GetChild(0).GetComponent<RawImage>().texture = recipeFilter.RecipeList[i].recipeIcon;
+                listItem.transform.GetChild(1).GetComponent<TMP_Text>().text = recipeFilter.RecipeList[i].recipeName;
+                listItem.transform.GetChild(2).GetComponent<TMP_Text>().text = recipeFilter.RecipeList[i].recipeDescription;
                 int x = i; // weird bug, it delegates all as the last number unless you do this crappy hack
                 var button = listItem.transform.GetChild(4).GetComponent<Button>();
                 button.onClick.AddListener(delegate { CraftButton(x,button); });
-                string usedUp = "Power: " + myShip.Recipes.RecipeList[i].energyCost;
-                if (myShip.Recipes.RecipeList[i].usedup.Length > 0)
+                string usedUp = "Power: " + recipeFilter.RecipeList[i].energyCost;
+                if (recipeFilter.RecipeList[i].usedup.Length > 0)
                 {
-                    for ( int ii = 0; ii < myShip.Recipes.RecipeList[i].usedup.Length; ii++ )
+                    for ( int ii = 0; ii < recipeFilter.RecipeList[i].usedup.Length; ii++ )
                     {
-                        usedUp += "\n" + myShip.Recipes.RecipeList[i].usedup[ii].item.itemName + " : " + myShip.Recipes.RecipeList[i].usedup[ii].amount;
+                        usedUp += "\n" + recipeFilter.RecipeList[i].usedup[ii].item.itemName + " : " + recipeFilter.RecipeList[i].usedup[ii].amount;
                     }
                 }
                 listItem.transform.GetChild(3).GetComponent<TMP_Text>().text = usedUp;

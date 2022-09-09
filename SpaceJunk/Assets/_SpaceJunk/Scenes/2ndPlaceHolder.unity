@@ -12401,7 +12401,7 @@ GameObject:
   - component: {fileID: 598449135}
   - component: {fileID: 598449134}
   m_Layer: 0
-  m_Name: PlayerShip
+  m_Name: NewPlayerShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30683,7 +30683,7 @@ Transform:
   - {fileID: 268307068}
   - {fileID: 850679648}
   m_Father: {fileID: 1909214710}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1298358143
 GameObject:
@@ -58996,8 +58996,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 347567943}
   - {fileID: 1281163707}
+  - {fileID: 347567943}
   m_Father: {fileID: 1737370017}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -63648,7 +63648,7 @@ GameObject:
   - component: {fileID: 3539804630929614025}
   - component: {fileID: 8897277017676537962}
   m_Layer: 0
-  m_Name: OldPlayerShip
+  m_Name: PlayerShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

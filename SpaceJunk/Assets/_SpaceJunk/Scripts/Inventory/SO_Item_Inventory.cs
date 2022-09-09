@@ -104,4 +104,28 @@ public class SO_Item_Inventory
         return massCalc;
     }
 
+    public bool checkInventoryForItem(SO_Item item, int amount)
+    {
+        if ( Inventory.Count > 0 )
+        {
+            foreach(Resource checkThis in Inventory)
+            {
+                if (item == checkThis.item && amount >= checkThis.amount) return true;
+            }
+        }
+        return false;
+    }
+
+    public bool checkInventoryForRecipe(Resource[] ingredients)
+    {
+        if ( ingredients.Length > 0)
+        {
+            for (int i = 0; i < ingredients.Length; i++)
+            {
+                if (!checkInventoryForItem(ingredients[i].item,ingredients[i].amount)) return false;
+            }
+        }
+        return true;
+    }
+
 }
