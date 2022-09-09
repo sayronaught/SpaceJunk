@@ -110,7 +110,7 @@ public class SO_Item_Inventory
         {
             foreach(Resource checkThis in Inventory)
             {
-                if (item == checkThis.item && amount >= checkThis.amount) return true;
+                if (item.itemName == checkThis.item.itemName && checkThis.amount >= amount) return true;
             }
         }
         return false;

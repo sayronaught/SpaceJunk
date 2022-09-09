@@ -61940,6 +61940,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4329622103212470934, guid: 608204a87eaad1142818bfafdc4a7c69,
+        type: 3}
+      propertyPath: myShip
+      value: 
+      objectReference: {fileID: 8897277017676537962}
     - target: {fileID: 5338060449162956952, guid: 608204a87eaad1142818bfafdc4a7c69,
         type: 3}
       propertyPath: m_AnchorMax.y

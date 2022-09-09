@@ -90,7 +90,7 @@ public class ListRecipes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myShip = GameObject.Find("PlayerShip").GetComponent<PlayerShip>();
+        //myShip = GameObject.Find("PlayerShip").GetComponent<PlayerShip>();
         myRect = GetComponent<RectTransform>();
         MakeRecipeList();
     }
