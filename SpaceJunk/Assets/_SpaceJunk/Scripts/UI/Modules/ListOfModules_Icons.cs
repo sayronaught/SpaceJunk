@@ -17,7 +17,11 @@ public class ListOfModules_Icons : MonoBehaviour
 
     public void clickPatchKit()
     {
-        //removeItem(string removeName, int num)
+        myPM.myShip.energy -= 25f;
+        myPM.myShip.Inventory.removeItem("PatchKit", 1);
+        myPM.structureHP += 25f;
+        myPM.updateModule();
+        myPM.myShip.updateInventoryPlus();
     }
 
     void checkPatchKit()
@@ -27,8 +31,6 @@ public class ListOfModules_Icons : MonoBehaviour
         if ( myPM.structureHP > (myPM.structureMaxHP-25) ) IconPatchKit.SetActive(false);
         if ( myPM.myShip.Inventory.countItem("PatchKit") < 1 ) IconPatchKit.SetActive(false);
     }
-
-
 
     // Update is called once per frame
     void Update()

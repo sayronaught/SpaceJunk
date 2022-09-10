@@ -62,9 +62,9 @@ public class ListRecipes : MonoBehaviour
                 listItem.transform.GetChild(0).GetComponent<RawImage>().texture = recipeFilter.RecipeList[i].recipeIcon;
                 listItem.transform.GetChild(1).GetComponent<TMP_Text>().text = recipeFilter.RecipeList[i].recipeName;
                 listItem.transform.GetChild(2).GetComponent<TMP_Text>().text = recipeFilter.RecipeList[i].recipeDescription;
-                int x = i; // weird bug, it delegates all as the last number unless you do this crappy hack
+                string keepName = recipeFilter.RecipeList[i].recipeName;
                 var button = listItem.transform.GetChild(4).GetComponent<Button>();
-                button.onClick.AddListener(delegate { CraftButton(x,button); });
+                button.onClick.AddListener(delegate { CraftButton(keepName); });
                 string usedUp = "Power: " + recipeFilter.RecipeList[i].energyCost;
                 if (recipeFilter.RecipeList[i].usedup.Length > 0)
                 {
@@ -79,10 +79,10 @@ public class ListRecipes : MonoBehaviour
         updateTimer = 1f;
     }
 
-    public async void CraftButton(int i,Button button)
+    public async void CraftButton(string recipe)
     {
         //button.interactable = false;
-        myShip.CraftRecipe(i);
+        myShip.CraftRecipe(recipe);
         await Task.Delay(0);
         //button.interactable = true;
     }

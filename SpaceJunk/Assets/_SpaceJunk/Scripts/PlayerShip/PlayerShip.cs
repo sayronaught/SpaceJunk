@@ -79,30 +79,47 @@ public class PlayerShip : MonoBehaviour
     }
 
     [PunRPC]
-    public void updateInventory(string newInv)
+    public void updateInventoryPlus(string newInv,float en)
     { // host sends tick info
+        energy = en;
         Inventory = new SO_Item_Inventory();
         Inventory.addJSON(newInv);
     }
 
+    public void updateInventoryPlus()
+    { // send inventory after change
+        myPV.RPC("updateInventoryPlus", RpcTarget.All, JsonUtility.ToJson(Inventory),energy);
+    }
+
     public void CraftRecipe(int i)
     {
+
+        Debug.Log("crafting " + Recipes.RecipeList[i].recipeName);
         energy -= Recipes.RecipeList[i].energyCost;
         for (int usedUp = 0; usedUp < Recipes.RecipeList[i].usedup.Length; usedUp++)
         {
             Inventory.removeItem(Recipes.RecipeList[i].usedup[usedUp].item, Recipes.RecipeList[i].usedup[usedUp].amount);
         }
-        for (int resultProduct = 0; resultProduct < Recipes.RecipeList[i].result.Length; resultProduct++ )
+        for (int resultProduct = 0; resultProduct < Recipes.RecipeList[i].result.Length; resultProduct++)
         {
             Inventory.addItem(Recipes.RecipeList[i].result[resultProduct].item, Recipes.RecipeList[i].result[resultProduct].amount);
         }
-        myPV.RPC("updateInventory", RpcTarget.All, JsonUtility.ToJson(Inventory));
+        myPV.RPC("updateInventoryPlus", RpcTarget.All, JsonUtility.ToJson(Inventory), energy);
+    }
+
+    public void CraftRecipe(string recipe)
+    {
+        if (Recipes.RecipeList.Count < 1) return;
+        for (int i = 0; i < Recipes.RecipeList.Count; i++)
+        {
+            if (recipe == Recipes.RecipeList[i].recipeName) CraftRecipe(i);
+        }
     }
 
     public void addToInventory( string stuffToAdd )
     {
         Inventory.addJSON(stuffToAdd);
-        myPV.RPC("updateInventory", RpcTarget.All, JsonUtility.ToJson(Inventory));
+        myPV.RPC("updateInventoryPlus", RpcTarget.All, JsonUtility.ToJson(Inventory), energy);
     }
 
     private void SpeedParticlesUpdate()
