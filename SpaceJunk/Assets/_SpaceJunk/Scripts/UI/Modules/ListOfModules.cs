@@ -33,6 +33,9 @@ public class ListOfModules : MonoBehaviour
             listItem.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = module.moduleName;
             listItem.transform.GetChild(0).GetChild(1).GetComponent<TMP_Text>().text = module.moduleDescription;
             listItem.transform.GetChild(1).GetComponent<ListOfModulesHpBar>().myMod = module;
+            var iconScript = listItem.GetComponent<ListOfModules_Icons>();
+            iconScript.myPM = module;
+            iconScript.turnedOn = true;
         }
         updateTimer = 30f;
     }

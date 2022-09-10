@@ -897,7 +897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnedOn: 0
   myPM: {fileID: 0}
-  IconPatchKit: {fileID: 0}
+  IconPatchKit: {fileID: 1423382392615714528}
 --- !u!1 &8536471472215542014
 GameObject:
   m_ObjectHideFlags: 0
