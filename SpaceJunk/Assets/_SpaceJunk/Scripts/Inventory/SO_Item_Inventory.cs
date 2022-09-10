@@ -30,6 +30,21 @@ public class SO_Item_Inventory
         Inventory = new List<Resource>();
     }
 
+    public int countItem( string countName )
+    {
+        if (Inventory.Count > 0)
+        {// if there is things on the list, we can do a foreach
+            foreach (Resource res in Inventory)
+            {
+                if (res.item.itemName == countName)
+                {
+                    return res.amount;
+                }
+            }
+        }
+        return 0;
+    }
+
     public SO_Item removeRandom()
     { // remove one random item and return it
         if (Inventory.Count < 1) return null;
@@ -78,7 +93,24 @@ public class SO_Item_Inventory
                 }
             }
         }  // there is no list or items is not found, bugger!
-        Debug.Log("Trying to remove something that isn't there: " + item.itemName);
+        Debug.Log("Trying to remove item that isn't there: " + item.itemName);
+    }
+
+    public void removeItem(string removeName, int num)
+    {
+        if (Inventory.Count > 0)
+        {// if there is things on the list, we can do a foreach
+            foreach (Resource res in Inventory)
+            {
+                if (res.item.itemName == removeName)
+                {
+                    res.amount -= num;
+                    if (res.amount <= 0) Inventory.Remove(res);
+                    return;
+                }
+            }
+        }  // there is no list or items is not found, bugger!
+        Debug.Log("Trying to remove item that isn't there(string): " + removeName);
     }
 
     public void addJSON(string newItems)

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8041059445484578581}
   - component: {fileID: 4586416354254353880}
   m_Layer: 5
-  m_Name: Icon
+  m_Name: PatchKit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 50, y: 0}
-  m_SizeDelta: {x: 30, y: 30}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2832916897763074140
 CanvasRenderer:
@@ -117,7 +117,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8041059445484578581}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9179190133117437916}
+        m_TargetAssemblyTypeName: ListOfModules_Icons, Assembly-CSharp
+        m_MethodName: clickPatchKit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2259971587143459524
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,7 +660,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6511406282740635261}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 300, y: 35, z: 0}
+  m_LocalPosition: {x: 320, y: 27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -802,6 +814,7 @@ GameObject:
   - component: {fileID: 7842494992017927293}
   - component: {fileID: 7842494992017927295}
   - component: {fileID: 7842494992017927292}
+  - component: {fileID: 9179190133117437916}
   m_Layer: 5
   m_Name: ModuleListItem
   m_TagString: Untagged
@@ -870,6 +883,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &9179190133117437916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7842494992017927234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2470d62d6ea1d544d90daa99a16d7662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnedOn: 0
+  myPM: {fileID: 0}
+  IconPatchKit: {fileID: 0}
 --- !u!1 &8536471472215542014
 GameObject:
   m_ObjectHideFlags: 0

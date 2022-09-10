@@ -53,6 +53,17 @@ public class PlayerModule : MonoBehaviour
         }
     }
 
+    [PunRPC]
+    public void updateModuleNetWork()
+    {
+
+    }
+
+    public void updateModule()
+    {
+
+    }
+
     public void TestHullStrain(float CalculateHullStrain)
     {
         if ((Random.Range(1, 20) == 1)) structureHP++;

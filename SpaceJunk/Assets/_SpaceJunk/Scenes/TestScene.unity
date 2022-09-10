@@ -36719,6 +36719,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6900054388857196160, guid: 1fa4f8e741fa4094e91401f16800b504,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 6900054388857196191, guid: 1fa4f8e741fa4094e91401f16800b504,
         type: 3}
       propertyPath: myShip
