@@ -13289,6 +13289,9 @@ MonoBehaviour:
   - {fileID: 100000, guid: 24be8e1643b8a474fbb57fcda8a1c454, type: 3}
   - {fileID: 100000, guid: 84376f2a0948947b5a6dfe814a1100a0, type: 3}
   PreferedAsteroidCount: 300
+  SpawnedEnemies: []
+  EnemyPrefabName:
+  - EnemyShip1
   SoundBank: {fileID: 1436632033}
   refUI: {fileID: 2034550842}
   refUISeat: {fileID: 891639004}

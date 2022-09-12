@@ -22,6 +22,9 @@ public class gameManager : MonoBehaviour
     public List<GameObject> AsteroidPrefabs;
     public int PreferedAsteroidCount = 100;
 
+    public List<GameObject> SpawnedEnemies;
+    public List<string> EnemyPrefabName;
+
     public ListOfSoundEffects SoundBank;
 
     private Vector3 spawnPosition;
@@ -58,6 +61,17 @@ public class gameManager : MonoBehaviour
         var Asteroid = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", name), myShip.transform.position + spawnPosition, Quaternion.identity);
         Asteroid.GetComponent<Asteroid>().ThePlayersShip = myShip;
         Asteroid.transform.SetParent(AsteroidContainer);
+    }
+
+    void spawnEnemy()
+    {
+        spawnPosition = new Vector3(Random.Range(-600f, 600f), Random.Range(-600f, 600f), Random.Range(-600f, 600f));
+        if (spawnPosition.x > -500f && spawnPosition.x < 500f &&
+            spawnPosition.y > -500f && spawnPosition.y < 500f &&
+            spawnPosition.z > -500f && spawnPosition.z < 500f) return;
+        var Enemy = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", EnemyPrefabName[0] ), myShip.transform.position + spawnPosition, Quaternion.identity);
+        Enemy.GetComponent<EnemyShip>().myGM = this;
+        SpawnedEnemies.Add(Enemy);
     }
 
     void nextSeat()
@@ -123,6 +137,7 @@ public class gameManager : MonoBehaviour
         if ( PhotonNetwork.IsMasterClient )
         {
             if (AsteroidContainer.childCount < PreferedAsteroidCount) spawnAsteroid();
+            if (SpawnedEnemies.Count < 5) spawnEnemy();
         }
         
     }
