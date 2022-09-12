@@ -37,8 +37,10 @@ public class PlayerLever : MonoBehaviour
     void setLever()
     {
         leverStick.transform.localRotation = Quaternion.Euler(leverStates[currentLeverPosition].Angle, 0f, 0f);
+        if (!display) return;
         display.text = leverStates[currentLeverPosition].text;
         display.color = leverStates[currentLeverPosition].color;
+
     }
     public void changeLeverState(int newState)
     { // change lever state, from player pulling it, or from engine failure or such..
@@ -64,7 +66,8 @@ public class PlayerLever : MonoBehaviour
         }
         if ( isGrabbedLeft )
         { // they have grabbed it, lets check if they move it
-            if (leverUp.bounds.Contains(myStation.thisPlayer.leftController.transform.position) && gearChangeTimer <= 0f )
+            //if ( leverUp )
+            if ( leverUp.bounds.Contains(myStation.thisPlayer.leftController.transform.position) && gearChangeTimer <= 0f )
             {
                 if (currentLeverPosition < leverStates.Length)
                 {
@@ -72,7 +75,8 @@ public class PlayerLever : MonoBehaviour
                     gearChangeTimer = nextStepDelay;
                 }
             }
-            if (leverDown.bounds.Contains(myStation.thisPlayer.leftController.transform.position) && gearChangeTimer <= 0f )
+            //if (leverDown)
+            if ( leverDown.bounds.Contains(myStation.thisPlayer.leftController.transform.position) && gearChangeTimer <= 0f )
             {
                 if (currentLeverPosition > 0) 
                 {
@@ -89,6 +93,7 @@ public class PlayerLever : MonoBehaviour
         }
         if (isGrabbedRight)
         { // they have grabbed it, lets check if they move it
+            //if (leverUp)
             if (leverUp.bounds.Contains(myStation.thisPlayer.rightController.transform.position) && gearChangeTimer <= 0f)
             {
                 if (currentLeverPosition < leverStates.Length)
@@ -97,6 +102,7 @@ public class PlayerLever : MonoBehaviour
                     gearChangeTimer = nextStepDelay;
                 }
             }
+            //if ( leverDown )
             if (leverDown.bounds.Contains(myStation.thisPlayer.rightController.transform.position) && gearChangeTimer <= 0f)
             {
                 if (currentLeverPosition > 0)
