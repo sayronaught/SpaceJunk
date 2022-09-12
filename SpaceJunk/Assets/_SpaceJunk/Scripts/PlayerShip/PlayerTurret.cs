@@ -56,9 +56,14 @@ public class PlayerTurret : MonoBehaviour
                 //shot.GetComponent<Rigidbody>().AddForce(barrel.forward * AmmoSpeed);
                 //Destroy(shot, AmmoLifetime);
             }
+            myAS.clip = sfxShoot;
             myAS.Play();
         }
-        else myAS.Play();
+        else
+        {
+            myAS.clip = sfxMisfire;
+            myAS.Play();
+        }
     }
 
     // Start is called before the first frame update
