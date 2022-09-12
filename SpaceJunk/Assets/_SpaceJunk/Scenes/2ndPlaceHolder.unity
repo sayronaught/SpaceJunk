@@ -847,7 +847,7 @@ MonoBehaviour:
   leverGrab: {fileID: 1687168139}
   leverDown: {fileID: 2019552271}
   display: {fileID: 259225644}
-  myStation: {fileID: 1351485387}
+  myStation: {fileID: 1912932129}
   leverStates:
   - Angle: -30
     text: Backwards
@@ -18883,9 +18883,20 @@ MonoBehaviour:
   controlsRight: {x: 0, y: 0}
   SpeedParticles: {fileID: 1355624288}
   Inventory:
-    Inventory: []
+    Inventory:
+    - item: {fileID: 11400000, guid: 2c3814c1a64ed4943beb8dad3fa983de, type: 2}
+      amount: 1
+    - item: {fileID: 11400000, guid: 5b57bb841fd27be41b0c1cd002fb099f, type: 2}
+      amount: 200
+    - item: {fileID: 11400000, guid: bfe37082dc51b624ea0da3c395266b39, type: 2}
+      amount: 200
+    - item: {fileID: 11400000, guid: ca5b913182e586d43bdd91c25302ebdd, type: 2}
+      amount: 2
   Recipes:
-    RecipeList: []
+    RecipeList:
+    - {fileID: 11400000, guid: e2a9bb2240afd7b44b8e5c1f7868150b, type: 2}
+    - {fileID: 11400000, guid: c1300e6d9160398428087e8662d1f8be, type: 2}
+    - {fileID: 11400000, guid: e37c2a6a14696d440925e7fc539849fd, type: 2}
   myGM: {fileID: 894119120}
 --- !u!1 &620958698
 GameObject:
@@ -25492,6 +25503,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Engine_01
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79b55a4ad5fa300409ad0b7a084cd30c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79b55a4ad5fa300409ad0b7a084cd30c, type: 3}
 --- !u!4 &862404461 stripped
@@ -25785,7 +25801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joyStick: {fileID: 880335278}
   JoystickZone: {fileID: 41008328}
-  myStation: {fileID: 1351485387}
+  myStation: {fileID: 1912932129}
   isGrabbedLeft: 0
   isGrabbedRight: 0
   engineTurnRate: 0.2
@@ -25941,8 +25957,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888043503}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 383415238}
@@ -38104,6 +38120,7 @@ GameObject:
   - component: {fileID: 1258322566}
   - component: {fileID: 1258322565}
   - component: {fileID: 1258322564}
+  - component: {fileID: 1258322567}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -38167,9 +38184,9 @@ MonoBehaviour:
   - {fileID: 1467920667}
   - {fileID: 16788655}
   AmmoPrefabName: Laser1
-  energyCost: 50
-  sfxShoot: {fileID: 0}
-  sfxMisfire: {fileID: 0}
+  energyCost: 10
+  sfxShoot: {fileID: 8300000, guid: 82458ddf54c3fef41ab276ec92497d50, type: 3}
+  sfxMisfire: {fileID: 8300000, guid: 7d2fc75762a37b04dad6aa938239b9f9, type: 3}
   maxDegreesPerSecond: 35
   myShip: {fileID: 598449137}
 --- !u!114 &1258322566
@@ -38184,7 +38201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73664d189a093d1449a2ae061fbcca45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moduleName: Standard Name
+  moduleName: Turret
   moduleDescription: Standard desc
   myMass: 500
   Ports: []
@@ -38195,6 +38212,102 @@ MonoBehaviour:
   structureHP: 50
   structureMaxHP: 100
   energyCapacity: 100
+--- !u!82 &1258322567
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258322562}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 82458ddf54c3fef41ab276ec92497d50, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1268467619
 GameObject:
   m_ObjectHideFlags: 0
@@ -38994,7 +39107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f673754f81d6c49bea7be9c80b9d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myShip: {fileID: 8897277017676537962}
+  myShip: {fileID: 598449137}
   energyBar: {fileID: 164377602}
   energyText: {fileID: 640735645}
   hpBar: {fileID: 295154620}
@@ -50997,7 +51110,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1045848416}
   - {fileID: 541096546}
@@ -66908,9 +67021,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerInSeat: 0
   checkPlayerSeatTimer: 1
-  myShip: {fileID: 0}
-  controlsSpeedLever: {fileID: 0}
-  controlsJoyStick: {fileID: 0}
+  myShip: {fileID: 598449137}
+  controlsSpeedLever: {fileID: 45341711}
+  controlsJoyStick: {fileID: 880335280}
 --- !u!114 &1905324497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67198,7 +67311,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912932127}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 3.1}
+  m_LocalPosition: {x: 0, y: -0.565, z: 3.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -70528,6 +70641,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1511895991660332737, guid: 608204a87eaad1142818bfafdc4a7c69,
+        type: 3}
+      propertyPath: myShip
+      value: 
+      objectReference: {fileID: 598449137}
     - target: {fileID: 1532878846543210888, guid: 608204a87eaad1142818bfafdc4a7c69,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -70582,7 +70700,7 @@ PrefabInstance:
         type: 3}
       propertyPath: myShip
       value: 
-      objectReference: {fileID: 8897277017676537962}
+      objectReference: {fileID: 598449137}
     - target: {fileID: 5338060449162956952, guid: 608204a87eaad1142818bfafdc4a7c69,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -70986,7 +71104,7 @@ PrefabInstance:
         type: 3}
       propertyPath: myShip
       value: 
-      objectReference: {fileID: 8897277017676537962}
+      objectReference: {fileID: 598449137}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93715c14d47315a47b3d4c0a6438b96e, type: 3}
 --- !u!65 &3539804630929614025
@@ -71677,7 +71795,7 @@ PrefabInstance:
         type: 3}
       propertyPath: myShip
       value: 
-      objectReference: {fileID: 8897277017676537962}
+      objectReference: {fileID: 598449137}
     - target: {fileID: 6900054390137264958, guid: 1fa4f8e741fa4094e91401f16800b504,
         type: 3}
       propertyPath: m_Pivot.x
