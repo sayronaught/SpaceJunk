@@ -125,6 +125,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &8227277 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000012506061754, guid: 7105fbbfff4b9af46886e2c1451b06d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1969444078}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &16788654
 GameObject:
   m_ObjectHideFlags: 0
@@ -18857,7 +18863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee003f5a8f10b9740a57a8e0792cc03d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerVrControls: {fileID: 0}
+  playerVrControls: {fileID: 1725982595}
   Modules:
   - {fileID: 1909214713}
   - {fileID: 1905324498}
@@ -18875,12 +18881,12 @@ MonoBehaviour:
   controlsYawPitch: {x: 0, y: 0}
   controlsLeft: {x: 0, y: 0}
   controlsRight: {x: 0, y: 0}
-  SpeedParticles: {fileID: 0}
+  SpeedParticles: {fileID: 1355624288}
   Inventory:
     Inventory: []
   Recipes:
     RecipeList: []
-  myGM: {fileID: 0}
+  myGM: {fileID: 894119120}
 --- !u!1 &620958698
 GameObject:
   m_ObjectHideFlags: 0
@@ -19676,7 +19682,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 2.7917993e-37, z: 1.6759978e-38, w: 0.0000000010340679}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: -0.000000680589}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -19767,12 +19773,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcb9c660be8f2034898a06bc19b852ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myShip: {fileID: 0}
-  Thrusters: []
-  ThrusterAudio: []
-  thrustStates: []
+  myShip: {fileID: 598449137}
+  Thrusters:
+  - {fileID: 8227277}
+  ThrusterAudio:
+  - {fileID: 2015465554}
+  thrustStates:
+  - onOrOff: 1
+    Size: 0.5
+    Volume: 0.2
+    Pitch: 1.2
+    Force: -2000000
+  - onOrOff: 0
+    Size: 0
+    Volume: 0
+    Pitch: 0
+    Force: 0
+  - onOrOff: 1
+    Size: 0.5
+    Volume: 0.2
+    Pitch: 1
+    Force: 2000000
+  - onOrOff: 1
+    Size: 1
+    Volume: 0.35
+    Pitch: 0.9
+    Force: 6000000
+  - onOrOff: 1
+    Size: 2
+    Volume: 1
+    Pitch: 0.8
+    Force: 20000000
   lastThrustState: 1
-  navigationThrustForce: 400000
+  navigationThrustForce: 200000
 --- !u!114 &711897633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26084,6 +26117,8 @@ MonoBehaviour:
   - {fileID: 100000, guid: 24be8e1643b8a474fbb57fcda8a1c454, type: 3}
   - {fileID: 100000, guid: 84376f2a0948947b5a6dfe814a1100a0, type: 3}
   PreferedAsteroidCount: 300
+  SpawnedEnemies: []
+  EnemyPrefabName: []
   SoundBank: {fileID: 1436632033}
   refUI: {fileID: 2034550842}
   refUISeat: {fileID: 397617675}
@@ -38134,7 +38169,7 @@ MonoBehaviour:
   sfxShoot: {fileID: 0}
   sfxMisfire: {fileID: 0}
   maxDegreesPerSecond: 35
-  myShip: {fileID: 0}
+  myShip: {fileID: 598449137}
 --- !u!114 &1258322566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68614,6 +68649,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994806845}
   m_CullTransparentMesh: 1
+--- !u!82 &2015465554 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 82000010889710720, guid: 7105fbbfff4b9af46886e2c1451b06d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1969444078}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2017497795
 GameObject:
   m_ObjectHideFlags: 0
