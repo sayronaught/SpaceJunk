@@ -26,7 +26,7 @@ public class EnemyTurret : MonoBehaviour
     {
         foreach (Transform barrel in barrelEnds)
         {
-            var shot = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", AmmoPrefabName), barrel.position, barrel.rotation);
+            var shot = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", AmmoPrefabName), barrel.position+barrel.forward, barrel.rotation);
         }
         myAS.clip = sfxShoot;
         myAS.Play();

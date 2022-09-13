@@ -43,6 +43,7 @@ public class PlayerDroneController : MonoBehaviour
     [PunRPC]
     public void updateDroneFromController(Vector3 targetPos, Quaternion targetRot, Vector3 velocity, Vector3 rotation)
     { // host sends position and movement to other ships
+        if (!myRB) Start();
         targetPosition = targetPos;
         targetRotation = targetRot;
         myRB.velocity = velocity;

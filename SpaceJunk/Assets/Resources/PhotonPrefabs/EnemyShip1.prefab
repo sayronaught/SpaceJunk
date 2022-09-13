@@ -252,8 +252,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4, y: 7, z: 15.41}
-  m_Center: {x: 0, y: 0, z: -4.45}
+  m_Size: {x: 2, y: 2, z: 13}
+  m_Center: {x: 0, y: 1, z: -4.45}
 --- !u!114 &902982080393772904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,7 +271,7 @@ MonoBehaviour:
   Inventory:
     Inventory: []
   myGM: {fileID: 0}
-  OrbitalDirection: 0
+  OrbitalDirection: 1
   Radius: 100
   TurnRate: 5
   Velocity: 25000000
@@ -1658,7 +1658,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9054028635949016443
 Transform:
   m_ObjectHideFlags: 0
