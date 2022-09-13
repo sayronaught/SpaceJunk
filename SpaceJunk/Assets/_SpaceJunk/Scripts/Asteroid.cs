@@ -29,7 +29,7 @@ public class Asteroid : MonoBehaviour
     [PunRPC]
     public void updateAsteroid(Vector3 rbvelocity, Quaternion rbrotation,Vector3 newpos, Quaternion newrot, Vector3 newscale)
     {
-        if (!myRB) Start();
+        if (!myRB) getComps();
         myRB.velocity = rbvelocity;
         myRB.rotation = rbrotation;
         transform.position = newpos;
@@ -52,12 +52,16 @@ public class Asteroid : MonoBehaviour
         Destroy(gameObject, 1f);
     }
 
+    private void getComps()
+    {
+        myRB = GetComponent<Rigidbody>();
+        myPV = GetComponent<PhotonView>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        //transform.SetParent(GameObject.Find("Astroids").transform);
-        myRB = GetComponent<Rigidbody>();
-        myPV = GetComponent<PhotonView>();
+        getComps();
         myRB.AddTorque(new Vector3(Random.Range(-randomRotation, randomRotation), Random.Range(-randomRotation, randomRotation), Random.Range(-randomRotation, randomRotation)));
         myRB.AddForce(new Vector3(Random.Range(-randomSpeed, randomSpeed), Random.Range(-randomSpeed, randomSpeed), Random.Range(-randomSpeed, randomSpeed)));
         transform.localScale = new Vector3(Random.Range(2f,randomScale), Random.Range(2f, randomScale), Random.Range(2f, randomScale));
