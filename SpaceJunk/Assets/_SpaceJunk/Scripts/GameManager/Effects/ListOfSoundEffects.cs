@@ -8,6 +8,10 @@ public class ListOfSoundEffects : MonoBehaviour
     public List<AudioClip> MetalStrainMedium;
     public List<AudioClip> MetalStrainHigh;
 
+    public List<AudioClip> ExplosionsLarge;
+    public List<AudioClip> ExplosionsMedium;
+    public List<AudioClip> ExplosionsSmall;
+
     // Start is called before the first frame update
     void Start()
     {

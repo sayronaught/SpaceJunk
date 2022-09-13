@@ -1386,7 +1386,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 82458ddf54c3fef41ab276ec92497d50, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1507,7 +1507,7 @@ MonoBehaviour:
   turretSwivel: {fileID: 9054028634338889266}
   barrelEnds:
   - {fileID: 9054028635051371029}
-  AmmoPrefabName: Laser1
+  AmmoPrefabName: EnemyLaser1
   sfxShoot: {fileID: 8300000, guid: 82458ddf54c3fef41ab276ec92497d50, type: 3}
   sfxMisfire: {fileID: 0}
   badAim: 5

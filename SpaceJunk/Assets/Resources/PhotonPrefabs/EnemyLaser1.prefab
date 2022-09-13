@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 7546194561708450857}
   - component: {fileID: -1020465777221475185}
   - component: {fileID: 2180963306630387912}
-  - component: {fileID: 3312521476529684817}
+  - component: {fileID: 3135946811155410646}
   m_Layer: 0
-  m_Name: Laser1
-  m_TagString: PlayerAmmo
+  m_Name: EnemyLaser1
+  m_TagString: EnemyAmmo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AmmoSpeed: 10000
   AmmoLifetime: 3
---- !u!65 &3312521476529684817
+--- !u!65 &3135946811155410646
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

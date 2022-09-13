@@ -2,6 +2,7 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class PlayerModule : MonoBehaviour
 {
@@ -80,10 +81,21 @@ public class PlayerModule : MonoBehaviour
         if (structureHP < 0) structureHP = 0;
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("we have a hit");
+        if ( collision.transform.tag == "EnemyAmmo" && PhotonNetwork.IsMasterClient )
+        {
+            structureHP -= 5;
+            updateModule();
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         myPV = GetComponent<PhotonView>();
+        var col = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
