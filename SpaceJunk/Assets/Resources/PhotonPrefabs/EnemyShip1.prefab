@@ -233,7 +233,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495155563216571489}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 1000
   m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 0
@@ -271,6 +271,10 @@ MonoBehaviour:
   Inventory:
     Inventory: []
   myGM: {fileID: 0}
+  OrbitalDirection: 0
+  Radius: 100
+  TurnRate: 5
+  Velocity: 2
 --- !u!1 &2568622917281644312
 GameObject:
   m_ObjectHideFlags: 0
