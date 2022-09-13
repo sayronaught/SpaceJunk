@@ -34,6 +34,7 @@ public class Reactor : MonoBehaviour
             { // time ran out, now we reset
                 CrystalLever.changeLeverState(0);
                 timeToReset = 3f;
+                alreadyPulled=false;
             }
         }
     }
