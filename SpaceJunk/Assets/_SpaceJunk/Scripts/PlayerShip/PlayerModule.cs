@@ -20,6 +20,8 @@ public class PlayerModule : MonoBehaviour
     public float structureHP = 50f;
     public float structureMaxHP = 100f;
     public float energyCapacity = 100f;
+    public int upgradeHP = 1;
+    public int upgradeEnergy = 1;
 
     private PhotonView myPV;
 
