@@ -274,7 +274,7 @@ MonoBehaviour:
   OrbitalDirection: 0
   Radius: 100
   TurnRate: 5
-  Velocity: 2
+  Velocity: 25000000
 --- !u!1 &2568622917281644312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,6 +1510,7 @@ MonoBehaviour:
   AmmoPrefabName: Laser1
   sfxShoot: {fileID: 8300000, guid: 82458ddf54c3fef41ab276ec92497d50, type: 3}
   sfxMisfire: {fileID: 0}
+  badAim: 5
   myShip: {fileID: 902982080393772904}
 --- !u!1 &9054028635627378945
 GameObject:

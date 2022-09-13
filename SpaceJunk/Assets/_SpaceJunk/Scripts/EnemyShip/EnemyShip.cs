@@ -33,7 +33,7 @@ public class EnemyShip : MonoBehaviour
     public float Radius = 3.0f;
 
     public float TurnRate = 0.25f;
-    public float Velocity = 2.0f;
+    public float Velocity = 25000000f;
 
     [PunRPC]
     public void updateShipFromHost(Vector3 targetPos, Quaternion targetRot, Vector3 velocity, Vector3 rotation)
@@ -72,15 +72,8 @@ public class EnemyShip : MonoBehaviour
                 markerPosition.z = Radius * Mathf.Sin(Azimuth) * Mathf.Sin(Zenith);
                 markerPosition.y = Radius * Mathf.Cos(Zenith);
 
-
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(-1 * (transform.position - markerPosition).normalized), Time.deltaTime * TurnRate);
-                //rigidBody.velocity = transform.forward * Velocity;
-
-                //transform.rotation = Quaternion.Slerp(transform.rotation,
-                //transform.LookAt(myGM.myShip.transform.position);
-
-                //transform.Rotate(45f, 0f, 0f);
-                myRB.AddRelativeForce(Vector3.forward * 50000000f * Time.deltaTime);
+                myRB.AddRelativeForce(Vector3.forward * Velocity * Time.deltaTime);
                 myPV.RPC("updateShipFromHost", RpcTarget.All, transform.position, transform.rotation, myRB.velocity, myRB.angularVelocity);
                 updateTimer = 0.2f;
             }
