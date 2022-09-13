@@ -199,7 +199,7 @@ MonoBehaviour:
   leverGrab: {fileID: 4374386695567045658}
   leverDown: {fileID: 4374386695859928931}
   display: {fileID: 0}
-  myStation: {fileID: 0}
+  myStation: {fileID: 4374386695231760127}
   leverStates:
   - Angle: 50
     text: Off
