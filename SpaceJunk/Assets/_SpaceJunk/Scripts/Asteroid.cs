@@ -29,6 +29,7 @@ public class Asteroid : MonoBehaviour
     [PunRPC]
     public void updateAsteroid(Vector3 rbvelocity, Quaternion rbrotation,Vector3 newpos, Quaternion newrot, Vector3 newscale)
     {
+        if (!myRB) Start();
         myRB.velocity = rbvelocity;
         myRB.rotation = rbrotation;
         transform.position = newpos;
