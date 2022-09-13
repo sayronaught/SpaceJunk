@@ -137,7 +137,8 @@ public class gameManager : MonoBehaviour
         if ( PhotonNetwork.IsMasterClient )
         {
             if (AsteroidContainer.childCount < PreferedAsteroidCount) spawnAsteroid();
-            if (SpawnedEnemies.Count < 5) spawnEnemy();
+            //if (SpawnedEnemies.Count < 5) spawnEnemy();
+            //if (SpawnedEnemies.Count < Time.timeSinceLevelLoad * 0.001) spawnEnemy();
         }
         
     }
