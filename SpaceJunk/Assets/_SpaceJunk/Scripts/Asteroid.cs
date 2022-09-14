@@ -77,6 +77,8 @@ public class Asteroid : MonoBehaviour
             AsteroidName = randomNameList[Random.Range(0, randomNameList.Count)];
             AsteroidName = AsteroidName.Replace("INT", Random.Range(10,1000).ToString());
             myPV.RPC("wasMinedAsteroid", RpcTarget.All, mineAble, JsonUtility.ToJson(Inventory), AsteroidName);
+        } else { // this is not the master
+            transform.SetParent(GameObject.Find("Asteroids").transform);
         }
     }
 

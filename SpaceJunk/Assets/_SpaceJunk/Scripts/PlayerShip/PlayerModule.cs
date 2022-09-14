@@ -6,10 +6,13 @@ using System.IO;
 
 public class PlayerModule : MonoBehaviour
 {
+    [Tooltip("The Modules Name")]
     public string moduleName = "Standard Name";
     public string moduleDescription = "Standard desc";
 
     public float myMass = 500f; //500kg as standard
+    [Tooltip("If the main module is destroyed all is lost, is this the main module?")]
+    public bool mainModule = false;
 
     public List<Transform> Ports;
     public List<PlayerStation> Stations;

@@ -44,13 +44,15 @@ public class EnemyShip : MonoBehaviour
     private float radiusBoost = 0f;
 
     [PunRPC]
-    public void updateShipFromHost(Vector3 targetPos, Quaternion targetRot, Vector3 velocity, Vector3 rotation, float newHP)
+    public void updateShipFromHost(Vector3 targetPos, Quaternion targetRot, Vector3 velocity, Vector3 rotation, float newHP, string newName)
     { // host sends position and movement to other ships
         targetPosition = targetPos;
         targetRotation = targetRot;
         myRB.velocity = velocity;
         myRB.angularVelocity = rotation;
         structureHP = newHP;
+        EnemyName = newName;
+        transform.name = newName;
     }
 
     void enemyShipDestroyed()
@@ -70,7 +72,7 @@ public class EnemyShip : MonoBehaviour
         if (collision.transform.tag == "PlayerAmmo" && PhotonNetwork.IsMasterClient)
         {
             structureHP -= 15;
-            myPV.RPC("updateShipFromHost", RpcTarget.All, transform.position, transform.rotation, myRB.velocity, myRB.angularVelocity, structureHP);
+            myPV.RPC("updateShipFromHost", RpcTarget.All, transform.position, transform.rotation, myRB.velocity, myRB.angularVelocity, structureHP, EnemyName);
         }
     }
 
@@ -81,6 +83,13 @@ public class EnemyShip : MonoBehaviour
         myPV = GetComponent<PhotonView>();
         speedBoost = Random.Range(-250000f, 250000f);
         radiusBoost = Random.Range(-25f, 25f);
+        if (PhotonNetwork.IsMasterClient)
+        {
+            EnemyName = randomNameList[Random.Range(0,randomNameList.Count)];
+        } else {
+            transform.SetParent(GameObject.Find("Enemies").transform);
+        }
+            
     }
 
     // Update is called once per frame
@@ -106,7 +115,7 @@ public class EnemyShip : MonoBehaviour
 
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(-1 * (transform.position - markerPosition).normalized), Time.deltaTime * TurnRate);
                 myRB.AddRelativeForce(Vector3.forward * Velocity * Time.deltaTime);
-                myPV.RPC("updateShipFromHost", RpcTarget.All, transform.position, transform.rotation, myRB.velocity, myRB.angularVelocity, structureHP);
+                myPV.RPC("updateShipFromHost", RpcTarget.All, transform.position, transform.rotation, myRB.velocity, myRB.angularVelocity, structureHP, EnemyName);
                 updateTimer = 0.2f;
             }
             updateTimer -= Time.deltaTime;

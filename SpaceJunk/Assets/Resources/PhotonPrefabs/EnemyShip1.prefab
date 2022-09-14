@@ -267,7 +267,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyName: Enemy
-  randomNameList: []
+  randomNameList:
+  - Grouchy Bugger
+  - Space Pirate
   structureHP: 100
   structureHPMax: 100
   Inventory:

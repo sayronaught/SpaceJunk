@@ -266,6 +266,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca7be45053a9b04fb6f6a487e1a733c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyName: Enemy
+  randomNameList:
+  - Easy Target
+  - Veteran Fighter
   structureHP: 150
   structureHPMax: 150
   Inventory:

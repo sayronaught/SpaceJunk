@@ -22,6 +22,7 @@ public class gameManager : MonoBehaviour
     public List<string> AsteroidPrefabName;
     public int PreferedAsteroidCount = 100;
 
+    [Tooltip("The Transform all enemies will be added to")]
     public Transform EnemyContainer;
     public List<string> EnemyPrefabName;
 
