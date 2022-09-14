@@ -8,6 +8,7 @@ public class EnemyTurret : MonoBehaviour
 {
     public Transform turretSwivel;
     public Transform[] barrelEnds;
+    public float eachShotDelay = 1f;
     private float shootDelay = 0f;
     public string AmmoPrefabName = "Laser1";
     public AudioClip sfxShoot;
@@ -62,7 +63,7 @@ public class EnemyTurret : MonoBehaviour
             if (shootDelay < 0f && Vector3.Distance(myShip.myGM.myShip.transform.position,transform.position) < 150f)
             {
                 myPV.RPC("fireTheTurret", RpcTarget.All);
-                shootDelay = 1f;
+                shootDelay = eachShotDelay;
             }
         } else {
             turretSwivel.LookAt(myShip.myGM.myShip.transform.position);

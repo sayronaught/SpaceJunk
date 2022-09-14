@@ -30,10 +30,13 @@ public class EnemyShip : MonoBehaviour
 
     private float Azimuth = 0.0f;
     private float Zenith = 0.0f;
-    public float Radius = 3.0f;
+    public float Radius = 100.0f;
 
     public float TurnRate = 0.25f;
     public float Velocity = 25000000f;
+
+    private float speedBoost = 0f;
+    private float radiusBoost = 0f;
 
     [PunRPC]
     public void updateShipFromHost(Vector3 targetPos, Quaternion targetRot, Vector3 velocity, Vector3 rotation)
@@ -49,6 +52,8 @@ public class EnemyShip : MonoBehaviour
     {
         myRB = GetComponent<Rigidbody>();
         myPV = GetComponent<PhotonView>();
+        speedBoost = Random.Range(-2500000f, 2500000f);
+        radiusBoost = Random.Range(-25f, 25f);
     }
 
     // Update is called once per frame
