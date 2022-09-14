@@ -274,7 +274,7 @@ MonoBehaviour:
   OrbitalDirection: 0
   Radius: 150
   TurnRate: 3
-  Velocity: 25000000
+  Velocity: 2500000
 --- !u!1 &1001391570202576015
 GameObject:
   m_ObjectHideFlags: 0

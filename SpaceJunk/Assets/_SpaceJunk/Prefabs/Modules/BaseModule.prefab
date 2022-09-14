@@ -1885,8 +1885,8 @@ MonoBehaviour:
   ModulesConnected: []
   myShip: {fileID: 0}
   myStructureSound: {fileID: 4374386694363514515}
-  structureHP: 50
-  structureMaxHP: 100
+  structureHP: 300
+  structureMaxHP: 600
   energyCapacity: 100
   upgradeHP: 1
   upgradeEnergy: 1

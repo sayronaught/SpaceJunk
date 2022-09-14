@@ -34,7 +34,7 @@ public class EnemyShip : MonoBehaviour
     public float Radius = 100.0f;
 
     public float TurnRate = 0.25f;
-    public float Velocity = 25000000f;
+    public float Velocity = 2500000f;
 
     private float speedBoost = 0f;
     private float radiusBoost = 0f;
@@ -72,7 +72,7 @@ public class EnemyShip : MonoBehaviour
     {
         myRB = GetComponent<Rigidbody>();
         myPV = GetComponent<PhotonView>();
-        speedBoost = Random.Range(-2500000f, 2500000f);
+        speedBoost = Random.Range(-250000f, 250000f);
         radiusBoost = Random.Range(-25f, 25f);
     }
 

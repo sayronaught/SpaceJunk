@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SpatialTracking;
+using UnityEngine.SceneManagement;
 
 public class PlayerVrControls : MonoBehaviour
 {
@@ -82,5 +83,8 @@ public class PlayerVrControls : MonoBehaviour
             playerHasRightController = true;
         }
         else playerHasRightController = false;
+
+        // reset this player
+        if (playerLeftPrimary && playerRightPrimary) SceneManager.LoadScene(0);
     }
 }

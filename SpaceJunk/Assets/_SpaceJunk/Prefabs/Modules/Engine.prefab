@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moduleName: Engine
-  moduleDescription: Vroom vroom
+  moduleDescription: Vroom Vroom
   myMass: 500
   Ports: []
   Stations: []

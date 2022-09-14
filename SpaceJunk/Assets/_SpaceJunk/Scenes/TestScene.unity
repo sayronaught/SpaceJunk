@@ -53596,6 +53596,16 @@ PrefabInstance:
       propertyPath: myShip
       value: 
       objectReference: {fileID: 598449137}
+    - target: {fileID: 4374386695473587100, guid: 5091798bcb0184642983f62223a423e0,
+        type: 3}
+      propertyPath: structureHP
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374386695473587100, guid: 5091798bcb0184642983f62223a423e0,
+        type: 3}
+      propertyPath: structureMaxHP
+      value: 600
+      objectReference: {fileID: 0}
     - target: {fileID: 4374386695473587101, guid: 5091798bcb0184642983f62223a423e0,
         type: 3}
       propertyPath: sceneViewId
@@ -54899,7 +54909,7 @@ PrefabInstance:
     - target: {fileID: 7459801201950976199, guid: b427d6e5efd266644b30dc547330b95a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000050356106
+      value: 0.000007581299
       objectReference: {fileID: 0}
     - target: {fileID: 7459801201950976216, guid: b427d6e5efd266644b30dc547330b95a,
         type: 3}
