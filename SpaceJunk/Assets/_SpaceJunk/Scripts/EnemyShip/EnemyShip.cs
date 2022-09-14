@@ -6,6 +6,10 @@ using System.IO;
 
 public class EnemyShip : MonoBehaviour
 {
+
+    public string EnemyName = "Enemy";
+    public List<string> randomNameList;
+
     public float structureHP = 100f;
     public float structureHPMax = 100f;
 
@@ -54,6 +58,9 @@ public class EnemyShip : MonoBehaviour
         if (PhotonNetwork.IsMasterClient)
         {
             var explo = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "BigExplosion"), transform.position, Quaternion.identity);
+            var loot = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "EnemyWreck"), transform.position, Quaternion.identity);
+            loot.GetComponent<Asteroid>().ThePlayersShip = myGM.myShip;
+            loot.transform.SetParent(GameObject.Find("Asteroids").transform);
         }
         Destroy(gameObject);
     }

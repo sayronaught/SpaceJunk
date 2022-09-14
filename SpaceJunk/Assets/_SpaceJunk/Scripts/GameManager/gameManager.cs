@@ -22,7 +22,7 @@ public class gameManager : MonoBehaviour
     public List<string> AsteroidPrefabName;
     public int PreferedAsteroidCount = 100;
 
-    public List<GameObject> SpawnedEnemies;
+    public Transform EnemyContainer;
     public List<string> EnemyPrefabName;
 
     public ListOfSoundEffects SoundBank;
@@ -77,7 +77,7 @@ public class gameManager : MonoBehaviour
             spawnPosition.z > -enemyMin && spawnPosition.z < enemyMin) return;
         var Enemy = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", EnemyPrefabName[Random.Range(0,EnemyPrefabName.Count)] ), myShip.transform.position + spawnPosition, Quaternion.identity);
         Enemy.GetComponent<EnemyShip>().myGM = this;
-        SpawnedEnemies.Add(Enemy);
+        Enemy.transform.SetParent(EnemyContainer);
     }
 
     void nextSeat()
@@ -143,10 +143,10 @@ public class gameManager : MonoBehaviour
         if ( PhotonNetwork.IsMasterClient )
         {
             if (AsteroidContainer.childCount < PreferedAsteroidCount) spawnAsteroid();
-            if (SpawnedEnemies.Count < 5) spawnEnemy();
-            //if (SpawnedEnemies.Count < Time.timeSinceLevelLoad * 0.001) spawnEnemy();
+            //if (EnemyContainer.childCount < 5) spawnEnemy();
+            if (EnemyContainer.childCount < Time.timeSinceLevelLoad * 0.001) spawnEnemy();
         }
-        
+
     }
 
 }
