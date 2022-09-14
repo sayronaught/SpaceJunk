@@ -83,7 +83,6 @@ public class PlayerModule : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("we have a hit");
         if ( collision.transform.tag == "EnemyAmmo" && PhotonNetwork.IsMasterClient )
         {
             structureHP -= 5;

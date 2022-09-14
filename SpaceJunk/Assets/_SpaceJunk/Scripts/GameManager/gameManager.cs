@@ -38,7 +38,7 @@ public class gameManager : MonoBehaviour
     // defines
     private float asteroidMax = 500f;
     private float asteroidMin = 200f;
-    private float enemyMax = 600f;
+    private float enemyMax = 1000f;
     private float enemyMin = 500f;
 
 

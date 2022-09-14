@@ -2,11 +2,12 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class EnemyShip : MonoBehaviour
 {
-    public float structureHP = 1000f;
-    public float structureHPMax = 1000f;
+    public float structureHP = 100f;
+    public float structureHPMax = 100f;
 
     public SO_Item_Inventory Inventory;
     public gameManager myGM;
@@ -39,12 +40,31 @@ public class EnemyShip : MonoBehaviour
     private float radiusBoost = 0f;
 
     [PunRPC]
-    public void updateShipFromHost(Vector3 targetPos, Quaternion targetRot, Vector3 velocity, Vector3 rotation)
+    public void updateShipFromHost(Vector3 targetPos, Quaternion targetRot, Vector3 velocity, Vector3 rotation, float newHP)
     { // host sends position and movement to other ships
         targetPosition = targetPos;
         targetRotation = targetRot;
         myRB.velocity = velocity;
         myRB.angularVelocity = rotation;
+        structureHP = newHP;
+    }
+
+    void enemyShipDestroyed()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            var explo = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "BigExplosion"), transform.position, Quaternion.identity);
+        }
+        Destroy(gameObject);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == "PlayerAmmo" && PhotonNetwork.IsMasterClient)
+        {
+            structureHP -= 15;
+            myPV.RPC("updateShipFromHost", RpcTarget.All, transform.position, transform.rotation, myRB.velocity, myRB.angularVelocity, structureHP);
+        }
     }
 
     // Start is called before the first frame update
@@ -79,7 +99,7 @@ public class EnemyShip : MonoBehaviour
 
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(-1 * (transform.position - markerPosition).normalized), Time.deltaTime * TurnRate);
                 myRB.AddRelativeForce(Vector3.forward * Velocity * Time.deltaTime);
-                myPV.RPC("updateShipFromHost", RpcTarget.All, transform.position, transform.rotation, myRB.velocity, myRB.angularVelocity);
+                myPV.RPC("updateShipFromHost", RpcTarget.All, transform.position, transform.rotation, myRB.velocity, myRB.angularVelocity, structureHP);
                 updateTimer = 0.2f;
             }
             updateTimer -= Time.deltaTime;
@@ -91,5 +111,6 @@ public class EnemyShip : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime);
         }
+        if (structureHP < 0f) enemyShipDestroyed();
     }
 }
