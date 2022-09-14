@@ -124,8 +124,16 @@ MonoBehaviour:
     Inventory:
     - item: {fileID: 11400000, guid: 5b57bb841fd27be41b0c1cd002fb099f, type: 2}
       amount: 5
+      randomMin: 1
+      randomMax: 20
     - item: {fileID: 11400000, guid: bfe37082dc51b624ea0da3c395266b39, type: 2}
       amount: 15
+      randomMin: 20
+      randomMax: 80
+    - item: {fileID: 11400000, guid: a812b589edc18464c9df10d7bf3e0f2c, type: 2}
+      amount: 10
+      randomMin: 0
+      randomMax: 20
 --- !u!54 &6239051718336367726
 Rigidbody:
   m_ObjectHideFlags: 0

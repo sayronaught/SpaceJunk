@@ -27,7 +27,7 @@ public class ShipMass : MonoBehaviour
         if (updateTimer < 0f)
         {
             convertMass = shipRB.mass * 0.001f;
-            myTxt.text = convertMass.ToString("F3").Replace(".", ",") + " Tons";
+            myTxt.text = convertMass.ToString("F1").Replace(".", ",") + " Tons";
             updateTimer = 1f;
         }
         updateTimer -= Time.deltaTime;

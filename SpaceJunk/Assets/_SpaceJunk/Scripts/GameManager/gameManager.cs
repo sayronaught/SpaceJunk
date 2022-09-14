@@ -19,7 +19,7 @@ public class gameManager : MonoBehaviour
     public PlayerDroneController activeDrone;
 
     public Transform AsteroidContainer;
-    public List<GameObject> AsteroidPrefabs;
+    public List<string> AsteroidPrefabName;
     public int PreferedAsteroidCount = 100;
 
     public List<GameObject> SpawnedEnemies;
@@ -34,6 +34,13 @@ public class gameManager : MonoBehaviour
 
     private float nextButtonTimer = 0f;
     private PlayerVrControls myVrControls;
+
+    // defines
+    private float asteroidMax = 500f;
+    private float asteroidMin = 200f;
+    private float enemyMax = 600f;
+    private float enemyMin = 500f;
+
 
     public void CreatePlayer()
     {
@@ -53,23 +60,22 @@ public class gameManager : MonoBehaviour
 
     void spawnAsteroid()
     {
-        spawnPosition = new Vector3(Random.Range(-500f, 500f), Random.Range(-500f, 500f), Random.Range(-500f, 500f));
-        if (spawnPosition.x > -200f && spawnPosition.x < 200f &&
-            spawnPosition.y > -200f && spawnPosition.y < 200f &&
-            spawnPosition.z > -200f && spawnPosition.z < 200f) return;
-        string name = "rock" + Random.Range(1, 5);
-        var Asteroid = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", name), myShip.transform.position + spawnPosition, Quaternion.identity);
+        spawnPosition = new Vector3(Random.Range(-asteroidMax, asteroidMax), Random.Range(-asteroidMax, asteroidMax), Random.Range(-asteroidMax, asteroidMax));
+        if (spawnPosition.x > -asteroidMin && spawnPosition.x < asteroidMin &&
+            spawnPosition.y > -asteroidMin && spawnPosition.y < asteroidMin &&
+            spawnPosition.z > -asteroidMin && spawnPosition.z < asteroidMin) return;
+        var Asteroid = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", AsteroidPrefabName[Random.Range(0, AsteroidPrefabName.Count)]), myShip.transform.position + spawnPosition, Quaternion.identity);
         Asteroid.GetComponent<Asteroid>().ThePlayersShip = myShip;
         Asteroid.transform.SetParent(AsteroidContainer);
     }
 
     void spawnEnemy()
     {
-        spawnPosition = new Vector3(Random.Range(-600f, 600f), Random.Range(-600f, 600f), Random.Range(-600f, 600f));
-        if (spawnPosition.x > -500f && spawnPosition.x < 500f &&
-            spawnPosition.y > -500f && spawnPosition.y < 500f &&
-            spawnPosition.z > -500f && spawnPosition.z < 500f) return;
-        var Enemy = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", EnemyPrefabName[0] ), myShip.transform.position + spawnPosition, Quaternion.identity);
+        spawnPosition = new Vector3(Random.Range(-enemyMax, enemyMax), Random.Range(-enemyMax, enemyMax), Random.Range(-enemyMax, enemyMax));
+        if (spawnPosition.x > -enemyMin && spawnPosition.x < enemyMin &&
+            spawnPosition.y > -enemyMin && spawnPosition.y < enemyMin &&
+            spawnPosition.z > -enemyMin && spawnPosition.z < enemyMin) return;
+        var Enemy = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", EnemyPrefabName[Random.Range(0,EnemyPrefabName.Count)] ), myShip.transform.position + spawnPosition, Quaternion.identity);
         Enemy.GetComponent<EnemyShip>().myGM = this;
         SpawnedEnemies.Add(Enemy);
     }

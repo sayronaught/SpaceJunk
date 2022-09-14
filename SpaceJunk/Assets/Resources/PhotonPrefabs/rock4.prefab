@@ -122,10 +122,14 @@ MonoBehaviour:
   ThePlayersShip: {fileID: 0}
   Inventory:
     Inventory:
-    - item: {fileID: 11400000, guid: 5b57bb841fd27be41b0c1cd002fb099f, type: 2}
+    - item: {fileID: 11400000, guid: a812b589edc18464c9df10d7bf3e0f2c, type: 2}
       amount: 5
+      randomMin: 20
+      randomMax: 430
     - item: {fileID: 11400000, guid: bfe37082dc51b624ea0da3c395266b39, type: 2}
       amount: 15
+      randomMin: 70
+      randomMax: 500
 --- !u!54 &-2427704919466613433
 Rigidbody:
   m_ObjectHideFlags: 0

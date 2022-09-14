@@ -11,6 +11,8 @@ public class SO_Item_Inventory
     {
         public SO_Item item;
         public int amount;
+        public int randomMin;
+        public int randomMax;
 
         public Resource set(SO_Item newitem, int newamount)
         {
@@ -28,6 +30,17 @@ public class SO_Item_Inventory
     public SO_Item_Inventory()
     {
         Inventory = new List<Resource>();
+    }
+
+    public void RandomizeLoot()
+    {
+        if (Inventory.Count > 0)
+        {// if there is things on the list, we can do a foreach
+            foreach (Resource res in Inventory)
+            {
+                if (res.randomMax > 0) res.amount = Random.Range(res.randomMin, res.randomMax);
+            }
+        }
     }
 
     public int countItem( string countName )

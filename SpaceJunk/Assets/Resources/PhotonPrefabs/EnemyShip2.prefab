@@ -1638,11 +1638,12 @@ MonoBehaviour:
   barrelEnds:
   - {fileID: 9054028635051371029}
   - {fileID: 5417327310790248678}
-  eachShotDelay: 1
+  eachShotDelay: 3
   AmmoPrefabName: EnemyLaser1
-  sfxShoot: {fileID: 8300000, guid: 82458ddf54c3fef41ab276ec92497d50, type: 3}
+  sfxShoot: {fileID: 8300000, guid: ac4a1ec99846e76479e4a8f03df67bf7, type: 3}
   sfxMisfire: {fileID: 0}
   badAim: 5
+  shootingRange: 300
   myShip: {fileID: 902982080393772904}
 --- !u!1 &9054028635627378945
 GameObject:

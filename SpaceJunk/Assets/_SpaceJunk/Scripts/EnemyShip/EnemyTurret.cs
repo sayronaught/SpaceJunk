@@ -14,6 +14,7 @@ public class EnemyTurret : MonoBehaviour
     public AudioClip sfxShoot;
     public AudioClip sfxMisfire;
     public float badAim = 5f;
+    public float shootingRange = 200f;
 
     public EnemyShip myShip;
     private AudioSource myAS;
@@ -60,7 +61,7 @@ public class EnemyTurret : MonoBehaviour
             }
             updateTimer -= Time.deltaTime;
             shootDelay -= Time.deltaTime;
-            if (shootDelay < 0f && Vector3.Distance(myShip.myGM.myShip.transform.position,transform.position) < 150f)
+            if (shootDelay < 0f && Vector3.Distance(myShip.myGM.myShip.transform.position,transform.position) < shootingRange)
             {
                 myPV.RPC("fireTheTurret", RpcTarget.All);
                 shootDelay = eachShotDelay;

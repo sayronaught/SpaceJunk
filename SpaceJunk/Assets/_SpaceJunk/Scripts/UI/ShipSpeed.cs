@@ -27,7 +27,7 @@ public class ShipSpeed : MonoBehaviour
         if (updateTimer < 0f)
         {
             convertSpeed = shipRB.velocity.magnitude * 3.6f;
-            myTxt.text = convertSpeed.ToString("F3").Replace(".", ",") + " km/h";
+            myTxt.text = convertSpeed.ToString("F1").Replace(".", ",") + " km/h";
             updateTimer = 1f;
         }
         updateTimer -= Time.deltaTime;

@@ -1512,6 +1512,7 @@ MonoBehaviour:
   sfxShoot: {fileID: 8300000, guid: 82458ddf54c3fef41ab276ec92497d50, type: 3}
   sfxMisfire: {fileID: 0}
   badAim: 8
+  shootingRange: 150
   myShip: {fileID: 902982080393772904}
 --- !u!1 &9054028635627378945
 GameObject:
