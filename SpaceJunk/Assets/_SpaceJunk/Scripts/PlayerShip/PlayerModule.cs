@@ -60,16 +60,18 @@ public class PlayerModule : MonoBehaviour
     }
 
     [PunRPC]
-    public void updateModuleNetWork(float newHP,float newHPMax,float newCap)
+    public void updateModuleNetWork(float newHP,float newHPMax,float newCap, int newUpEn, int newUpHp)
     {
         structureHP = newHP;
         structureMaxHP = newHPMax;
         energyCapacity = newCap;
+        upgradeHP = newUpEn;
+        upgradeHP = newUpHp;
     }
 
     public void updateModule()
     {
-        myPV.RPC("updateModuleNetWork", RpcTarget.All, structureHP, structureMaxHP, energyCapacity);
+        myPV.RPC("updateModuleNetWork", RpcTarget.All, structureHP, structureMaxHP, energyCapacity,upgradeEnergy,upgradeHP);
     }
 
     public void TestHullStrain(float CalculateHullStrain)

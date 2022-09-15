@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 21537380341432444}
   - component: {fileID: 21537380341432447}
   - component: {fileID: 21537380341432445}
+  - component: {fileID: 1888547533523372381}
   m_Layer: 0
   m_Name: XRRig
   m_TagString: Untagged
@@ -65,6 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb5a6bb06579e8146b2565de127d29ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myHud: {fileID: 0}
   headset: {fileID: 21537381927455371}
   leftController: {fileID: 21537380352499563}
   rightController: {fileID: 21537381505359261}
@@ -83,6 +85,23 @@ MonoBehaviour:
   playerRightGrab: 0
   playerLeftStickClick: 0
   playerRightStickClick: 0
+--- !u!114 &1888547533523372381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21537380341432446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb12f3ef2783344cb0a55b5a8213947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HudPersonal: {fileID: 0}
+  HudSwivel: {fileID: 0}
+  HudCockPit: {fileID: 0}
+  HudTurret: {fileID: 0}
+  HudDrone: {fileID: 0}
 --- !u!1 &21537380352499565
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,7 +355,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3230481795232032268
 RectTransform:
   m_ObjectHideFlags: 0
@@ -395,7 +414,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 7}
+  m_SizeDelta: {x: 60, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9010370117970806932
 CanvasRenderer:
@@ -590,7 +609,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5752459435196384886
 RectTransform:
   m_ObjectHideFlags: 0
@@ -609,7 +628,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1000, y: 1000}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &361692492532681781
 Canvas:
@@ -670,7 +689,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1000, y: 1000}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2241494469453084195
 Canvas:

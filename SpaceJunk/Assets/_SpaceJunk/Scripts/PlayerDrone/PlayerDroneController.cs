@@ -115,6 +115,10 @@ public class PlayerDroneController : MonoBehaviour
         if (!thisStation.thisPlayer) PlayerLeftDrone();
         if (thisPlayer)
         { // this Drone is controlled by player, otherwise ignore
+
+            // mass calculations
+            myRB.mass = myMass + Inventory.getCombinedMass();
+
             if (thisPlayer.playerRightGrab)
             {
                 MyThruster.SetActive(true);
@@ -150,8 +154,9 @@ public class PlayerDroneController : MonoBehaviour
             }
             updateTimer -= Time.deltaTime;
 
-            // mass calculations
-            myRB.mass = myMass + Inventory.getCombinedMass();
+            // drone HUD
+            thisPlayer.myHud.setHudDroneSwivel(transform.rotation);
+
         } else { // this drone is controlled by another player
 
             targetPosition += myRB.velocity;

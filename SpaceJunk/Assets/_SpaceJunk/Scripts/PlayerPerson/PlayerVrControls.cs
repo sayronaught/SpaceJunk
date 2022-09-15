@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerVrControls : MonoBehaviour
 {
+    // other player scripts
+    public PlayerVrHud myHud;
+
     // XrRig Active Scripts
     public TrackedPoseDriver headset;
     public TrackedPoseDriver leftController;
