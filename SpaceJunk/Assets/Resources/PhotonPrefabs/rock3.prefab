@@ -119,7 +119,8 @@ MonoBehaviour:
   - B-INT
   randomRotation: 250
   randomSpeed: 500
-  randomScale: 10
+  randomMinScale: 4
+  randomMaxScale: 6
   mineAble: 1
   scaleMineAble: {x: 0, y: 0, z: 0}
   wasMinedSinceLast: 0

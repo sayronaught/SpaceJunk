@@ -7,6 +7,9 @@ public class PlayerShip : MonoBehaviour
 {
     public PlayerVrControls playerVrControls;
     public List<PlayerModule> Modules;
+    
+    public string ShipName = "PlayerShip";
+    public List<string> randomNameList;
 
     public float energy = 500f;
     public float energyMax = 1000f;
@@ -79,7 +82,7 @@ public class PlayerShip : MonoBehaviour
     }
 
     [PunRPC]
-    public void updateInventoryPlus(string newInv,float en)
+    public void updateInventoryPlus(string newInv,float en,string newName)
     { // host sends tick info
         energy = en;
         Inventory = new SO_Item_Inventory();
@@ -88,7 +91,7 @@ public class PlayerShip : MonoBehaviour
 
     public void updateInventoryPlus()
     { // send inventory after change
-        myPV.RPC("updateInventoryPlus", RpcTarget.All, JsonUtility.ToJson(Inventory),energy);
+        myPV.RPC("updateInventoryPlus", RpcTarget.All, JsonUtility.ToJson(Inventory),energy,ShipName);
     }
 
     public void CraftRecipe(int i)
@@ -104,7 +107,7 @@ public class PlayerShip : MonoBehaviour
         {
             Inventory.addItem(Recipes.RecipeList[i].result[resultProduct].item, Recipes.RecipeList[i].result[resultProduct].amount);
         }
-        myPV.RPC("updateInventoryPlus", RpcTarget.All, JsonUtility.ToJson(Inventory), energy);
+        myPV.RPC("updateInventoryPlus", RpcTarget.All, JsonUtility.ToJson(Inventory), energy, ShipName);
     }
 
     public void CraftRecipe(string recipe)
@@ -119,7 +122,7 @@ public class PlayerShip : MonoBehaviour
     public void addToInventory( string stuffToAdd )
     {
         Inventory.addJSON(stuffToAdd);
-        myPV.RPC("updateInventoryPlus", RpcTarget.All, JsonUtility.ToJson(Inventory), energy);
+        myPV.RPC("updateInventoryPlus", RpcTarget.All, JsonUtility.ToJson(Inventory), energy, ShipName);
     }
 
     private void SpeedParticlesUpdate()
@@ -165,6 +168,12 @@ public class PlayerShip : MonoBehaviour
         SpeedParticlesFast = SpeedParticles.GetChild(0).GetComponent<ParticleSystem>();
         SpeedParticlesHyper = SpeedParticles.GetChild(1).GetComponent<ParticleSystem>();
         SpeedParticlesLudicrous = SpeedParticles.GetChild(2).GetComponent<ParticleSystem>();
+        if (PhotonNetwork.IsMasterClient)
+        {
+            Inventory.RandomizeLoot();
+            ShipName = randomNameList[Random.Range(0, randomNameList.Count)];
+            myPV.RPC("updateInventoryPlus", RpcTarget.All, JsonUtility.ToJson(Inventory), energy, ShipName);
+        }
     }
 
     // Update is called once per frame

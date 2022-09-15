@@ -12,7 +12,8 @@ public class Asteroid : MonoBehaviour
 
     public float randomRotation = 250f;
     public float randomSpeed = 150f;
-    public float randomScale = 5f;
+    public float randomMinScale = 2f;
+    public float randomMaxScale = 5f;
 
     public float mineAble = 1f;
     public Vector3 scaleMineAble;
@@ -70,7 +71,7 @@ public class Asteroid : MonoBehaviour
         getComps();
         myRB.AddTorque(new Vector3(Random.Range(-randomRotation, randomRotation), Random.Range(-randomRotation, randomRotation), Random.Range(-randomRotation, randomRotation)));
         myRB.AddForce(new Vector3(Random.Range(-randomSpeed, randomSpeed), Random.Range(-randomSpeed, randomSpeed), Random.Range(-randomSpeed, randomSpeed)));
-        transform.localScale = new Vector3(Random.Range(2f, randomScale), Random.Range(2f, randomScale), Random.Range(2f, randomScale));
+        transform.localScale = new Vector3(Random.Range(randomMinScale, randomMaxScale), Random.Range(randomMinScale, randomMaxScale), Random.Range(randomMinScale, randomMaxScale));
         if (PhotonNetwork.IsMasterClient)
         {
             Inventory.RandomizeLoot();

@@ -42,21 +42,21 @@ public class PlayerVrHud : MonoBehaviour
             var AsteroidScript = hitData.collider.GetComponent<Asteroid>();
             if (AsteroidScript)
             { // we hit and asteroid
-                hudAimNameText = "Asteroid\n"+AsteroidScript.AsteroidName;
+                hudAimNameText = "Mineable\n"+AsteroidScript.AsteroidName;
                 HudAimContentText = AsteroidScript.Inventory.InventoryToString();
                 return;
             }
             var EnemyScript = hitData.collider.GetComponent<EnemyShip>();
             if (EnemyScript)
             { // We hit an enemy
-                hudAimNameText = "Enenemy\n" + EnemyScript.EnemyName;
+                hudAimNameText = "Enemy\n" + EnemyScript.EnemyName;
                 HudAimContentText = EnemyScript.structureHP.ToString() + " / " + EnemyScript.structureHPMax.ToString();
                 return;
             }
             var PlayerModule = hitData.collider.GetComponent<PlayerModule>();
             if (PlayerModule)
             { // we hit part of our own ship
-                hudAimNameText = "SS Rustbucket\n" + PlayerModule.moduleName;
+                hudAimNameText = PlayerModule.myShip.ShipName+ "\n" + PlayerModule.moduleName;
                 HudAimContentText = PlayerModule.structureHP.ToString() + " / " + PlayerModule.structureMaxHP.ToString();
                 return;
             }

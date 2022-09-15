@@ -11847,6 +11847,13 @@ MonoBehaviour:
   - {fileID: 1258322566}
   - {fileID: 711897633}
   - {fileID: 1777648330}
+  ShipName: PlayerShip
+  randomNameList:
+  - SS Rustbucket
+  - HMS Deathtrap
+  - Tenatus Starline
+  - Good'Ole'Junk
+  - Glue And Spit
   energy: 250
   energyMax: 1000
   structureHP: 500
@@ -11864,19 +11871,19 @@ MonoBehaviour:
     - item: {fileID: 11400000, guid: 2c3814c1a64ed4943beb8dad3fa983de, type: 2}
       amount: 1
       randomMin: 0
-      randomMax: 0
+      randomMax: 5
     - item: {fileID: 11400000, guid: 5b57bb841fd27be41b0c1cd002fb099f, type: 2}
       amount: 200
-      randomMin: 0
-      randomMax: 0
+      randomMin: 150
+      randomMax: 300
     - item: {fileID: 11400000, guid: bfe37082dc51b624ea0da3c395266b39, type: 2}
       amount: 200
-      randomMin: 0
-      randomMax: 0
+      randomMin: 150
+      randomMax: 300
     - item: {fileID: 11400000, guid: ca5b913182e586d43bdd91c25302ebdd, type: 2}
       amount: 2
-      randomMin: 0
-      randomMax: 0
+      randomMin: 2
+      randomMax: 4
   Recipes:
     RecipeList:
     - {fileID: 11400000, guid: e2a9bb2240afd7b44b8e5c1f7868150b, type: 2}
@@ -55649,6 +55656,8 @@ MonoBehaviour:
   - {fileID: 4740566429205196354}
   - {fileID: 1129603032869984017}
   - {fileID: 1127926132}
+  ShipName: PlayerShip
+  randomNameList: []
   energy: 500
   energyMax: 1000
   structureHP: 500

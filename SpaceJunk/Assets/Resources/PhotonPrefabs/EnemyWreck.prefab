@@ -107,9 +107,10 @@ MonoBehaviour:
   - Lootbox INT
   randomRotation: 100
   randomSpeed: 50
-  randomScale: 1
+  randomMinScale: 1
+  randomMaxScale: 1
   mineAble: 1
-  scaleMineAble: {x: 1, y: 1, z: 1}
+  scaleMineAble: {x: 0, y: 0, z: 0}
   wasMinedSinceLast: 0
   ThePlayersShip: {fileID: 0}
   Inventory:
