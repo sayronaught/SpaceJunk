@@ -491,8 +491,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moduleName: Cockpit
-  moduleDescription: A pit of WHAT?!?
+  moduleDescription: They mean roosters, right?
   myMass: 500
+  mainModule: 0
   Ports: []
   Stations:
   - {fileID: 8314021972348666368}

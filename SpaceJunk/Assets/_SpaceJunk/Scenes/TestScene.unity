@@ -53613,6 +53613,11 @@ PrefabInstance:
       objectReference: {fileID: 598449137}
     - target: {fileID: 4374386695473587100, guid: 5091798bcb0184642983f62223a423e0,
         type: 3}
+      propertyPath: mainModule
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374386695473587100, guid: 5091798bcb0184642983f62223a423e0,
+        type: 3}
       propertyPath: structureHP
       value: 300
       objectReference: {fileID: 0}

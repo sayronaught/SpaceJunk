@@ -65,6 +65,10 @@ public class PlayerCockpit : MonoBehaviour
             { // in there is joystick input, and player is actively holding the stick
                 myPV.RPC("sendCockpitControlStick", RpcTarget.All, joyStickInput);
             }
+
+            // cockpit HUD
+            myShip.myGM.vrControls.myHud.setHudCockpitSwivel(myShip.transform.position, myShip.transform.forward, myShip.transform.rotation);
+
         }
     }
 }
