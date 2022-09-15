@@ -58,6 +58,22 @@ public class SO_Item_Inventory
         return 0;
     }
 
+    public string InventoryToString()
+    {
+        string output = "";
+        bool moreThanOne = false;
+        if (Inventory.Count > 0)
+        {// if there is things on the list, we can do a foreach
+            foreach (Resource res in Inventory)
+            {
+                if (moreThanOne) output += "\n";
+                output += res.item.itemName + " : " + res.amount;
+                moreThanOne = true;
+            }
+        }
+        return output;
+    }
+
     public SO_Item removeRandom()
     { // remove one random item and return it
         if (Inventory.Count < 1) return null;

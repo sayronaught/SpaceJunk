@@ -155,7 +155,7 @@ public class PlayerDroneController : MonoBehaviour
             updateTimer -= Time.deltaTime;
 
             // drone HUD
-            thisPlayer.myHud.setHudDroneSwivel(transform.rotation);
+            thisPlayer.myHud.setHudDroneSwivel(transform.position,transform.forward, transform.rotation);
 
         } else { // this drone is controlled by another player
 

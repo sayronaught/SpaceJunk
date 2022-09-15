@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -88,6 +89,10 @@ public class PlayerVrControls : MonoBehaviour
         else playerHasRightController = false;
 
         // reset this player
-        if (playerLeftPrimary && playerRightPrimary) SceneManager.LoadScene(0);
+        if (playerLeftSecondary && playerRightSecondary)
+        {
+            PhotonNetwork.Disconnect();
+            SceneManager.LoadScene(0);
+        }
     }
 }
