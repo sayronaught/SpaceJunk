@@ -19,6 +19,7 @@ public class PlayerVrHud : MonoBehaviour
     public GameObject HudTurret;
     public TMP_Text HudTurretAimName;
     public TMP_Text HudTurretAimContent;
+    public Transform midRing;
     private float HudTurretTimer = 0f;
 
     // drone HUD
@@ -68,6 +69,7 @@ public class PlayerVrHud : MonoBehaviour
         HudDroneTimer = 0f;
         HudDrone.SetActive(true);
         HudSwivel.rotation = newRotation;
+        HudSwivel.localPosition = new Vector3(0f, 1.2f, 1f);
         DoRayCast(newPos,newForward);
         HudDroneAimName.text = hudAimNameText;
         HudDroneAimContent.text = HudAimContentText;
@@ -78,6 +80,7 @@ public class PlayerVrHud : MonoBehaviour
         HudCockpitTimer = 0f;
         HudCockPit.SetActive(true);
         HudSwivel.rotation = newRotation;
+        HudSwivel.localPosition = new Vector3(0f, 1.2f, 1f);
         DoRayCast(newPos, newForward);
         HudCockpitAimName.text = hudAimNameText;
         HudCockpitAimContent.text = HudAimContentText;
@@ -88,6 +91,8 @@ public class PlayerVrHud : MonoBehaviour
         HudTurretTimer = 0f;
         HudTurret.SetActive(true);
         HudSwivel.rotation = newRotation;
+        midRing.localRotation = Quaternion.Euler(0,0,HudSwivel.localRotation.z*-1f);
+        HudSwivel.position = Camera.main.transform.position+newForward;
         DoRayCast(newPos, newForward);
         HudTurretAimName.text = hudAimNameText;
         HudTurretAimContent.text = HudAimContentText;

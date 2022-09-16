@@ -52842,6 +52842,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.36144
       objectReference: {fileID: 0}
+    - target: {fileID: 1065524195534056825, guid: 7f56624476522cf44940a5168bf829b2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065524195534056825, guid: 7f56624476522cf44940a5168bf829b2,
+        type: 3}
+      propertyPath: m_isOrthographic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1888547533523372381, guid: 7f56624476522cf44940a5168bf829b2,
         type: 3}
       propertyPath: HudDrone
@@ -52867,6 +52877,36 @@ PrefabInstance:
       propertyPath: HudPersonal
       value: 
       objectReference: {fileID: 1584088440}
+    - target: {fileID: 2203803652444216628, guid: 7f56624476522cf44940a5168bf829b2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2203803652444216628, guid: 7f56624476522cf44940a5168bf829b2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2203803652444216628, guid: 7f56624476522cf44940a5168bf829b2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900509584036518751, guid: 7f56624476522cf44940a5168bf829b2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900509584036518751, guid: 7f56624476522cf44940a5168bf829b2,
+        type: 3}
+      propertyPath: m_isOrthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6367806699084296365, guid: 7f56624476522cf44940a5168bf829b2,
+        type: 3}
+      propertyPath: myShip
+      value: 
+      objectReference: {fileID: 598449137}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f56624476522cf44940a5168bf829b2, type: 3}
 --- !u!1001 &330667375160833604
