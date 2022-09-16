@@ -164,6 +164,7 @@ Transform:
   m_Children:
   - {fileID: 3846781666531511348}
   - {fileID: 3668246725173818864}
+  - {fileID: 5669672256515821148}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -182,6 +183,7 @@ MonoBehaviour:
   moduleName: Turret
   moduleDescription: Pew pew I win!!
   myMass: 500
+  mainModule: 0
   Ports: []
   Stations: []
   ModulesConnected: []
@@ -205,6 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretSwivel: {fileID: 2763013671246569188}
+  aimTransform: {fileID: 5669672256515821148}
   barrelEnds:
   - {fileID: 3668246725648361817}
   - {fileID: 3668246726352581869}
@@ -212,7 +215,7 @@ MonoBehaviour:
   energyCost: 10
   sfxShoot: {fileID: 8300000, guid: 82458ddf54c3fef41ab276ec92497d50, type: 3}
   sfxMisfire: {fileID: 8300000, guid: 7d2fc75762a37b04dad6aa938239b9f9, type: 3}
-  maxDegreesPerSecond: 35
+  maxDegreesPerSecond: 5
   myShip: {fileID: 0}
 --- !u!114 &3668246725446623942
 MonoBehaviour:
@@ -528,6 +531,37 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!1 &5332251492349167702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5669672256515821148}
+  m_Layer: 0
+  m_Name: Aim
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5669672256515821148
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5332251492349167702}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3668246725446623937}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3668246725076052959
 PrefabInstance:
   m_ObjectHideFlags: 0

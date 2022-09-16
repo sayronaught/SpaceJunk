@@ -34917,6 +34917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretSwivel: {fileID: 590504506}
+  aimTransform: {fileID: 0}
   barrelEnds:
   - {fileID: 1992148509}
   AmmoPrefabName: Laser1
@@ -51445,6 +51446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretSwivel: {fileID: 1277209463}
+  aimTransform: {fileID: 0}
   barrelEnds:
   - {fileID: 664816285}
   - {fileID: 1349672767}
@@ -52696,6 +52698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretSwivel: {fileID: 552566156}
+  aimTransform: {fileID: 0}
   barrelEnds:
   - {fileID: 888468500}
   - {fileID: 1298358144}
@@ -52907,6 +52910,11 @@ PrefabInstance:
       propertyPath: myShip
       value: 
       objectReference: {fileID: 598449137}
+    - target: {fileID: 8732982845786411585, guid: 7f56624476522cf44940a5168bf829b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f56624476522cf44940a5168bf829b2, type: 3}
 --- !u!1001 &330667375160833604
@@ -53351,6 +53359,11 @@ PrefabInstance:
       propertyPath: myShip
       value: 
       objectReference: {fileID: 598449137}
+    - target: {fileID: 3668246725446623943, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: maxDegreesPerSecond
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3668246726820657632, guid: c328004f67d77b54b82698bef25e281e,
         type: 3}
       propertyPath: sceneViewId

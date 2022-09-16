@@ -92,7 +92,7 @@ public class PlayerVrHud : MonoBehaviour
         HudTurret.SetActive(true);
         HudSwivel.rotation = newRotation;
         midRing.localRotation = Quaternion.Euler(0,0,HudSwivel.localRotation.z*-100f);
-        HudSwivel.position = Camera.main.transform.position+newForward;
+        HudSwivel.position = Camera.main.transform.position+(newForward*0.5f);
         DoRayCast(newPos, newForward);
         HudTurretAimName.text = hudAimNameText;
         HudTurretAimContent.text = HudAimContentText;

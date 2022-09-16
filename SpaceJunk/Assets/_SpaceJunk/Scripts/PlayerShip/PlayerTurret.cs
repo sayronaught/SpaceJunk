@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerTurret : MonoBehaviour
 {
     public Transform turretSwivel;
+    public Transform aimTransform;
     public Transform[] barrelEnds;
     private int currentBarrel = 0;
     private float shootDelay = 0f;
@@ -16,7 +17,7 @@ public class PlayerTurret : MonoBehaviour
     public AudioClip sfxShoot;
     public AudioClip sfxMisfire;
 
-    public float maxDegreesPerSecond = 35f;
+    public float maxDegreesPerSecond = 5f;
 
     public PlayerShip myShip;
 
@@ -79,8 +80,11 @@ public class PlayerTurret : MonoBehaviour
     {
         if ( MyStation.thisPlayer != null)
         { // current player is seated in this turret right now
-            turretSwivel.rotation = Quaternion.Lerp(MyStation.thisPlayer.leftController.transform.rotation, MyStation.thisPlayer.rightController.transform.rotation, 0.5f);
-            turretSwivel.Rotate(Vector3.left, -90);
+            aimTransform.rotation = Quaternion.Lerp(MyStation.thisPlayer.leftController.transform.rotation, MyStation.thisPlayer.rightController.transform.rotation, 0.5f);
+            aimTransform.Rotate(Vector3.left, -90);
+            turretSwivel.rotation = Quaternion.Lerp(turretSwivel.rotation, aimTransform.rotation, maxDegreesPerSecond * Time.deltaTime);
+            //turretSwivel.rotation = Quaternion.Lerp(MyStation.thisPlayer.leftController.transform.rotation, MyStation.thisPlayer.rightController.transform.rotation, 0.5f);
+            //turretSwivel.Rotate(Vector3.left, -90);
             if ( updateTimer < 0f )
             {
                 myPV.RPC("updateTurret", RpcTarget.All, turretSwivel.rotation);
