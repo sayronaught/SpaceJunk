@@ -96,6 +96,9 @@ public class PlayerTurret : MonoBehaviour
                 myPV.RPC("fireTheTurret", RpcTarget.All);
                 shootDelay = 0.5f;
             }
+
+            // turret HUD
+            myShip.myGM.vrControls.myHud.setHudTurretSwivel(turretSwivel.position, turretSwivel.forward, turretSwivel.rotation);
         }
     }
 }
