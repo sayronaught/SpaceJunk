@@ -1,16 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Reactor : MonoBehaviour
 {
+    public PlayerModule myModule;
     public PlayerLever CrystalLever;
+    public TMP_Text cystalText;
 
     private int crystalLeverState = 0;
     private bool alreadyPulled = false;
     private float timeToReset = 3f;
 
     private AudioSource myAS;
+
+    int crystalCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -21,12 +26,19 @@ public class Reactor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        crystalCount = myModule.myShip.Inventory.countItem("Energy Crystal");
+        cystalText.text = "Energy Crystals\n"+crystalCount.ToString();
         crystalLeverState = CrystalLever.getLeverState();
         if ( crystalLeverState == 1)
         {
             if ( !alreadyPulled )
             { // first time, we add energy, eat crystal, play sound etcs
-                myAS.Play();
+                if ( crystalCount > 0)
+                {
+                    myModule.myShip.energy += 200f;
+                    myModule.myShip.Inventory.removeItem("Energy Crystal", 1);
+                    myAS.Play();
+                }
                 alreadyPulled = true;
             }
             timeToReset -= Time.deltaTime;
