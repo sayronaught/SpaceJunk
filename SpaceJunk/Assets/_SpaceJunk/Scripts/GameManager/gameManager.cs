@@ -26,6 +26,8 @@ public class gameManager : MonoBehaviour
     public Transform EnemyContainer;
     public List<string> EnemyPrefabName;
 
+    public GameObject PersonalHUDPrefab;
+
     public ListOfSoundEffects SoundBank;
 
     private Vector3 spawnPosition;

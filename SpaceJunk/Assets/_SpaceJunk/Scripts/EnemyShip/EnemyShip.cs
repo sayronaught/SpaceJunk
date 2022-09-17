@@ -16,6 +16,8 @@ public class EnemyShip : MonoBehaviour
     public SO_Item_Inventory Inventory;
     public gameManager myGM;
 
+    private PlayerVRHudPersonal activePersonalHUD;
+
     // non hosts, needs to know hwere to move ship towards
     private Vector3 targetPosition;
     private Quaternion targetRotation;
@@ -67,6 +69,20 @@ public class EnemyShip : MonoBehaviour
         Destroy(gameObject);
     }
 
+    void PersonalHUD()
+    {
+        if (!myGM.vrControls.playerHasHeadSet) return;
+        if (activePersonalHUD)
+        { // have one set up
+            activePersonalHUD.timeToLive = 2f;
+            activePersonalHUD.transform.LookAt(transform.position);
+        } else { // need to set one up
+            var hud = Instantiate(myGM.PersonalHUDPrefab, Camera.main.transform.position,Quaternion.identity,GameObject.Find("HUDs").transform);
+            activePersonalHUD = hud.GetComponent<PlayerVRHudPersonal>();
+            activePersonalHUD.setEnemyTarget(EnemyName);
+        }
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "PlayerAmmo" && PhotonNetwork.IsMasterClient)
@@ -95,6 +111,7 @@ public class EnemyShip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        PersonalHUD();
         if (PhotonNetwork.IsMasterClient)
         { // host sends ship updates
             if (updateTimer < 0)
