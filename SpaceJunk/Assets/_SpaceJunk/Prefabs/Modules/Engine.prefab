@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7270147427653014069}
   - component: {fileID: 7270147427653014026}
   - component: {fileID: 8395475323365254747}
-  - component: {fileID: 6688860665780795931}
+  - component: {fileID: 7896848120179442546}
   m_Layer: 0
   m_Name: Engine
   m_TagString: Untagged
@@ -54,6 +54,7 @@ MonoBehaviour:
   moduleName: Engine
   moduleDescription: Vroom Vroom
   myMass: 500
+  mainModule: 0
   Ports: []
   Stations: []
   ModulesConnected: []
@@ -144,7 +145,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 3, z: 2}
   m_Center: {x: 0, y: 0, z: -1.5}
---- !u!54 &6688860665780795931
+--- !u!54 &7896848120179442546
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,7 +155,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0

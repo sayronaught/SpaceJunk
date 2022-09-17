@@ -28,7 +28,7 @@ public class PlayerEngine : MonoBehaviour
 
     public int lastThrustState = 1;
     [Tooltip("how much force does this engine apply when turning?")]
-    public float navigationThrustForce = 400000f;
+    public float navigationThrustForce = 100000f;
 
     private Rigidbody myShipRB;
     private float thrust = 0f;
@@ -42,6 +42,7 @@ public class PlayerEngine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // visible thrusters on and off, and size
         foreach (GameObject Thruster in Thrusters)
         {
             if ( thrustStates[myShip.controlSpeedStage].onOrOff)
@@ -52,14 +53,27 @@ public class PlayerEngine : MonoBehaviour
                 Thruster.SetActive(false);
             }
         }
+        // visible thrusters audio volume
         foreach (AudioSource ass in ThrusterAudio)
         {
             ass.volume = thrustStates[myShip.controlSpeedStage].Volume;
             ass.pitch = thrustStates[myShip.controlSpeedStage].Pitch;
         }
-        thrust = thrustStates[myShip.controlSpeedStage].Force;
 
+        // how much push, forwards or backwards
+        thrust = thrustStates[myShip.controlSpeedStage].Force;
+        // actually push the ship
         if (thrust != 0f) myShipRB.AddRelativeForce(Vector3.forward * thrust * Time.deltaTime);
+
+        // power brakes
+        if (myShip.controlsBrake == 1)
+        { // brakes on
+            myShipRB.drag = myShipRB.angularDrag = 10f;
+        } else { // brakes off
+            myShipRB.drag = myShipRB.angularDrag = 1f;
+        }
+
+        // rotate the ship
         if ( myShip.controlsYawPitch.x != 0)
         {
             myShipRB.AddRelativeTorque(Vector3.up * myShip.controlsYawPitch.x * navigationThrustForce * Time.deltaTime);

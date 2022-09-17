@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.090857305, g: 0.03239295, b: 0.13494563, a: 1}
+  m_IndirectSpecularColor: {r: 0.09117865, g: 0.03316388, b: 0.13493326, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11861,6 +11861,7 @@ MonoBehaviour:
   metal: 500
   metalMax: 1000
   metalFatigue: 0
+  controlsBrake: 0
   controlSpeedStage: 1
   controlsYawPitch: {x: 0, y: 0}
   controlsLeft: {x: 0, y: 0}
@@ -53515,6 +53516,7 @@ MonoBehaviour:
   checkPlayerSeatTimer: 1
   myShip: {fileID: 8897277017676537962}
   controlsSpeedLever: {fileID: 766638931}
+  controlsBrakeLever: {fileID: 0}
   controlsJoyStick: {fileID: 975125468}
 --- !u!23 &4368748538805995116
 MeshRenderer:
@@ -55718,6 +55720,7 @@ MonoBehaviour:
   metal: 500
   metalMax: 1000
   metalFatigue: 0
+  controlsBrake: 0
   controlSpeedStage: 1
   controlsYawPitch: {x: 0, y: 0}
   controlsLeft: {x: 0, y: 0}

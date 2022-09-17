@@ -22,6 +22,7 @@ public class PlayerShip : MonoBehaviour
 
     public float metalFatigue = 0f;
 
+    public int controlsBrake = 0;
     public int controlSpeedStage = 0;
     public Vector2 controlsYawPitch;
     public Vector2 controlsLeft;
@@ -52,6 +53,12 @@ public class PlayerShip : MonoBehaviour
     private float CalculateMass;
     private ParticleSystem.EmissionModule em;
 
+
+    [PunRPC]
+    public void sendCockpitControlBrake(int changeBrake)
+    {
+        controlsBrake = changeBrake;
+      }
     [PunRPC]
     public void sendCockpitControlSpeed(int changeSpeed)
     {

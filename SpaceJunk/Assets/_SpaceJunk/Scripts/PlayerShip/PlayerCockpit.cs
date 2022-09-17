@@ -12,6 +12,7 @@ public class PlayerCockpit : MonoBehaviour
 
     public PlayerShip myShip;
     public PlayerLever controlsSpeedLever;
+    public PlayerLever controlsBrakeLever;
     public PlayerJoystick controlsJoyStick;
 
     private PlayerStation myStation;
@@ -19,6 +20,8 @@ public class PlayerCockpit : MonoBehaviour
 
     private int speedLeverState;
     private int speedLeverOldState;
+    private int brakeLeverState;
+    private int brakeLeverOldState;
     private Vector2 joyStickInput;
     private bool holdingJoyStick = false;
 
@@ -49,6 +52,7 @@ public class PlayerCockpit : MonoBehaviour
         {
             // getting the inputs
             speedLeverState = controlsSpeedLever.getLeverState();
+            brakeLeverState = controlsBrakeLever.getLeverState();
             joyStickInput = controlsJoyStick.getJoyStickInput();
             holdingJoyStick = controlsJoyStick.isGrabbedRight;
 
@@ -58,12 +62,17 @@ public class PlayerCockpit : MonoBehaviour
 
             if (speedLeverState != speedLeverOldState)
             { // if speed has been changed
-                myPV.RPC("sendCockpitControlSpeed", RpcTarget.All, speedLeverState);
+                myPV.RPC("sendCockpitControlSpeed", RpcTarget.MasterClient, speedLeverState);
                 speedLeverOldState = speedLeverState;
-            }   
+            }
+            if (brakeLeverState != brakeLeverOldState)
+            { // if speed has been changed
+                myPV.RPC("sendCockpitControlBrake", RpcTarget.MasterClient, brakeLeverState);
+                brakeLeverOldState = brakeLeverState;
+            }
             if ((joyStickInput.x != 0f || joyStickInput.y != 0f) && holdingJoyStick )
             { // in there is joystick input, and player is actively holding the stick
-                myPV.RPC("sendCockpitControlStick", RpcTarget.All, joyStickInput);
+                myPV.RPC("sendCockpitControlStick", RpcTarget.MasterClient, joyStickInput);
             }
 
             // cockpit HUD
