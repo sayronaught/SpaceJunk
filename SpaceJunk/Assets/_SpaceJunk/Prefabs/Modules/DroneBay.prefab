@@ -52,6 +52,7 @@ MonoBehaviour:
   moduleName: Drone Bay
   moduleDescription: This keeps your Drones(tm)
   myMass: 500
+  mainModule: 0
   Ports: []
   Stations: []
   ModulesConnected: []
@@ -95,7 +96,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 2, z: 3}
+  m_Size: {x: 2, y: 2, z: 2.5}
   m_Center: {x: 0, y: -1.25, z: 0}
 --- !u!54 &1493219008953979253
 Rigidbody:

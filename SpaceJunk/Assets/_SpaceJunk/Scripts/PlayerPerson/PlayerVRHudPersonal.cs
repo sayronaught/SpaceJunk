@@ -19,11 +19,15 @@ public class PlayerVRHudPersonal : MonoBehaviour
 
     public void setEnemyTarget(string name)
     {
+        enemyTargetGO.SetActive(true);
+        navigationTargetGO.SetActive(false);
         enemyTargetText.text = name;
         enemyTarget = true;
     }
     public void setNavigationTarget(string name)
     {
+        enemyTargetGO.SetActive(false);
+        navigationTargetGO.SetActive(true);
         navigationTargetText.text = name;
         navigationTarget = true;
     }
