@@ -26,11 +26,13 @@ public class PlayerVrHud : MonoBehaviour
     public GameObject HudDrone;
     public TMP_Text HudDroneAimName;
     public TMP_Text HudDroneAimContent;
+    public TMP_Text HUDDroneInventory;
     private float HudDroneTimer = 0f;
 
     // aim text
     private string hudAimNameText;
     private string HudAimContentText;
+    private string hudExtraText;
 
     private void DoRayCast(Vector3 start,Vector3 direction)
     {
@@ -73,6 +75,12 @@ public class PlayerVrHud : MonoBehaviour
         DoRayCast(newPos,newForward);
         HudDroneAimName.text = hudAimNameText;
         HudDroneAimContent.text = HudAimContentText;
+        hudExtraText = "";
+        if (transform.parent.parent.gameObject.TryGetComponent<PlayerDroneController>(out PlayerDroneController trying))
+        {
+            hudExtraText = trying.Inventory.InventoryToString();
+        }
+        HUDDroneInventory.text = hudExtraText;
     }
 
     public void setHudCockpitSwivel(Vector3 newPos, Vector3 newForward, Quaternion newRotation)

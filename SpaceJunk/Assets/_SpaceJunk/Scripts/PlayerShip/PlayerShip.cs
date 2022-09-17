@@ -76,11 +76,13 @@ public class PlayerShip : MonoBehaviour
         energy += 200f;
         Inventory.removeItem("Energy Crystal", 1);
     }
+    [PunRPC]
     public void addToInventory(string stuffToAdd)
     {
         Inventory.addJSON(stuffToAdd);
         myPV.RPC("updateInventoryPlus", RpcTarget.All, JsonUtility.ToJson(Inventory), energy, ShipName);
     }
+    [PunRPC]
     public void craftOnMasterClient(string recipe)
     {
         CraftRecipe(recipe);
