@@ -449,7 +449,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00016498347}
+  m_AnchoredPosition: {x: 0, y: 0.000032618518}
   m_SizeDelta: {x: 0, y: 55}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &3273858293158628181
@@ -1493,7 +1493,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00016498347}
+  m_AnchoredPosition: {x: 0, y: 0.000032618518}
   m_SizeDelta: {x: 0, y: 55}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &3968962246105309086
@@ -1538,6 +1538,8 @@ MonoBehaviour:
   NavigationListItemPrefab: {fileID: 719649648407194361, guid: bd71bb72e359dcf4582605c5fc2f0802,
     type: 3}
   spacing: 55
+  trackOnColor: {r: 0, g: 0.5188679, b: 0.016841449, a: 1}
+  trackOffColor: {r: 0.735849, g: 0, b: 0, a: 1}
 --- !u!1 &7775711673501772190
 GameObject:
   m_ObjectHideFlags: 0
@@ -2015,6 +2017,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NavigationList_Item
       objectReference: {fileID: 0}
+    - target: {fileID: 1462049758189053395, guid: bd71bb72e359dcf4582605c5fc2f0802,
+        type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 2153301457974438120}
     - target: {fileID: 4545709817828363199, guid: bd71bb72e359dcf4582605c5fc2f0802,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2128,3 +2135,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3933201921382964854}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2153301457974438120 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3132141435899344542, guid: bd71bb72e359dcf4582605c5fc2f0802,
+    type: 3}
+  m_PrefabInstance: {fileID: 3933201921382964854}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

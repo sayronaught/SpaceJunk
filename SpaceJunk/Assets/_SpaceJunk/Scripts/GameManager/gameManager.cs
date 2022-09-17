@@ -68,7 +68,9 @@ public class gameManager : MonoBehaviour
             spawnPosition.y > -asteroidMin && spawnPosition.y < asteroidMin &&
             spawnPosition.z > -asteroidMin && spawnPosition.z < asteroidMin) return;
         var Asteroid = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", AsteroidPrefabName[Random.Range(0, AsteroidPrefabName.Count)]), myShip.transform.position + spawnPosition, Quaternion.identity);
-        Asteroid.GetComponent<Asteroid>().ThePlayersShip = myShip;
+        var asteroidScript = Asteroid.GetComponent<Asteroid>();
+        asteroidScript.ThePlayersShip = myShip;
+        asteroidScript.myGM = this;
         Asteroid.transform.SetParent(AsteroidContainer);
     }
 

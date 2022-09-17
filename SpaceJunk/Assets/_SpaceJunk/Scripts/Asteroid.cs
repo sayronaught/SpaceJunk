@@ -19,17 +19,26 @@ public class Asteroid : MonoBehaviour
     public Vector3 scaleMineAble;
     public bool wasMinedSinceLast = false;
 
+    public bool trackThis = false;
+    public PlayerVRHudPersonal activePersonalHUD;
+
     public PlayerShip ThePlayersShip;
+    public gameManager myGM;
 
     public SO_Item_Inventory Inventory;
 
     private Rigidbody myRB;
-    private PhotonView myPV;
+    public PhotonView myPV;
 
     //private Vector3 targetPosition;
 
     private float updateTimer = 5f;
 
+    [PunRPC]
+    public void TrackAsteroid(bool onoff)
+    {
+        trackThis = onoff;
+    }
     // asteroid data recieved by anyone who is not host
     [PunRPC]
     public void updateAsteroid(Vector3 rbvelocity, Quaternion rbrotation,Vector3 newpos, Quaternion newrot, Vector3 newscale)
@@ -59,10 +68,33 @@ public class Asteroid : MonoBehaviour
         Destroy(gameObject, 1f);
     }
 
+
+    public int getID()
+    {
+        if (!myPV) getComps();
+        return myPV.ViewID;
+    }
+
     private void getComps()
     {
         myRB = GetComponent<Rigidbody>();
         myPV = GetComponent<PhotonView>();
+    }
+
+    void PersonalHUD()
+    {
+        if (!myGM.vrControls.playerHasHeadSet) return;
+        if (activePersonalHUD)
+        { // have one set up
+            activePersonalHUD.timeToLive = 2f;
+            activePersonalHUD.transform.LookAt(transform.position);
+        }
+        else
+        { // need to set one up
+            var hud = Instantiate(myGM.PersonalHUDPrefab, Camera.main.transform.position, Quaternion.identity, GameObject.Find("HUDs").transform);
+            activePersonalHUD = hud.GetComponent<PlayerVRHudPersonal>();
+            activePersonalHUD.setNavigationTarget(AsteroidName);
+        }
     }
 
     // Start is called before the first frame update
@@ -86,6 +118,7 @@ public class Asteroid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (trackThis) PersonalHUD();
         if (PhotonNetwork.IsMasterClient && updateTimer < 0f)
         {
             if ( Vector3.Distance(ThePlayersShip.transform.position,transform.position) < 500f && mineAble > 0.1f)

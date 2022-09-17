@@ -125,7 +125,10 @@ MonoBehaviour:
   mineAble: 1
   scaleMineAble: {x: 0, y: 0, z: 0}
   wasMinedSinceLast: 0
+  trackThis: 0
+  activePersonalHUD: {fileID: 0}
   ThePlayersShip: {fileID: 0}
+  myGM: {fileID: 0}
   Inventory:
     Inventory:
     - item: {fileID: 11400000, guid: a812b589edc18464c9df10d7bf3e0f2c, type: 2}
