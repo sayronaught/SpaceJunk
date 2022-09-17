@@ -104,7 +104,7 @@ public class PlayerDroneController : MonoBehaviour
         // move to bay, transfer inventory, THEN remove it.. for now, just remove it..
         if (playerLeftTheDrone) return;
         playerLeftTheDrone = true;
-        thisShip.addToInventory(JsonUtility.ToJson(Inventory));
+        thisShip.gameObject.GetPhotonView().RPC("addToInventory", RpcTarget.MasterClient, JsonUtility.ToJson(Inventory));
         myPV.RPC("removeDrone", RpcTarget.All);
         //Destroy(gameObject, 10f);
     }

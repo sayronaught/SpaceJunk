@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -79,11 +80,10 @@ public class ListRecipes : MonoBehaviour
         updateTimer = 1f;
     }
 
-    public async void CraftButton(string recipe)
+    public void CraftButton(string recipe)
     {
         //button.interactable = false;
-        myShip.CraftRecipe(recipe);
-        await Task.Delay(0);
+        myShip.gameObject.GetPhotonView().RPC("craftOnMasterClient", RpcTarget.MasterClient,recipe);
         //button.interactable = true;
     }
 

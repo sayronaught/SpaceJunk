@@ -76,6 +76,15 @@ public class PlayerShip : MonoBehaviour
         energy += 200f;
         Inventory.removeItem("Energy Crystal", 1);
     }
+    public void addToInventory(string stuffToAdd)
+    {
+        Inventory.addJSON(stuffToAdd);
+        myPV.RPC("updateInventoryPlus", RpcTarget.All, JsonUtility.ToJson(Inventory), energy, ShipName);
+    }
+    public void craftOnMasterClient(string recipe)
+    {
+        CraftRecipe(recipe);
+    }
     /* these run on masterclient only */
 
 
@@ -111,7 +120,7 @@ public class PlayerShip : MonoBehaviour
         myPV.RPC("updateInventoryPlus", RpcTarget.All, JsonUtility.ToJson(Inventory),energy,ShipName);
     }
 
-    public void CraftRecipe(int i)
+    private void CraftRecipe(int i)
     {
 
         Debug.Log("crafting " + Recipes.RecipeList[i].recipeName);
@@ -127,19 +136,13 @@ public class PlayerShip : MonoBehaviour
         myPV.RPC("updateInventoryPlus", RpcTarget.All, JsonUtility.ToJson(Inventory), energy, ShipName);
     }
 
-    public void CraftRecipe(string recipe)
+    private void CraftRecipe(string recipe)
     {
         if (Recipes.RecipeList.Count < 1) return;
         for (int i = 0; i < Recipes.RecipeList.Count; i++)
         {
             if (recipe == Recipes.RecipeList[i].recipeName) CraftRecipe(i);
         }
-    }
-
-    public void addToInventory( string stuffToAdd )
-    {
-        Inventory.addJSON(stuffToAdd);
-        myPV.RPC("updateInventoryPlus", RpcTarget.All, JsonUtility.ToJson(Inventory), energy, ShipName);
     }
 
     private void SpeedParticlesUpdate()

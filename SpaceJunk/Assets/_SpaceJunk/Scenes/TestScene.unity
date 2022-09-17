@@ -53698,6 +53698,11 @@ PrefabInstance:
       propertyPath: myShip
       value: 
       objectReference: {fileID: 598449137}
+    - target: {fileID: 7575521693325619595, guid: 5091798bcb0184642983f62223a423e0,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 7984574828580078705, guid: 5091798bcb0184642983f62223a423e0,
         type: 3}
       propertyPath: m_AnchorMax.x
