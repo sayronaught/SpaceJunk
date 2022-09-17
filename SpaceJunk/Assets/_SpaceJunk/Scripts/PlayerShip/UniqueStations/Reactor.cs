@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,13 +15,21 @@ public class Reactor : MonoBehaviour
     private float timeToReset = 3f;
 
     private AudioSource myAS;
+    private PhotonView myPV;
 
     int crystalCount = 0;
+
+    [PunRPC]
+    public void playReactorSound()
+    {
+        myAS.Play();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         myAS = GetComponent<AudioSource>();
+        myPV = GetComponent<PhotonView>();
     }
 
     // Update is called once per frame
@@ -35,9 +44,8 @@ public class Reactor : MonoBehaviour
             { // first time, we add energy, eat crystal, play sound etcs
                 if ( crystalCount > 0)
                 {
-                    myModule.myShip.energy += 200f;
-                    myModule.myShip.Inventory.removeItem("Energy Crystal", 1);
-                    myAS.Play();
+                    myModule.myShip.gameObject.GetPhotonView().RPC("useCrystal", RpcTarget.MasterClient);
+                    myPV.RPC("playReactorSound",RpcTarget.All);
                 }
                 alreadyPulled = true;
             }

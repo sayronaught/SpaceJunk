@@ -109,7 +109,7 @@ MonoBehaviour:
     Pitch: 0.8
     Force: 20000000
   lastThrustState: 1
-  navigationThrustForce: 200000
+  navigationThrustForce: 5
 --- !u!114 &7270147427653014026
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -54325,6 +54325,11 @@ PrefabInstance:
       propertyPath: myShip
       value: 
       objectReference: {fileID: 598449137}
+    - target: {fileID: 7270147427653014069, guid: a444f2dc46987284ab2609f4462ccaec,
+        type: 3}
+      propertyPath: navigationThrustForce
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7504590450536145448, guid: a444f2dc46987284ab2609f4462ccaec,
         type: 3}
       propertyPath: m_IsActive

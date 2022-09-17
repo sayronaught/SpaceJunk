@@ -54,6 +54,7 @@ public class PlayerShip : MonoBehaviour
     private ParticleSystem.EmissionModule em;
 
 
+    /* these run on masterclient only */
     [PunRPC]
     public void sendCockpitControlBrake(int changeBrake)
     {
@@ -69,6 +70,15 @@ public class PlayerShip : MonoBehaviour
     {
         controlsYawPitch = stickInput;
     }
+    [PunRPC]
+    public void useCrystal()
+    {
+        energy += 200f;
+        Inventory.removeItem("Energy Crystal", 1);
+    }
+    /* these run on masterclient only */
+
+
 
     [PunRPC]
     public void updateShipFromHost(Vector3 targetPos,Quaternion targetRot, Vector3 velocity, Vector3 rotation)
