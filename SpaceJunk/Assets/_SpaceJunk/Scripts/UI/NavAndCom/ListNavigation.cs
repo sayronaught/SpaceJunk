@@ -44,7 +44,7 @@ public class ListNavigation : MonoBehaviour
 
                 // listItem.transform.GetChild(0).GetComponent<RawImage>().texture = recipeFilter.RecipeList[i].recipeIcon;
                 listItem.transform.GetChild(1).GetComponent<TMP_Text>().text = asteroidScript.AsteroidName;
-                //listItem.transform.GetChild(2).GetComponent<TMP_Text>().text = recipeFilter.RecipeList[i].recipeDescription;
+                listItem.transform.GetChild(2).GetComponent<TMP_Text>().text = Vector3.Distance(asteroidScript.ThePlayersShip.transform.position, asteroidScript.transform.position).ToString("F1") + " M";
                 //string keepName = recipeFilter.RecipeList[i].recipeName;
                 //var button = listItem.transform.GetChild(4).GetComponent<Button>();
                 //button.onClick.AddListener(delegate { CraftButton(keepName); });
@@ -59,6 +59,7 @@ public class ListNavigation : MonoBehaviour
                 listItem.transform.GetChild(3).GetComponent<TMP_Text>().text = usedUp;
             }
         }
+        updateTimer = 1f;
     }
 
     // Start is called before the first frame update

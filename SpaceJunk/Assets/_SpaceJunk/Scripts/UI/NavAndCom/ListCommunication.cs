@@ -40,8 +40,10 @@ public class ListCommunication : MonoBehaviour
                 enemyShipScript = enemy.GetComponent<EnemyShip>();
                 var listItem = Instantiate(CommunicationListItemPrefab, transform);
                 listItem.transform.GetChild(1).GetComponent<TMP_Text>().text = enemyShipScript.EnemyName;
+                listItem.transform.GetChild(2).GetComponent<TMP_Text>().text = Vector3.Distance(enemyShipScript.myGM.myShip.transform.position, enemyShipScript.transform.position).ToString("F1") + " M";
             }
         }
+        updateTimer = 1f;
     }
 
     // Start is called before the first frame update

@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e17494f2cca36642bb36391cf3f44a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AsteroidName: Asteroid
+  AsteroidName: Wreck
   randomNameList:
   - Smelly Wreck
   - Rustbucket
@@ -117,12 +117,12 @@ MonoBehaviour:
     Inventory:
     - item: {fileID: 11400000, guid: 2c3814c1a64ed4943beb8dad3fa983de, type: 2}
       amount: 0
-      randomMin: 5
-      randomMax: 20
+      randomMin: 10
+      randomMax: 30
     - item: {fileID: 11400000, guid: a812b589edc18464c9df10d7bf3e0f2c, type: 2}
       amount: 0
       randomMin: 500
-      randomMax: 1500
+      randomMax: 2500
 --- !u!1 &3867064557785961273
 GameObject:
   m_ObjectHideFlags: 0
