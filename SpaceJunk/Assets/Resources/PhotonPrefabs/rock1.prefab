@@ -143,6 +143,7 @@ MonoBehaviour:
       amount: 10
       randomMin: 0
       randomMax: 20
+  myPV: {fileID: 0}
 --- !u!54 &6239051718336367726
 Rigidbody:
   m_ObjectHideFlags: 0

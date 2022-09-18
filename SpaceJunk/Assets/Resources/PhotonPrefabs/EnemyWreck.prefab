@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 711327247492175971}
   m_Layer: 0
   m_Name: EnemyWreck
-  m_TagString: Untagged
+  m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,7 +112,10 @@ MonoBehaviour:
   mineAble: 1
   scaleMineAble: {x: 0, y: 0, z: 0}
   wasMinedSinceLast: 0
+  trackThis: 0
+  activePersonalHUD: {fileID: 0}
   ThePlayersShip: {fileID: 0}
+  myGM: {fileID: 0}
   Inventory:
     Inventory:
     - item: {fileID: 11400000, guid: 2c3814c1a64ed4943beb8dad3fa983de, type: 2}
@@ -123,6 +126,7 @@ MonoBehaviour:
       amount: 0
       randomMin: 500
       randomMax: 2500
+  myPV: {fileID: 0}
 --- !u!1 &3867064557785961273
 GameObject:
   m_ObjectHideFlags: 0

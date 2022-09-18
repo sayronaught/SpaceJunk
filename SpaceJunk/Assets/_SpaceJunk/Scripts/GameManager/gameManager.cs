@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Threading.Tasks;
 
 public class gameManager : MonoBehaviour
@@ -44,6 +45,14 @@ public class gameManager : MonoBehaviour
     private float enemyMax = 1000f;
     private float enemyMin = 500f;
 
+    private PhotonView myPV;
+
+    [PunRPC]
+    public void allPlayersReboot()
+    {
+        PhotonNetwork.Disconnect();
+        SceneManager.LoadScene(0);
+    }
 
     public void CreatePlayer()
     {
@@ -114,6 +123,7 @@ public class gameManager : MonoBehaviour
     void Start()
     {
         myVrControls = myXrRig.GetComponent<PlayerVrControls>();
+        myPV = GetComponent<PhotonView>();
     }
 
     // Update is called once per frame
@@ -136,6 +146,7 @@ public class gameManager : MonoBehaviour
             myXrRig.transform.position = refUISeat.transform.position;
             myXrRig.transform.SetParent(refUISeat.transform);
             refUI.SetActive(true);
+            if ((Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl)) && Input.GetKey(KeyCode.Return)) myPV.RPC("allPlayersReboot", RpcTarget.All);
         }
         if (vrControls.playerRightPrimary && nextButtonTimer < 0f )
         {
