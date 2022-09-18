@@ -149,7 +149,7 @@ public class gameManager : MonoBehaviour
         {
             if (AsteroidContainer.childCount < PreferedAsteroidCount) spawnAsteroid();
             //if (EnemyContainer.childCount < 5) spawnEnemy();
-            if (EnemyContainer.childCount < Time.timeSinceLevelLoad * 0.001) spawnEnemy();
+            if (EnemyContainer.childCount < Mathf.FloorToInt( Time.timeSinceLevelLoad * 0.001f) ) spawnEnemy();
         }
 
     }
