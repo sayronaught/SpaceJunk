@@ -114,6 +114,7 @@ public class PlayerShip : MonoBehaviour
     { // host sends tick info
         energy = en;
         ShipName = newName;
+        Debug.Log("inventory: "+newInv);
         while ( Inventory.Inventory.Count > 0)
             Inventory.Inventory.RemoveAt(0);
         Inventory.addJSON(newInv);
