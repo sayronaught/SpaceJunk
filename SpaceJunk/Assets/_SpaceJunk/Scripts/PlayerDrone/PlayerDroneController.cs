@@ -68,8 +68,8 @@ public class PlayerDroneController : MonoBehaviour
         if ( thisPlayer.playerLeftStick != Vector2.zero || thisPlayer.playerRightStick != Vector2.zero)
         {
             myRB.AddRelativeForce(Vector3.forward * 1000f *myMass* Time.deltaTime * thisPlayer.playerLeftStick.y);
-            myRB.AddRelativeTorque(Vector3.forward * -2500f * Time.deltaTime * thisPlayer.playerLeftStick.x);
-            myRB.AddRelativeTorque(Vector3.up * 5000f * Time.deltaTime * thisPlayer.playerRightStick.x);
+            myRB.AddRelativeTorque(Vector3.forward * -2500f * Time.deltaTime * thisPlayer.playerRightStick.x);
+            myRB.AddRelativeTorque(Vector3.up * 5000f * Time.deltaTime * thisPlayer.playerLeftStick.x);
             myRB.AddRelativeTorque(Vector3.left * 5000f * Time.deltaTime * thisPlayer.playerRightStick.y);
             controlStick = true;
         }
