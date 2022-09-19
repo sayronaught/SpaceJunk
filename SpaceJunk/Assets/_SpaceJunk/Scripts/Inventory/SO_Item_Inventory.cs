@@ -78,10 +78,9 @@ public class SO_Item_Inventory
     { // remove one random item and return it
         if (Inventory.Count < 1) return null;
         int rand = Random.Range(0, Inventory.Count);
-        SO_Item tempitem = Inventory[rand].item;
-        if (Inventory[rand].amount > 1) Inventory[rand].amount--;
-        else Inventory.RemoveAt(rand);
-        return tempitem;
+        if (Inventory[rand].amount < 1) return null;
+        Inventory[rand].amount--;
+        return Inventory[rand].item;
     }
 
     public void addItem( SO_Item item, int num )
@@ -117,7 +116,6 @@ public class SO_Item_Inventory
                 if (res.item == item)
                 {
                     res.amount -= num;
-                    if (res.amount <= 0) Inventory.Remove(res);
                     return;
                 }
             }
@@ -134,7 +132,6 @@ public class SO_Item_Inventory
                 if (res.item.itemName == removeName)
                 {
                     res.amount -= num;
-                    if (res.amount <= 0) Inventory.Remove(res);
                     return;
                 }
             }

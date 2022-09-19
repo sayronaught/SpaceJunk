@@ -31,12 +31,15 @@ public class ListInventory : MonoBehaviour
         {
             for (int i  = 0; i < myShip.Inventory.Inventory.Count ; i++ )
             {
-                var listItem = Instantiate(InventoryListItemPrefab, transform);
-                listItem.transform.GetChild(0).GetComponent<RawImage>().texture = myShip.Inventory.Inventory[i].item.itemIcon;
-                listItem.transform.GetChild(1).GetComponent<TMP_Text>().text = myShip.Inventory.Inventory[i].item.itemName;
-                listItem.transform.GetChild(2).GetComponent<TMP_Text>().text = myShip.Inventory.Inventory[i].item.itemDescription;
-                listItem.transform.GetChild(3).GetComponent<TMP_Text>().text = myShip.Inventory.Inventory[i].amount.ToString();
-                listItem.transform.GetChild(4).GetComponent<TMP_Text>().text = (myShip.Inventory.Inventory[i].item.itemMass * myShip.Inventory.Inventory[i].amount).ToString() + " Kg";
+                if (myShip.Inventory.Inventory[i].amount > 0)
+                {
+                    var listItem = Instantiate(InventoryListItemPrefab, transform);
+                    listItem.transform.GetChild(0).GetComponent<RawImage>().texture = myShip.Inventory.Inventory[i].item.itemIcon;
+                    listItem.transform.GetChild(1).GetComponent<TMP_Text>().text = myShip.Inventory.Inventory[i].item.itemName;
+                    listItem.transform.GetChild(2).GetComponent<TMP_Text>().text = myShip.Inventory.Inventory[i].item.itemDescription;
+                    listItem.transform.GetChild(3).GetComponent<TMP_Text>().text = myShip.Inventory.Inventory[i].amount.ToString();
+                    listItem.transform.GetChild(4).GetComponent<TMP_Text>().text = (myShip.Inventory.Inventory[i].item.itemMass * myShip.Inventory.Inventory[i].amount).ToString() + " Kg";
+                }  
             }
         }
         updateTimer = 1f;

@@ -11872,7 +11872,7 @@ MonoBehaviour:
     Inventory:
     - item: {fileID: 11400000, guid: 2c3814c1a64ed4943beb8dad3fa983de, type: 2}
       amount: 1
-      randomMin: 0
+      randomMin: 2
       randomMax: 5
     - item: {fileID: 11400000, guid: 5b57bb841fd27be41b0c1cd002fb099f, type: 2}
       amount: 200
@@ -11886,6 +11886,10 @@ MonoBehaviour:
       amount: 2
       randomMin: 2
       randomMax: 4
+    - item: {fileID: 11400000, guid: a812b589edc18464c9df10d7bf3e0f2c, type: 2}
+      amount: 50
+      randomMin: 25
+      randomMax: 50
   Recipes:
     RecipeList:
     - {fileID: 11400000, guid: e2a9bb2240afd7b44b8e5c1f7868150b, type: 2}
