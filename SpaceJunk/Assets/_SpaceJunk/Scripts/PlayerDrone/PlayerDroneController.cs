@@ -40,6 +40,8 @@ public class PlayerDroneController : MonoBehaviour
     private Vector3 movementCalc;
     private Quaternion rotationCalc;
 
+    private bool controlStick = false;
+
     [PunRPC]
     public void updateDroneFromController(Vector3 targetPos, Quaternion targetRot, Vector3 velocity, Vector3 rotation)
     { // host sends position and movement to other ships
@@ -60,11 +62,20 @@ public class PlayerDroneController : MonoBehaviour
     private void controlDrone()
     { // We are controlling the drone from THIS headset
 
-        // control via controller sticks
+        controlStick = false;
 
+        // control via controller sticks
+        if ( thisPlayer.playerLeftStick != Vector2.zero || thisPlayer.playerRightStick != Vector2.zero)
+        {
+            myRB.AddRelativeForce(Vector3.forward * 1000f *myMass* Time.deltaTime * thisPlayer.playerLeftStick.y);
+            myRB.AddRelativeTorque(Vector3.forward * -2500f * Time.deltaTime * thisPlayer.playerLeftStick.x);
+            myRB.AddRelativeTorque(Vector3.up * 5000f * Time.deltaTime * thisPlayer.playerRightStick.x);
+            myRB.AddRelativeTorque(Vector3.left * 5000f * Time.deltaTime * thisPlayer.playerRightStick.y);
+            controlStick = true;
+        }
 
         // control via right grab
-        if (thisPlayer.playerRightGrab)
+        if (thisPlayer.playerRightGrab && !controlStick)
         { // Player grabs right Grabbutton and then moved that hand
             MyThruster.SetActive(true);
             if (holdingRight)
