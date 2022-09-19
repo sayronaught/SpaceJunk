@@ -113,7 +113,9 @@ public class PlayerShip : MonoBehaviour
     public void updateInventoryPlus(string newInv,float en,string newName)
     { // host sends tick info
         energy = en;
-        Inventory = new SO_Item_Inventory();
+        ShipName = newName;
+        while ( Inventory.Inventory.Count > 0)
+            Inventory.Inventory.RemoveAt(0);
         Inventory.addJSON(newInv);
     }
 
@@ -201,8 +203,6 @@ public class PlayerShip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //playerVrControls.SendLeftHaptics(0, 0.1f, 1f);
-        //playerVrControls.SendRightHaptics(0, 0.1f, 1f);
         if (PhotonNetwork.IsMasterClient)
         { // host sends ship updates
             if ( updateTimer < 0 )
