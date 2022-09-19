@@ -21,6 +21,9 @@ public class ListRecipes : MonoBehaviour
 
     private SO_Recipe_List recipeFilter;
 
+    [Tooltip("Drag the audiosource for the buttonsound here")]
+    public AudioSource ButtonSound;
+
     void clearTransformChildren(Transform needToClear)
     {
         if (needToClear.childCount > 0)
@@ -85,6 +88,7 @@ public class ListRecipes : MonoBehaviour
         //button.interactable = false;
         myShip.gameObject.GetPhotonView().RPC("craftOnMasterClient", RpcTarget.MasterClient,recipe);
         //button.interactable = true;
+        if (ButtonSound) ButtonSound.Play();
     }
 
     // Start is called before the first frame update

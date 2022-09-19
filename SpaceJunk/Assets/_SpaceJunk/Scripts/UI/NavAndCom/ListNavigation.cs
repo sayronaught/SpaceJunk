@@ -27,6 +27,9 @@ public class ListNavigation : MonoBehaviour
     private float distanceCalc;
     private int siblingIndex;
 
+    [Tooltip("Drag the audiosource for the buttonsound here")]
+    public AudioSource ButtonSound;
+
     void clearTransformChildren(Transform needToClear)
     {
         if (needToClear.childCount > 0)
@@ -107,7 +110,7 @@ public class ListNavigation : MonoBehaviour
                 }
             }
         }
-        //myShip.gameObject.GetPhotonView().RPC("craftOnMasterClient", RpcTarget.All, recipe);
+        if (ButtonSound) ButtonSound.Play();
     }
 
 

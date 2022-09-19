@@ -17,6 +17,9 @@ public class ListOfModules : MonoBehaviour
 
     private float updateTimer = 30f;
 
+    [Tooltip("Drag the audiosource for the buttonsound here")]
+    public AudioSource ButtonSound;
+
     void MakeListOfModules()
     {
         if (myRect.transform.childCount > 0)
@@ -35,6 +38,7 @@ public class ListOfModules : MonoBehaviour
             listItem.transform.GetChild(1).GetComponent<ListOfModulesHpBar>().myMod = module;
             var iconScript = listItem.GetComponent<ListOfModules_Icons>();
             iconScript.myPM = module;
+            iconScript.ButtonSound = ButtonSound;
             iconScript.turnedOn = true;
         }
         updateTimer = 30f;

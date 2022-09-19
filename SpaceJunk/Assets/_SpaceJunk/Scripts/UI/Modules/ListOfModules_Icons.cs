@@ -18,7 +18,10 @@ public class ListOfModules_Icons : MonoBehaviour
 
     [Tooltip("Drag Structure Icon into this")]
     public GameObject IconStructure;
-    
+
+    [Tooltip("Parent Script should Set this")]
+    public AudioSource ButtonSound;
+
     private float timer;
 
     public void clickPatchKit()
@@ -28,6 +31,7 @@ public class ListOfModules_Icons : MonoBehaviour
         myPM.structureHP += 25f;
         myPM.updateModule();
         myPM.myShip.updateInventoryPlus();
+        if (ButtonSound) ButtonSound.Play();
     }
 
     public void clickEnergy()
@@ -38,6 +42,7 @@ public class ListOfModules_Icons : MonoBehaviour
         myPM.energyCapacity += 100f;
         myPM.updateModule();
         myPM.myShip.updateInventoryPlus();
+        if (ButtonSound) ButtonSound.Play();
     }
 
     public void clickStructure()
@@ -48,6 +53,7 @@ public class ListOfModules_Icons : MonoBehaviour
         myPM.structureMaxHP += 100f;
         myPM.updateModule();
         myPM.myShip.updateInventoryPlus();
+        if (ButtonSound) ButtonSound.Play();
     }
 
     void checkPatchKit()
