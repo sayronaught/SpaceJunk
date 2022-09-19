@@ -11847,6 +11847,7 @@ MonoBehaviour:
   - {fileID: 1258322566}
   - {fileID: 711897633}
   - {fileID: 1777648330}
+  - {fileID: 687912801}
   ShipName: PlayerShip
   randomNameList:
   - SS Rustbucket
@@ -12004,6 +12005,133 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 79484388}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &687912794
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1737370017}
+    m_Modifications:
+    - target: {fileID: 3668246725446623936, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: m_Name
+      value: Turret (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668246725446623937, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668246725446623937, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668246725446623937, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.664
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668246725446623937, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668246725446623937, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668246725446623937, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668246725446623937, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668246725446623937, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668246725446623937, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668246725446623937, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668246725446623937, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668246725446623940, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: myShip
+      value: 
+      objectReference: {fileID: 598449137}
+    - target: {fileID: 3668246725446623940, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: moduleName
+      value: Bottom Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668246725446623940, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: Stations.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668246725446623940, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: Stations.Array.data[0]
+      value: 
+      objectReference: {fileID: 2085393230}
+    - target: {fileID: 3668246725446623942, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668246725446623943, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: myShip
+      value: 
+      objectReference: {fileID: 598449137}
+    - target: {fileID: 3668246726820657632, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7559700770479135198, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a31f9e0fbc9570c4cad4dbaccecea69d, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c328004f67d77b54b82698bef25e281e, type: 3}
+--- !u!4 &687912795 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3668246725446623937, guid: c328004f67d77b54b82698bef25e281e,
+    type: 3}
+  m_PrefabInstance: {fileID: 687912794}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &687912801 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3668246725446623940, guid: c328004f67d77b54b82698bef25e281e,
+    type: 3}
+  m_PrefabInstance: {fileID: 687912794}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73664d189a093d1449a2ae061fbcca45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -17870,6 +17998,7 @@ MonoBehaviour:
   - {fileID: 488530339}
   - {fileID: 181864541}
   - {fileID: 1129466010}
+  - {fileID: 2085393230}
   seat: 0
   activeDrone: {fileID: 0}
   AsteroidContainer: {fileID: 124491588}
@@ -40963,6 +41092,7 @@ Transform:
   - {fileID: 1905324495}
   - {fileID: 711897630}
   - {fileID: 1777648328}
+  - {fileID: 687912795}
   m_Father: {fileID: 598449136}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -52511,6 +52641,18 @@ MonoBehaviour:
   sceneViewId: 29
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &2085393230 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3668246726820657633, guid: c328004f67d77b54b82698bef25e281e,
+    type: 3}
+  m_PrefabInstance: {fileID: 687912794}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab1c6fbe7e159848a790190ed2c8d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2091759011
 GameObject:
   m_ObjectHideFlags: 0
@@ -53369,6 +53511,11 @@ PrefabInstance:
       propertyPath: myShip
       value: 
       objectReference: {fileID: 598449137}
+    - target: {fileID: 3668246725446623940, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: moduleName
+      value: Top Turret
+      objectReference: {fileID: 0}
     - target: {fileID: 3668246725446623942, guid: c328004f67d77b54b82698bef25e281e,
         type: 3}
       propertyPath: sceneViewId
