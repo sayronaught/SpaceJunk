@@ -57,7 +57,45 @@ public class PlayerDroneController : MonoBehaviour
         myRB = GetComponent<Rigidbody>();
     }
 
-    private void moveFromRight()
+    private void controlDrone()
+    { // We are controlling the drone from THIS headset
+
+        // control via controller sticks
+
+
+        // control via right grab
+        if (thisPlayer.playerRightGrab)
+        { // Player grabs right Grabbutton and then moved that hand
+            MyThruster.SetActive(true);
+            if (holdingRight)
+            { // we have a start pos
+                moveUsingRightGrabButton();
+            } else { // we do not, this is the time get one
+                holdingRight = true;
+                RightStartPos = thisPlayer.rightController.transform.localPosition;
+                RightStartRot = thisPlayer.rightController.transform.localRotation;
+            }
+        } else {
+            MyThruster.SetActive(false);
+            holdingRight = false;
+            RightStartPos = Vector3.zero;
+            RightStartRot = Quaternion.identity;
+        }
+
+        // Mining
+        if (thisPlayer.playerRightTrigger || thisPlayer.playerLeftTrigger)
+        {
+            myDrill.transform.localPosition = Vector3.Slerp(myDrill.transform.localPosition, drillActive.transform.localPosition, Time.deltaTime * 0.25f);
+            Mining();
+        }
+        else
+        {
+            myDrill.transform.localPosition = Vector3.Slerp(myDrill.transform.localPosition, drillInactive.transform.localPosition, Time.deltaTime * 0.25f);
+            myDrillSound.volume = 0f;
+        }
+    }
+
+    private void moveUsingRightGrabButton()
     { // player is controlling from right controller
         movementCalc = RightStartPos - thisPlayer.rightController.transform.localPosition;
         myRB.AddRelativeForce(movementCalc*-100f*myMass);
@@ -119,32 +157,7 @@ public class PlayerDroneController : MonoBehaviour
             // mass calculations
             myRB.mass = myMass + Inventory.getCombinedMass();
 
-            if (thisPlayer.playerRightGrab)
-            {
-                MyThruster.SetActive(true);
-                if (holdingRight)
-                { // we have a start pos
-                    moveFromRight();
-                } else { // we do not, this is the time get one
-                    holdingRight = true;
-                    RightStartPos = thisPlayer.rightController.transform.localPosition;
-                    RightStartRot = thisPlayer.rightController.transform.localRotation;
-                }
-            } else {
-                MyThruster.SetActive(false);
-                holdingRight = false;
-                RightStartPos = Vector3.zero;
-                RightStartRot = Quaternion.identity;
-            }
-            if ( thisPlayer.playerRightTrigger || thisPlayer.playerLeftTrigger )
-            {
-                myDrill.transform.localPosition = Vector3.Slerp(myDrill.transform.localPosition, drillActive.transform.localPosition, Time.deltaTime * 0.25f);
-                
-                Mining();
-            } else {
-                myDrill.transform.localPosition = Vector3.Slerp(myDrill.transform.localPosition, drillInactive.transform.localPosition, Time.deltaTime * 0.25f);
-                myDrillSound.volume = 0f;
-            }
+            controlDrone();
 
             // update other clients
             if (updateTimer < 0)
