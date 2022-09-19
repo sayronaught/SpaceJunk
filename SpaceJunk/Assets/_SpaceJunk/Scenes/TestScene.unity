@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.090857305, g: 0.03239295, b: 0.13494563, a: 1}
+  m_IndirectSpecularColor: {r: 0.09117865, g: 0.03316388, b: 0.13493326, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12102,6 +12102,12 @@ PrefabInstance:
       propertyPath: myShip
       value: 
       objectReference: {fileID: 598449137}
+    - target: {fileID: 3668246725446623943, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: AmmoPrefab
+      value: 
+      objectReference: {fileID: 2753228119389897761, guid: dbcbbb58e563a0e4a97451e17dfe5b2d,
+        type: 3}
     - target: {fileID: 3668246726820657632, guid: c328004f67d77b54b82698bef25e281e,
         type: 3}
       propertyPath: sceneViewId
@@ -35058,6 +35064,7 @@ MonoBehaviour:
   aimTransform: {fileID: 0}
   barrelEnds:
   - {fileID: 1992148509}
+  AmmoPrefab: {fileID: 0}
   AmmoPrefabName: Laser1
   energyCost: 50
   sfxShoot: {fileID: 0}
@@ -51595,6 +51602,7 @@ MonoBehaviour:
   barrelEnds:
   - {fileID: 664816285}
   - {fileID: 1349672767}
+  AmmoPrefab: {fileID: 0}
   AmmoPrefabName: Laser1
   energyCost: 50
   sfxShoot: {fileID: 0}
@@ -52859,6 +52867,7 @@ MonoBehaviour:
   barrelEnds:
   - {fileID: 888468500}
   - {fileID: 1298358144}
+  AmmoPrefab: {fileID: 0}
   AmmoPrefabName: Laser1
   energyCost: 50
   sfxShoot: {fileID: 0}
@@ -53532,6 +53541,12 @@ PrefabInstance:
       propertyPath: myShip
       value: 
       objectReference: {fileID: 598449137}
+    - target: {fileID: 3668246725446623943, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: AmmoPrefab
+      value: 
+      objectReference: {fileID: 2753228119389897761, guid: dbcbbb58e563a0e4a97451e17dfe5b2d,
+        type: 3}
     - target: {fileID: 3668246725446623943, guid: c328004f67d77b54b82698bef25e281e,
         type: 3}
       propertyPath: maxDegreesPerSecond

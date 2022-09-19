@@ -11,7 +11,7 @@ public class PlayerTurret : MonoBehaviour
     public Transform[] barrelEnds;
     private int currentBarrel = 0;
     private float shootDelay = 0f;
-    //public GameObject AmmoPrefab;
+    public GameObject AmmoPrefab;
     public string AmmoPrefabName = "Laser1";
     public float energyCost = 50f;
     public AudioClip sfxShoot;
@@ -36,26 +36,16 @@ public class PlayerTurret : MonoBehaviour
     }
 
     [PunRPC]
-    public void FireTurret()
-    {
-        if (MyStation.thisPlayer == null)
-        {
-            fireTheTurret();
-        }
-    }
-
-    [PunRPC]
-    private void fireTheTurret()
+    private void fireTheTurret(Quaternion swivel)
     {
         if (myShip.energy >= energyCost)
         {
             myShip.energy -= energyCost;
+            turretSwivel.rotation = swivel;
             foreach (Transform barrel in barrelEnds)
             {
-                //var shot = Instantiate(AmmoPrefab, barrelEnds[currentBarrel].position, barrelEnds[currentBarrel].rotation);
-                var shot = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", AmmoPrefabName), barrel.position, barrel.rotation);
-                //shot.GetComponent<Rigidbody>().AddForce(barrel.forward * AmmoSpeed);
-                //Destroy(shot, AmmoLifetime);
+                var shot = Instantiate(AmmoPrefab, barrelEnds[currentBarrel].position, barrelEnds[currentBarrel].rotation);
+                //var shot = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", AmmoPrefabName), barrel.position, barrel.rotation);
             }
             myAS.clip = sfxShoot;
             myAS.Play();
@@ -96,8 +86,7 @@ public class PlayerTurret : MonoBehaviour
             {
                 MyStation.thisPlayer.SendRightHaptics(0,.25f, 0.25f);
                 MyStation.thisPlayer.SendLeftHaptics(0,.25f, 0.25f);
-                //fireTheTurret();
-                myPV.RPC("fireTheTurret", RpcTarget.All);
+                myPV.RPC("fireTheTurret", RpcTarget.All, turretSwivel.rotation);
                 shootDelay = 0.5f;
             }
 
