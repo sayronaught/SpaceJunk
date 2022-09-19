@@ -17166,6 +17166,12 @@ Transform:
   m_Father: {fileID: 598449136}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &749080791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3398012210435139835, guid: 532fb73971e42ee4f9a3a1996d7f75ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 8314021973187855649}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &752855609
 GameObject:
   m_ObjectHideFlags: 0
@@ -55747,6 +55753,16 @@ PrefabInstance:
       propertyPath: myShip
       value: 
       objectReference: {fileID: 598449137}
+    - target: {fileID: 8314021972348666368, guid: 532fb73971e42ee4f9a3a1996d7f75ad,
+        type: 3}
+      propertyPath: playerActiveObjects.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314021972348666368, guid: 532fb73971e42ee4f9a3a1996d7f75ad,
+        type: 3}
+      propertyPath: playerActiveObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 749080791}
     - target: {fileID: 8314021972348666371, guid: 532fb73971e42ee4f9a3a1996d7f75ad,
         type: 3}
       propertyPath: sceneViewId
