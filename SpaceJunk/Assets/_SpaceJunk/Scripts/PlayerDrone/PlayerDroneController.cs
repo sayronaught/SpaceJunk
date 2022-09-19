@@ -161,7 +161,12 @@ public class PlayerDroneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!thisStation) PlayerLeftDrone();
+        if (!thisStation)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        if (!thisStation.thisPlayer) PlayerLeftDrone();
         if (thisPlayer)
         { // this Drone is controlled by player, otherwise ignore
 

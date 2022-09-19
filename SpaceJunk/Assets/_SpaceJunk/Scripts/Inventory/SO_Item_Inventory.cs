@@ -145,12 +145,12 @@ public class SO_Item_Inventory
     public void addJSON(string newItems)
     { // get a JSON string, and adds that to inventory
         SO_Item_Inventory temp = JsonUtility.FromJson<SO_Item_Inventory>(newItems);
-        Debug.Log("adding "+temp.Inventory.Count.ToString());
+        //Debug.Log("adding "+temp.Inventory.Count.ToString());
         while ( temp.Inventory.Count > 0 )
         { // keep adding and removing until none are left
             addItem(temp.Inventory[0].item, temp.Inventory[0].amount);
-            Debug.Log("my inv " + Inventory.Count().ToString());
-            Debug.Log("temp " + temp.Inventory.Count().ToString());
+            //Debug.Log("my inv " + Inventory.Count().ToString());
+            //Debug.Log("temp " + temp.Inventory.Count().ToString());
             temp.Inventory.RemoveAt(0);       
         }
     }
