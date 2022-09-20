@@ -139,6 +139,17 @@ public class SO_Item_Inventory
         Debug.Log("Trying to remove item that isn't there(string): " + removeName);
     }
 
+    public void cleanInventory()
+    {// removes everything
+        if (Inventory.Count > 0)
+        {// if there is things on the list, we can do a foreach
+            foreach (Resource res in Inventory)
+            {
+                res.amount = 0;
+            }
+        }  // there is no list or items is not found, bugger!
+    }
+
     public void addJSON(string newItems)
     { // get a JSON string, and adds that to inventory
         SO_Item_Inventory temp = JsonUtility.FromJson<SO_Item_Inventory>(newItems);

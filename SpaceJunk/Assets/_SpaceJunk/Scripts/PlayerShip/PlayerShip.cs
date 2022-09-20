@@ -115,8 +115,7 @@ public class PlayerShip : MonoBehaviour
         energy = en;
         ShipName = newName;
         Debug.Log("inventory: "+newInv);
-        while ( Inventory.Inventory.Count > 0)
-            Inventory.Inventory.RemoveAt(0);
+        Inventory.cleanInventory();
         Inventory.addJSON(newInv);
     }
 
