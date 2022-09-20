@@ -44,7 +44,7 @@ public class PlayerTurret : MonoBehaviour
             turretSwivel.rotation = swivel;
             foreach (Transform barrel in barrelEnds)
             {
-                var shot = Instantiate(AmmoPrefab, barrelEnds[currentBarrel].position, barrelEnds[currentBarrel].rotation);
+                var shot = Instantiate(AmmoPrefab, barrel.position, barrel.rotation);
                 //var shot = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", AmmoPrefabName), barrel.position, barrel.rotation);
             }
             myAS.clip = sfxShoot;
