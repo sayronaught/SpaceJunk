@@ -114,7 +114,6 @@ public class PlayerShip : MonoBehaviour
     { // host sends tick info
         energy = en;
         ShipName = newName;
-        Debug.Log("inventory: "+newInv);
         Inventory.cleanInventory();
         Inventory.addJSON(newInv);
     }
@@ -126,8 +125,6 @@ public class PlayerShip : MonoBehaviour
 
     private void CraftRecipe(int i)
     {
-
-        Debug.Log("crafting " + Recipes.RecipeList[i].recipeName);
         energy -= Recipes.RecipeList[i].energyCost;
         for (int usedUp = 0; usedUp < Recipes.RecipeList[i].usedup.Length; usedUp++)
         {

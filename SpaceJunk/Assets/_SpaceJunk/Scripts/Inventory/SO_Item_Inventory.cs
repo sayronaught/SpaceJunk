@@ -169,27 +169,21 @@ public class SO_Item_Inventory
     }
 
     public string getJSON()
-    {
-        //string[] thelist = new string[Inventory.Count];
+    {// create custom data string from inventory 
         string thelist = "";
         if ( Inventory.Count > 0)
         { // we dont' do foreach unless we have some items
             for ( int i = 0; i < Inventory.Count; i++)
             {
-                Debug.Log("res " + Inventory[i].item.itemName + " thelist " + thelist);
                 thelist += "#%"+Inventory[i].item.itemName+"#"+Inventory[i].amount;
             }
         }
-        Debug.Log(thelist);
-        Debug.Log("prepping to send " + thelist);
         return thelist;
     }
 
     public void addJSON(string newItems)
     { // get a JSON string, and adds that to inventory
-        //SO_Item_Inventory temp = JsonUtility.FromJson<SO_Item_Inventory>(newItems);
         string[] temp = newItems.Split("%");
-        //Debug.Log("adding "+temp.Inventory.Count.ToString());
         for(int i = 0; i < temp.Length; i++)
         { // keep adding and removing until none are left
             int amount = 0;
