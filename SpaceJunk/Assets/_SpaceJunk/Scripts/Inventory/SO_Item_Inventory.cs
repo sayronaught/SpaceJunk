@@ -83,13 +83,31 @@ public class SO_Item_Inventory
         return Inventory[rand].item;
     }
 
+    public void addItem(string item, int num)
+    { // this one can easily crash the whole thing
+        if (item == "") return;
+        if (Inventory.Count > 0)
+        {// if there is things on the list, we can do a foreach
+            foreach (Resource res in Inventory)
+            {
+                if (res.item.itemName == item)
+                {
+                    res.amount += num;
+                    return;
+                }
+            }
+        }  // there is no list or items is not found, so we add it
+        Debug.Log("Tried to add new item " + item + " amount " + num.ToString());
+    }
     public void addItem( SO_Item item, int num )
     { // this one can easily crash the whole thing
         if (item == null) return;
         if ( Inventory.Count> 0)
         {// if there is things on the list, we can do a foreach
+            Debug.Log("newname "+item.itemName+" id "+item.GetInstanceID().ToString());
             foreach (Resource res in Inventory)
             {
+                Debug.Log("trying "+res.item.itemName+" id "+res.item.GetInstanceID().ToString());
                 if ( res.item == item )
                 {
                     res.amount += num;
@@ -150,16 +168,33 @@ public class SO_Item_Inventory
         }  // there is no list or items is not found, bugger!
     }
 
+    public string getJSON()
+    {
+        //string[] thelist = new string[Inventory.Count];
+        string thelist = "";
+        if ( Inventory.Count > 0)
+        { // we dont' do foreach unless we have some items
+            for ( int i = 0; i < Inventory.Count; i++)
+            {
+                Debug.Log("res " + Inventory[i].item.itemName + " thelist " + thelist);
+                thelist += "#%"+Inventory[i].item.itemName+"#"+Inventory[i].amount;
+            }
+        }
+        Debug.Log(thelist);
+        Debug.Log("prepping to send " + thelist);
+        return thelist;
+    }
+
     public void addJSON(string newItems)
     { // get a JSON string, and adds that to inventory
-        SO_Item_Inventory temp = JsonUtility.FromJson<SO_Item_Inventory>(newItems);
+        //SO_Item_Inventory temp = JsonUtility.FromJson<SO_Item_Inventory>(newItems);
+        string[] temp = newItems.Split("%");
         //Debug.Log("adding "+temp.Inventory.Count.ToString());
-        while ( temp.Inventory.Count > 0 )
+        for(int i = 0; i < temp.Length; i++)
         { // keep adding and removing until none are left
-            addItem(temp.Inventory[0].item, temp.Inventory[0].amount);
-            //Debug.Log("my inv " + Inventory.Count().ToString());
-            //Debug.Log("temp " + temp.Inventory.Count().ToString());
-            temp.Inventory.RemoveAt(0);       
+            int amount = 0;
+            int.TryParse(temp[i].Split("#")[1], out amount);
+            addItem(temp[i].Split("#")[0], amount);
         }
     }
 

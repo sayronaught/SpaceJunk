@@ -121,7 +121,7 @@ public class PlayerShip : MonoBehaviour
 
     public void updateInventoryPlus()
     { // send inventory after change
-        myPV.RPC("updateInventoryPlus", RpcTarget.All, JsonUtility.ToJson(Inventory),energy,ShipName);
+        myPV.RPC("updateInventoryPlus", RpcTarget.All, Inventory.getJSON(),energy,ShipName);
     }
 
     private void CraftRecipe(int i)
@@ -137,7 +137,7 @@ public class PlayerShip : MonoBehaviour
         {
             Inventory.addItem(Recipes.RecipeList[i].result[resultProduct].item, Recipes.RecipeList[i].result[resultProduct].amount);
         }
-        myPV.RPC("updateInventoryPlus", RpcTarget.All, JsonUtility.ToJson(Inventory), energy, ShipName);
+        myPV.RPC("updateInventoryPlus", RpcTarget.All, Inventory.getJSON(), energy, ShipName);
     }
 
     private void CraftRecipe(string recipe)
