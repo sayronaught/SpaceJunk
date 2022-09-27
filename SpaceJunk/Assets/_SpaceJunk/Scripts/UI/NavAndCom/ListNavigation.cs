@@ -26,6 +26,7 @@ public class ListNavigation : MonoBehaviour
     private Asteroid asteroidScript;
     private float distanceCalc;
     private int siblingIndex;
+    private bool alreadySorted = false;
 
     [Tooltip("Drag the audiosource for the buttonsound here")]
     public AudioSource ButtonSound;
@@ -47,6 +48,7 @@ public class ListNavigation : MonoBehaviour
         myRect.sizeDelta = new Vector2(0, AsteroidContainer.childCount * spacing);
         if ( AsteroidContainer.childCount > 0)
         {
+            alreadySorted = false;
             foreach (Transform asteroid in AsteroidContainer)
             {
                 asteroidScript = asteroid.GetComponent<Asteroid>();
@@ -81,13 +83,14 @@ public class ListNavigation : MonoBehaviour
                     }
                 }
                 listItem.transform.GetChild(3).GetComponent<TMP_Text>().text = usedUp;
-                if (AsteroidContainer.childCount > 5 && siblingIndex > 0)
+                if (AsteroidContainer.childCount > 5 && siblingIndex > 0 && !alreadySorted)
                 {
                     float distance2 = Vector3.Distance(asteroidScript.ThePlayersShip.transform.position, AsteroidContainer.transform.GetChild(siblingIndex-1).transform.position);
                     if (distance2 > distanceCalc)
                     {
                         AsteroidContainer.transform.GetChild(siblingIndex - 1).SetSiblingIndex(siblingIndex);
                         asteroidScript.transform.SetSiblingIndex(siblingIndex - 1);
+                        alreadySorted = true;
                     }
                 }
             }

@@ -57,7 +57,8 @@ public class Asteroid : MonoBehaviour
     public void wasMinedAsteroid(float newMineAble, string newInventory, string newName)
     {
         mineAble = newMineAble;
-        Inventory = JsonUtility.FromJson<SO_Item_Inventory>(newInventory);
+        Inventory.cleanInventory();
+        Inventory.addJSON(newInventory);
         AsteroidName = newName;
         transform.name = newName;
     }
@@ -101,6 +102,8 @@ public class Asteroid : MonoBehaviour
     void Start()
     {
         getComps();
+        ThePlayersShip = GameObject.Find("PlayerShip").GetComponent<PlayerShip>();
+        myGM = GameObject.Find("_gameManager").GetComponent<gameManager>();
         myRB.AddTorque(new Vector3(Random.Range(-randomRotation, randomRotation), Random.Range(-randomRotation, randomRotation), Random.Range(-randomRotation, randomRotation)));
         myRB.AddForce(new Vector3(Random.Range(-randomSpeed, randomSpeed), Random.Range(-randomSpeed, randomSpeed), Random.Range(-randomSpeed, randomSpeed)));
         transform.localScale = new Vector3(Random.Range(randomMinScale, randomMaxScale), Random.Range(randomMinScale, randomMaxScale), Random.Range(randomMinScale, randomMaxScale));
@@ -109,7 +112,7 @@ public class Asteroid : MonoBehaviour
             Inventory.RandomizeLoot();
             AsteroidName = randomNameList[Random.Range(0, randomNameList.Count)];
             AsteroidName = AsteroidName.Replace("INT", Random.Range(10,1000).ToString());
-            myPV.RPC("wasMinedAsteroid", RpcTarget.All, mineAble, JsonUtility.ToJson(Inventory), AsteroidName);
+            myPV.RPC("wasMinedAsteroid", RpcTarget.All, mineAble, Inventory.getJSON(), AsteroidName);
         } else { // this is not the master
             transform.SetParent(GameObject.Find("Asteroids").transform);
         }
@@ -132,7 +135,7 @@ public class Asteroid : MonoBehaviour
         if ( wasMinedSinceLast && updateTimer < 4.75f )
         {    
             myPV.RPC("updateAsteroid", RpcTarget.All, myRB.velocity, myRB.rotation, transform.position, transform.rotation, transform.localScale);
-            myPV.RPC("wasMinedAsteroid", RpcTarget.All, mineAble, JsonUtility.ToJson(Inventory), AsteroidName);
+            myPV.RPC("wasMinedAsteroid", RpcTarget.All, mineAble, Inventory.getJSON(), AsteroidName);
             wasMinedSinceLast = false;
             updateTimer = 5f;
         }

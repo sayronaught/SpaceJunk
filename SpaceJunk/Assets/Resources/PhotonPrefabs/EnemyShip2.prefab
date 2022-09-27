@@ -270,6 +270,7 @@ MonoBehaviour:
   randomNameList:
   - Easy Target
   - Veteran Fighter
+  - Chongoid
   structureHP: 150
   structureHPMax: 150
   Inventory:

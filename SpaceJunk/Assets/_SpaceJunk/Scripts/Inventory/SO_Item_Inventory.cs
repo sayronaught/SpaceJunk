@@ -187,7 +187,6 @@ public class SO_Item_Inventory
         for(int i = 0; i < temp.Length; i++)
         { // keep adding and removing until none are left
             int amount = 0;
-            // outside bounds
             if (temp[i].Split("#").Length > 1)
                 int.TryParse(temp[i].Split("#")[1], out amount);
             addItem(temp[i].Split("#")[0], amount);
