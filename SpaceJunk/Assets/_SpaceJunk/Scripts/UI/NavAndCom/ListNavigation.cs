@@ -76,9 +76,10 @@ public class ListNavigation : MonoBehaviour
                 string usedUp = "";
                 if (asteroidScript.Inventory.Inventory.Count > 0)
                 {
-                    for (int ii = 0; ii <= asteroidScript.Inventory.Inventory.Count; ii++)
+                    for (int ii = 0; ii < asteroidScript.Inventory.Inventory.Count; ii++)
                     {
-                        // denne her giver en object fejl
+                        // denne her giver en index fejl
+                        //Debug.Log("trying " + ii.ToString() + " of " + asteroidScript.Inventory.Inventory.Count());
                         usedUp += asteroidScript.Inventory.Inventory[ii].item.itemName + " : " + asteroidScript.Inventory.Inventory[ii].amount + "\n";
                     }
                 }
