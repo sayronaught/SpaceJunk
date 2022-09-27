@@ -50,6 +50,7 @@ public class ListNavigation : MonoBehaviour
             foreach (Transform asteroid in AsteroidContainer)
             {
                 asteroidScript = asteroid.GetComponent<Asteroid>();
+                //object ref
                 distanceCalc = Vector3.Distance(asteroidScript.ThePlayersShip.transform.position, asteroidScript.transform.position);
                 siblingIndex = asteroid.transform.GetSiblingIndex();
                 var listItem = Instantiate(NavigationListItemPrefab, transform);
@@ -73,8 +74,9 @@ public class ListNavigation : MonoBehaviour
                 string usedUp = "";
                 if (asteroidScript.Inventory.Inventory.Count > 0)
                 {
-                    for (int ii = 0; ii < asteroidScript.Inventory.Inventory.Count; ii++)
+                    for (int ii = 0; ii <= asteroidScript.Inventory.Inventory.Count; ii++)
                     {
+                        // denne her giver en object fejl
                         usedUp += asteroidScript.Inventory.Inventory[ii].item.itemName + " : " + asteroidScript.Inventory.Inventory[ii].amount + "\n";
                     }
                 }

@@ -12112,6 +12112,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2753228119389897761, guid: dbcbbb58e563a0e4a97451e17dfe5b2d,
         type: 3}
+    - target: {fileID: 3668246725446623943, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: energyCost
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3668246726820657632, guid: c328004f67d77b54b82698bef25e281e,
         type: 3}
       propertyPath: sceneViewId
@@ -53551,6 +53556,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2753228119389897761, guid: dbcbbb58e563a0e4a97451e17dfe5b2d,
         type: 3}
+    - target: {fileID: 3668246725446623943, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: energyCost
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3668246725446623943, guid: c328004f67d77b54b82698bef25e281e,
         type: 3}
       propertyPath: maxDegreesPerSecond

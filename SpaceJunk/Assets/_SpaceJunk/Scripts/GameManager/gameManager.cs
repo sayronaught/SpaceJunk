@@ -90,7 +90,6 @@ public class gameManager : MonoBehaviour
             spawnPosition.y > -enemyMin && spawnPosition.y < enemyMin &&
             spawnPosition.z > -enemyMin && spawnPosition.z < enemyMin) return;
         var Enemy = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", EnemyPrefabName[Random.Range(0,EnemyPrefabName.Count)] ), myShip.transform.position + spawnPosition, Quaternion.identity);
-        Enemy.GetComponent<EnemyShip>().myGM = this;
         Enemy.transform.SetParent(EnemyContainer);
     }
 
@@ -160,7 +159,7 @@ public class gameManager : MonoBehaviour
         {
             if (AsteroidContainer.childCount < PreferedAsteroidCount) spawnAsteroid();
             //if (EnemyContainer.childCount < 5) spawnEnemy();
-            if (EnemyContainer.childCount < Mathf.FloorToInt( Time.timeSinceLevelLoad * 0.001f) ) spawnEnemy();
+            if (EnemyContainer.childCount <  Time.timeSinceLevelLoad * 0.001f) spawnEnemy();
         }
 
     }

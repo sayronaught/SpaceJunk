@@ -71,6 +71,7 @@ public class EnemyShip : MonoBehaviour
 
     void PersonalHUD()
     {
+        // object ref
         if (!myGM.vrControls.playerHasHeadSet) return;
         if (activePersonalHUD)
         { // have one set up
@@ -99,6 +100,7 @@ public class EnemyShip : MonoBehaviour
         myPV = GetComponent<PhotonView>();
         speedBoost = Random.Range(-250000f, 250000f);
         radiusBoost = Random.Range(-25f, 25f);
+        myGM = GameObject.Find("_gameManager").GetComponent<gameManager>();
         if (PhotonNetwork.IsMasterClient)
         {
             EnemyName = randomNameList[Random.Range(0,randomNameList.Count)];

@@ -45,6 +45,12 @@ public class PlayerEngine : MonoBehaviour
         // visible thrusters on and off, and size
         foreach (GameObject Thruster in Thrusters)
         {
+            // index out of bounds
+            if ( myShip.controlSpeedStage > thrustStates.Length)
+            {
+                Debug.Log("Trying to set controlSpeedStage " + myShip.controlSpeedStage.ToString());
+                return;
+            }
             if ( thrustStates[myShip.controlSpeedStage].onOrOff)
             {
                 Thruster.SetActive(true);
