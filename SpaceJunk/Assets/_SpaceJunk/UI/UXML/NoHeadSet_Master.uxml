@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Template name="Template_SpeedMass" src="project://database/Assets/_SpaceJunk/UI/UXML/Template_SpeedMass.uxml?fileID=9197481963319205126&amp;guid=3730fac8e64e25b4bbe3bfc38674054c&amp;type=3#Template_SpeedMass" />
+    <Style src="project://database/Assets/_SpaceJunk/UI/USS/Generic.uss?fileID=7433441132597879392&amp;guid=61d5657a6543e3d40be7647fe69bb135&amp;type=3#Generic" />
+    <ui:VisualElement name="SpeedMass" style="position: absolute; left: 20px; right: auto; bottom: 20px; width: auto; height: auto;">
+        <ui:Instance template="Template_SpeedMass" name="Template_SpeedMass" />
+    </ui:VisualElement>
+</ui:UXML>
