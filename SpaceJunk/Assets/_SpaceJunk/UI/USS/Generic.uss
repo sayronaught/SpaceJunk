@@ -1,0 +1,18 @@
+.NeonBlue {
+    font-size: 35px;
+    -unity-text-align: upper-center;
+    -unity-font: url('project://database/Assets/_SpaceJunk/Fonts/Airstrike/airstrike.ttf?fileID=12800000&guid=6ea1b3c5d9e18594e9cb59de1e68ff97&type=3#airstrike');
+    color: rgb(85, 252, 255);
+    -unity-text-outline-width: 1px;
+    background-color: rgba(0, 0, 0, 0);
+    border-left-color: rgba(248, 248, 248, 255);
+    border-right-color: rgba(248, 248, 248, 255);
+    border-top-color: rgba(248, 248, 248, 255);
+    border-bottom-color: rgba(248, 248, 248, 255);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    -unity-text-outline-color: rgba(255, 255, 255, 0.45);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.96);
+}
