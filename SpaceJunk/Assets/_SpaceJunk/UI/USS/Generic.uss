@@ -41,17 +41,10 @@
 #Template_SpeedMass {
     align-items: center;
     transition-duration: 2s;
-    top: auto;
+    top: 0;
 }
 
 #SpeedMass:hover #Template_SpeedMass {
     transition-duration: 2s;
-}
-
-#Holder:hover #Template_SpeedMass {
-    transition-duration: 2s;
-}
-
-.SpeedMass:hover .Template_SpeedMass {
-    transition-duration: 2s;
+    top: -50px;
 }
