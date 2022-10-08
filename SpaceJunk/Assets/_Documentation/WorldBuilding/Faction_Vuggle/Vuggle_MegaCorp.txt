@@ -1,9 +1,10 @@
 Faction Name: Vuggle MegaCorp
 
-Esthetic: SolarPunk, Corporate & Law enforcement
+Esthetic: Solarpunk, Corporate & Law enforcement
 Mostly painted white, to look new, but often revealing peeling paint and corroded metal underneath. Lots of solar panels, and Greenery behind glass. Many of the ships also have some "police decor", and working sirens & lights. 
 
 Ideology: Syndicatism, Capitalism & Hegemony
+A company that dominates through marketshare and industry. Since it privatized both police and military, it sees itself as the only true form of justice. Only profit reigns above the law.
 
 Slogan:
 Be evil! No seriously, be evil!
@@ -11,7 +12,7 @@ Morals waver, profits are forever.
 If you cant beat them, sell them something.
 
 History:
-In 3487 Vuggle started selling life support Cribs for prenatal and extremely sick babies, and donating the yearly surplus to charities. They attracted a lot of capable employees, and as the profits rose loudly and donation dwindled silently, they embarked on corporate war with Dwight & Schultz.
+In 3487 Vuggle started selling life support cribs for prenatal and extremely sick babies, and donating the yearly surplus to charities. They attracted a lot of capable employees, and as the profits rose loudly and donation dwindled silently, they embarked on corporate war with Dwight & Schultz.
 
 The resulting merger saw Vugle buy the whole planet Emerion IV after a sham referendum where all citizens where given free cake for life to yes. A decade later they owned multiple planets and held most industry for that section of the galaxy. Recently they talk about their much publized "Operation Hyperspeed", where they simply wear out any faction by flooding their markets with cheap consumables.
 
