@@ -115,6 +115,7 @@ public class gameManager : MonoBehaviour
             if (activeDrone) activeDrone.PlayerLeftDrone();
             activeDrone = null;
             myXrRig.transform.position = testSeat.position;
+            myXrRig.transform.rotation = testSeats[seat].myModule.transform.rotation;
             myXrRig.transform.SetParent(testSeat);
         }
         nextButtonTimer = 1f;

@@ -7,6 +7,7 @@ public class PlayerStation : MonoBehaviour
 {
     public int maxPlayers = 1;
     public int currentPlayers = 0;
+    public PlayerModule myModule;
 
     public PlayerVrControls thisPlayer;
 

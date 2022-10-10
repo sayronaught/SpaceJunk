@@ -12123,6 +12123,11 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 3668246726820657633, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: myModule
+      value: 
+      objectReference: {fileID: 687912801}
     - target: {fileID: 7559700770479135198, guid: c328004f67d77b54b82698bef25e281e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -17596,6 +17601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPlayers: 1
   currentPlayers: 0
+  myModule: {fileID: 0}
   thisPlayer: {fileID: 0}
   playerActiveObjects: []
   DroneStation: 0
@@ -18385,6 +18391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPlayers: 1
   currentPlayers: 0
+  myModule: {fileID: 0}
   thisPlayer: {fileID: 0}
   playerActiveObjects: []
   DroneStation: 0
@@ -29076,6 +29083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPlayers: 100
   currentPlayers: 0
+  myModule: {fileID: 0}
   thisPlayer: {fileID: 0}
   playerActiveObjects: []
   DroneStation: 0
@@ -29682,6 +29690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPlayers: 1
   currentPlayers: 0
+  myModule: {fileID: 0}
   thisPlayer: {fileID: 0}
   playerActiveObjects:
   - {fileID: 975125464}
@@ -41037,6 +41046,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPlayers: 1
   currentPlayers: 0
+  myModule: {fileID: 0}
   thisPlayer: {fileID: 0}
   playerActiveObjects:
   - {fileID: 428790209}
@@ -52765,6 +52775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPlayers: 100
   currentPlayers: 0
+  myModule: {fileID: 0}
   thisPlayer: {fileID: 0}
   playerActiveObjects: []
   DroneStation: 0
@@ -53698,6 +53709,11 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3668246726820657633, guid: c328004f67d77b54b82698bef25e281e,
+        type: 3}
+      propertyPath: myModule
+      value: 
+      objectReference: {fileID: 1258322566}
     - target: {fileID: 7559700770479135198, guid: c328004f67d77b54b82698bef25e281e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -53787,6 +53803,11 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3799182504096645066, guid: cea2c80116c86f449abcb317b901d973,
+        type: 3}
+      propertyPath: myModule
+      value: 
+      objectReference: {fileID: 1777648330}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cea2c80116c86f449abcb317b901d973, type: 3}
 --- !u!4 &3894067318438648843
@@ -53921,6 +53942,11 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4374386694313990549, guid: 5091798bcb0184642983f62223a423e0,
+        type: 3}
+      propertyPath: myModule
+      value: 
+      objectReference: {fileID: 1909214713}
     - target: {fileID: 4374386694884518586, guid: 5091798bcb0184642983f62223a423e0,
         type: 3}
       propertyPath: leverUp
@@ -53941,6 +53967,11 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 4374386695231760127, guid: 5091798bcb0184642983f62223a423e0,
+        type: 3}
+      propertyPath: myModule
+      value: 
+      objectReference: {fileID: 1909214713}
     - target: {fileID: 4374386695473587088, guid: 5091798bcb0184642983f62223a423e0,
         type: 3}
       propertyPath: m_Name
@@ -55909,6 +55940,11 @@ PrefabInstance:
       propertyPath: myShip
       value: 
       objectReference: {fileID: 598449137}
+    - target: {fileID: 8314021972348666368, guid: 532fb73971e42ee4f9a3a1996d7f75ad,
+        type: 3}
+      propertyPath: myModule
+      value: 
+      objectReference: {fileID: 1905324498}
     - target: {fileID: 8314021972348666368, guid: 532fb73971e42ee4f9a3a1996d7f75ad,
         type: 3}
       propertyPath: playerActiveObjects.Array.size
