@@ -112,6 +112,7 @@ public class gameManager : MonoBehaviour
             activeDrone.thisStation = testSeats[seat];
             activeDrone.thisShip = myShip;
         } else { // regular seat
+            if (activeDrone) activeDrone.PlayerLeftDrone();
             activeDrone = null;
             myXrRig.transform.position = testSeat.position;
             myXrRig.transform.SetParent(testSeat);

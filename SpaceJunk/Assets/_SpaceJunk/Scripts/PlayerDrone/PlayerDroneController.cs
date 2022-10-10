@@ -147,26 +147,21 @@ public class PlayerDroneController : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void PlayerLeftDrone()
+    public void PlayerLeftDrone()
     { // player has moved on from the drone
 
         // move to bay, transfer inventory, THEN remove it.. for now, just remove it..
         if (playerLeftTheDrone) return;
         playerLeftTheDrone = true;
+        thisPlayer = null;
         thisShip.gameObject.GetPhotonView().RPC("addToInventory", RpcTarget.MasterClient, JsonUtility.ToJson(Inventory));
         myPV.RPC("removeDrone", RpcTarget.All);
-        //Destroy(gameObject, 10f);
+        Destroy(gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!thisStation)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        if (!thisStation.thisPlayer) PlayerLeftDrone();
         if (thisPlayer)
         { // this Drone is controlled by player, otherwise ignore
 
