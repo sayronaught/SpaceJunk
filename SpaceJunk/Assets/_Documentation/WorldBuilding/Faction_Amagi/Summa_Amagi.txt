@@ -3,7 +3,6 @@ Faction Name: Summa Amagi
 Esthetic: Steampunk, Piracy & Norse
 Horribly worn steampunk, with pirate flags and viking patterns. They try to add details that make their vessels look like "dragons".
 
-
 Ideology: Democracy, Mercantilism & Self-Actuation
 Rag-tag bunch of misfits that believe in freedom. They rule themselves through democracy, all citizens can vote and partake. Uniquely; all you need to be a citizen is to be able to communicate that you wish to be a citizen, without anyone pressuring you or pushing a button. So toasters and fridges are also citizens, and have citizen rights. 
 
@@ -12,7 +11,6 @@ If you modify yourself so heavyly that not a single atom of your original body i
 Slogan:
 Give me freedom, and give the other guy death!
 Your stuff? Me and my 7 Cannons gives 8 votes against yours.
-
 
 History:
 In 3512 twelve space pirate clans merged and joined a multi-system rebellion, to help the citizens of Utohelia greak free from their from the alien tyrants that ruled them. 3 of the space commodores survived, and brought the larger union to victory. In the den of the Evil Enemy Oppressor, they found historical data from over 30000 years of tyrany.
