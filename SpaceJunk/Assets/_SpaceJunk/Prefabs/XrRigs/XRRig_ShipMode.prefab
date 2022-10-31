@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5089216177195775736}
   - component: {fileID: 6591094458664071430}
   m_Layer: 0
-  m_Name: XRRig
+  m_Name: XRRig_ShipMode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
