@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.09117865, g: 0.03316388, b: 0.13493326, a: 1}
+  m_IndirectSpecularColor: {r: 0.090857305, g: 0.03239295, b: 0.13494563, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -144,7 +144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &21792950
 Transform:
   m_ObjectHideFlags: 0
@@ -18860,6 +18860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vrControls: {fileID: 1725982595}
+  firstPersonController: {fileID: 1725982601}
   myXrRig: {fileID: 1725982592}
   myShip: {fileID: 598449137}
   testSeat: {fileID: 888043506}
@@ -42404,6 +42405,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb5a6bb06579e8146b2565de127d29ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1725982601 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6591094458664071430, guid: 7f56624476522cf44940a5168bf829b2,
+    type: 3}
+  m_PrefabInstance: {fileID: 21537380972668926}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725982592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce355351aae430418bb11eff048248d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1737370016
 GameObject:
   m_ObjectHideFlags: 0
@@ -54418,7 +54431,7 @@ PrefabInstance:
     - target: {fileID: 21537380341432444, guid: 7f56624476522cf44940a5168bf829b2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 21537380341432444, guid: 7f56624476522cf44940a5168bf829b2,
         type: 3}
@@ -54540,6 +54553,11 @@ PrefabInstance:
       propertyPath: myShip
       value: 
       objectReference: {fileID: 598449137}
+    - target: {fileID: 6591094458664071430, guid: 7f56624476522cf44940a5168bf829b2,
+        type: 3}
+      propertyPath: xRot
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 7061102604307685240, guid: 7f56624476522cf44940a5168bf829b2,
         type: 3}
       propertyPath: m_IsActive

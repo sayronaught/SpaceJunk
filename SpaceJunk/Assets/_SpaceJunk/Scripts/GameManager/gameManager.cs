@@ -10,6 +10,7 @@ public class gameManager : MonoBehaviour
 {
 
     public PlayerVrControls vrControls;
+    public PlayerFirstPersonController firstPersonController;
 
     public GameObject myXrRig;
     public PlayerShip myShip;
@@ -130,22 +131,26 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (activeDrone)
+        { // move player into drone
+            //myXrRig.transform.position = activeDrone.transform.GetChild(0).position;
+            //myXrRig.transform.rotation = activeDrone.transform.GetChild(0).rotation;
+            myXrRig.transform.SetParent(activeDrone.transform.GetChild(0));
+        }
+        else
+        {
+            //myXrRig.transform.position = testSeat.position;
+            //myXrRig.transform.rotation = testSeat.rotation;
+            myXrRig.transform.SetParent(testSeat);
+        }
         if ( vrControls.playerHasHeadSet )
         {// player has headset
             refUI.SetActive(false);
-            if ( activeDrone )
-            { // move player into drone
-                myXrRig.transform.position = activeDrone.transform.GetChild(0).position;
-                myXrRig.transform.rotation = activeDrone.transform.GetChild(0).rotation;
-                myXrRig.transform.SetParent(activeDrone.transform.GetChild(0));
-            } else {
-                myXrRig.transform.position = testSeat.position;
-                myXrRig.transform.rotation = testSeat.rotation;
-                myXrRig.transform.SetParent(testSeat);
-            }
         } else { // player have no headset
-            myXrRig.transform.position = refUISeat.transform.position;
-            myXrRig.transform.SetParent(refUISeat.transform);
+            //myXrRig.transform.position = refUISeat.transform.position;
+            //myXrRig.transform.SetParent(refUISeat.transform);
+            firstPersonController.updateFirstPersonController();
+            Cursor.visible = false;
             refUI.SetActive(true);
             if ((Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl)) && Input.GetKey(KeyCode.Return)) myPV.RPC("allPlayersReboot", RpcTarget.All);
         }
