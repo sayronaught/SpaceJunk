@@ -1065,7 +1065,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1120474764319416493
 MonoBehaviour:
@@ -1082,6 +1082,12 @@ MonoBehaviour:
   camera: {fileID: 1354191695681898896}
   TurnRateHorizontal: 500
   TurnRateVertical: 250
+  ForceForward: 500000
+  ForceSideway: 250000
+  ForceJump: 50000
+  DelayBetweenJumps: 0.5
+  overlap: []
+  grounded: 0
 --- !u!1 &1948933798344799329
 GameObject:
   m_ObjectHideFlags: 0

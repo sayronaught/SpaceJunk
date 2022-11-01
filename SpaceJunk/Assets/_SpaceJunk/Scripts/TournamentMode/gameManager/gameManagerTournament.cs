@@ -6,6 +6,7 @@ public class gameManagerTournament : MonoBehaviour
 {
     public PlayerVrControls vrControls;
     public FirstPersonCharacterController firstPersonController;
+    public VRCharacterController vrFirstPersonController;
 
     public GameObject myXrRig;
 
@@ -22,12 +23,10 @@ public class gameManagerTournament : MonoBehaviour
     {
         if (vrControls.playerHasHeadSet)
         {// player has headset
-
+            vrFirstPersonController.updateFirstPersonController();
         }
         else
         { // player have no headset
-            //myXrRig.transform.position = refUISeat.transform.position;
-            //myXrRig.transform.SetParent(refUISeat.transform);
             firstPersonController.updateFirstPersonController();
             Cursor.visible = false;
             //if ((Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl)) && Input.GetKey(KeyCode.Return)) myPV.RPC("allPlayersReboot", RpcTarget.All);
