@@ -1,6 +1,6 @@
 public class ApiV1
 {
-    public string greeting { get; set; }
+    public string debug { get; set; }
     /*
     public int UserId { get; set; }
     public int Id { get; set; }
