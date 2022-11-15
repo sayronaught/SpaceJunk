@@ -11,6 +11,11 @@ public class HappyHttpClient
     {
         _serializationOption = serializationOption;
     }
+    public class postdata
+    {
+        public string key;
+        public string value;
+    }
 
     public async Task<TResultType> Get<TResultType>(string url)
     {
@@ -19,6 +24,44 @@ public class HappyHttpClient
             using var www = UnityWebRequest.Get(url);
 
             //www.SetRequestHeader("Content-Type", _serializationOption.ContentType);
+            www.SetRequestHeader("Accept", "*/*");
+            www.SetRequestHeader("Accept-Encoding", "gzip, deflate");
+            www.SetRequestHeader("User-Agent", "runscope/0.1");
+
+            var operation = www.SendWebRequest();
+
+            while (!operation.isDone)
+                await Task.Yield();
+
+            if (www.result != UnityWebRequest.Result.Success)
+                Debug.LogError($"Failed: {www.error}");
+
+            var result = _serializationOption.Deserialize<TResultType>(www.downloadHandler.text);
+
+            return result;
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"{nameof(Get)} failed: {ex.Message}");
+            return default;
+        }
+    }
+    public async Task<TResultType> Post<TResultType>(string url, postdata[] data)
+    {
+        try
+        {
+            WWWForm form = new WWWForm();
+            if ( data.Length > 0)
+            {
+                foreach (postdata dataset in data)
+                {
+                    form.AddField(dataset.key, dataset.value);
+                }
+            }
+            //form.AddField("username", "aaa");
+
+            using var www = UnityWebRequest.Post(url, form);
+
             www.SetRequestHeader("Accept", "*/*");
             www.SetRequestHeader("Accept-Encoding", "gzip, deflate");
             www.SetRequestHeader("User-Agent", "runscope/0.1");
