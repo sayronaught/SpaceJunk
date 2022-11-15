@@ -11,11 +11,14 @@ public class HappyHttpClient
     {
         _serializationOption = serializationOption;
     }
+    [Serializable]
     public class postdata
     {
         public string key;
         public string value;
     }
+
+    //public List<postdata>
 
     public async Task<TResultType> Get<TResultType>(string url)
     {

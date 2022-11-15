@@ -24,10 +24,16 @@ public class PreLobby : MonoBehaviour
 
     public async void TryLogin()
     {
+        /*
         var url = "http://trollbyte.io/SpaceJunk/api.php?apiVersion=One&trylogin=";
         url += usernameAttempt.text+"&trypassword="+passwordAttempt.text;
+        */
 
+        var url = "http://trollbyte.io/SpaceJunk/api.php?apiVersion=One";
+        
         var httpClient = new HappyHttpClient(new JsonSerializationOption());
+        var postData = new HappyHttpClient.postdata();
+
         var result = await httpClient.Get<ApiV1>(url);
         Debug.Log(result.debug);
         debugText.text = result.debug;
