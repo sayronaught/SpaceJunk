@@ -9,10 +9,23 @@ public class PreLobby : MonoBehaviour
 {
 
     public TMP_Text debugText;
+    public TMP_InputField usernameAttempt;
+    public TMP_InputField passwordAttempt;
 
     public async void TestGet()
     {
         var url = "http://trollbyte.io/SpaceJunk/api.php?apiVersion=One";
+
+        var httpClient = new HappyHttpClient(new JsonSerializationOption());
+        var result = await httpClient.Get<ApiV1>(url);
+        Debug.Log(result.debug);
+        debugText.text = result.debug;
+    }
+
+    public async void TryLogin()
+    {
+        var url = "http://trollbyte.io/SpaceJunk/api.php?apiVersion=One&trylogin=";
+        url += usernameAttempt.text+"&trypassword="+passwordAttempt.text;
 
         var httpClient = new HappyHttpClient(new JsonSerializationOption());
         var result = await httpClient.Get<ApiV1>(url);
