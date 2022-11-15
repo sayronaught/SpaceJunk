@@ -16,8 +16,8 @@ public class PreLobby : MonoBehaviour
 
         var httpClient = new HappyHttpClient(new JsonSerializationOption());
         var result = await httpClient.Get<ApiV1>(url);
-        Debug.Log(result.greeting);
-        debugText.text = result.greeting;
+        Debug.Log(result.debug);
+        debugText.text = result.debug;
     }
 
     // Start is called before the first frame update
