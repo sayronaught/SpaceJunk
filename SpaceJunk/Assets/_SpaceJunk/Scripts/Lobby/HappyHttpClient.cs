@@ -16,6 +16,12 @@ public class HappyHttpClient
     {
         public string key;
         public string value;
+        public postdata create(string newkey,string newvalue)
+        {
+            key = newkey;
+            value = newvalue;
+            return this;
+        }
     }
 
     //public List<postdata>
