@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Networking;
+using System.Security.Cryptography;
 
 public class PreLobby : MonoBehaviour
 {
@@ -29,12 +30,16 @@ public class PreLobby : MonoBehaviour
         url += usernameAttempt.text+"&trypassword="+passwordAttempt.text;
         */
 
+        HMACSHA256 hmac = new HMACSHA256(System.Text.Encoding.UTF8.GetBytes("sjPass"));
+
+        byte[] hashValue = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(passwordAttempt.text));
+
         var url = "http://trollbyte.io/SpaceJunk/api.php?apiVersion=One";
         
         var httpClient = new HappyHttpClient(new JsonSerializationOption());
         var postData = new List<HappyHttpClient.postdata>();
         postData.Add(new HappyHttpClient.postdata().create("trylogin", usernameAttempt.text));
-        postData.Add(new HappyHttpClient.postdata().create("trypassword", passwordAttempt.text));
+        postData.Add(new HappyHttpClient.postdata().create("trypassword", System.Text.Encoding.UTF8.GetString(hashValue)));
         var result = await httpClient.Post<ApiV1>(url,postData.ToArray());
         Debug.Log(result.debug);
         debugText.text = result.debug;
