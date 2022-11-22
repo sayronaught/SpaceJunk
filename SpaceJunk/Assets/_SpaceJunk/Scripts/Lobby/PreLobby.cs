@@ -9,9 +9,28 @@ using System.Security.Cryptography;
 public class PreLobby : MonoBehaviour
 {
 
+    // debug & login messages
+    [Header("Debug")]
+    [Tooltip("Drag the Text element where debug text should be shown")]
     public TMP_Text debugText;
+
+    [Header("Login")]
+    [Tooltip("Drag the panel for login")]
+    public GameObject panelLogin;
+    [Tooltip("Drag the Input element where username is typed")]
     public TMP_InputField usernameAttempt;
+    [Tooltip("Drag the Input element where password is typed")]
     public TMP_InputField passwordAttempt;
+
+    [Header("Register")]
+    [Tooltip("Drag the panel for Registration")]
+    public GameObject panelRegister;
+    [Tooltip("Drag the Input element where username is typed")]
+    public TMP_InputField usernameRegister;
+    [Tooltip("Drag the Input element where password is typed")]
+    public TMP_InputField passwordRegister;
+    [Tooltip("Drag the Input element where password is typed 2nd time")]
+    public TMP_InputField passwordRegister2;
 
     public async void TestGet()
     {
