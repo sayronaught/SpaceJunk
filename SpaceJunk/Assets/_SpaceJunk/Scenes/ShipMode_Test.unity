@@ -18884,6 +18884,7 @@ MonoBehaviour:
   EnemyPrefabName:
   - EnemyShip1
   - EnemyShip2
+  - EnemyShip_E2
   PersonalHUDPrefab: {fileID: 5279435065550470958, guid: 69d0b927dc613b04fb6a797bf4499bbd,
     type: 3}
   SoundBank: {fileID: 1436632033}
